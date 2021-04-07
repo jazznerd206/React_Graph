@@ -10,22 +10,20 @@ function App() {
 
   
   const buildURL = (ticker) => {
-    let fetchInfo = "https://finnhub.io/api/v1/quote?symbol=";
+    let fetchInfo = "https://finnhub.io/api/v1/stock/profile2?symbol=";
     fetchInfo += ticker;
     fetchInfo += "&token=c1mts1a37fktjjdr6ji0";
     return fetchInfo;
   }
 
   const fetchURL = () => {
-    // console.log(`symbol`, symbol)
     let URL = buildURL(symbol);
-    // console.log(`URL`, URL)
     fetch(`${URL}`)
       .then((res) => res.json())
       .then(data => {
-        console.log(`data`, data)
+        // console.log(`data`, data)
         setData(data)
-      })
+    })
   }
   
   useEffect(() => {
@@ -35,9 +33,7 @@ function App() {
 
   const onClick = (e, value) => {
     e.preventDefault();
-    // console.log(`value`, value);
     setSymbol(value);
-    value = '';
   }
 
   return (

@@ -1,42 +1,15 @@
 import React from 'react';
 import './styles.css';
+import Daily from './sub/Daily';
+import Main from './sub/Main';
+import Financials from './sub/Financials';
 
-function Ticker() {
+function Ticker(props) {
     return (
         <div className="ticker-container">
-            <div className="row">
-                <div className="box">
-                    current price
-                </div>
-                <div className="box">
-                    delta
-                </div>
-                <div className="box">
-                    daily info
-                </div>
-            </div>
-            <div className="row">
-                <div className="box">
-                    <h1>GME</h1>
-                </div>
-                <div className="box">
-                    current position
-                </div>
-            </div>
-            <div className="row">
-                <div className="box">
-                    box one
-                </div>
-                <div className="box">
-                    box two
-                </div>
-                <div className="box">
-                    box three
-                </div>
-                <div className="box">
-                    box four
-                </div>
-            </div>
+            <Daily />
+            <Main data={props.data} />
+            <Financials />
         </div>
     )
 }
