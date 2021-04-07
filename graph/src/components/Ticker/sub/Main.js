@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Main(props) {
-    console.log(props.data);
+    // console.log(props.data);
     return (
         <div className="row">
             <div className="box">

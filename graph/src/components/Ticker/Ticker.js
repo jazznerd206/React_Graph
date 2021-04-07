@@ -7,7 +7,7 @@ import Financials from './sub/Financials';
 function Ticker(props) {
     return (
         <div className="ticker-container">
-            <Daily />
+            <Daily symbol={props.data.ticker}/>
             <Main data={props.data} />
             <Financials />
         </div>
