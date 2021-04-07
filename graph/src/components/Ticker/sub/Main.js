@@ -5,6 +5,9 @@ function Main(props) {
     return (
         <div className="row">
             <div className="box">
+                <img src={props.data.logo}></img>
+            </div>
+            <div className="box">
                 <h1>{props.data.name}</h1>
                 <p>Ticker: {props.data.ticker}</p>
                 <p>Exchange: {props.data.exchange}</p>

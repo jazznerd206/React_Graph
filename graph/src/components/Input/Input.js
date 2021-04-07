@@ -7,7 +7,7 @@ function Input(props) {
     return (
         <div className="symbol-form">
             <form>
-            <label htmlFor="symbol">Symbol</label>
+            <label htmlFor="symbol">Symbol: </label>
             <input
                 className=""
                 type="input"

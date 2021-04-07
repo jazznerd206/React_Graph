@@ -5,6 +5,7 @@ function Daily(props) {
 
     const [ currentVal, setCurrentVal ] = useState();
     const [ currentVol, setCurrentVol ] = useState();
+    const [ data, setData ] = useState({});
 
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
 
@@ -38,6 +39,28 @@ function Daily(props) {
         socket.send(JSON.stringify({'type':'unsubscribe','symbol': `AAPL`}))
     }
 
+    const buildURL = (ticker) => {
+        let fetchInfo = "https://finnhub.io/api/v1/quote?symbol=";
+        fetchInfo += ticker;
+        fetchInfo += "&token=";
+        fetchInfo += process.env.REACT_APP_FINNKEY;
+        return fetchInfo;
+    }
+
+    const dailyData = () => {
+        let URL = buildURL(props.symbol);
+        fetch(`${URL}`)
+        .then((res) => res.json())
+        .then(data => {
+            setData(data)
+        })
+    }
+    
+    useEffect(() => {
+        dailyData();
+    }, [props.symbol])
+
+    console.log('data: ', data);
     return (
         <div className="row">
             <div className="box">
@@ -45,10 +68,11 @@ function Daily(props) {
                 <p>current volume: {currentVol}</p>
             </div>
             <div className="box">
-                delta
-            </div>
-            <div className="box">
-                daily info
+                <p>Last Close: {data.pc}</p>
+                <p>Open: {data.o}</p>
+                <p>Close: {data.c}</p>
+                <p>High: {data.h}</p>
+                <p>Low: {data.l}</p>
             </div>
         </div>
     )
