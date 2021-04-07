@@ -7,13 +7,13 @@ function Daily(props) {
     const [ currentVol, setCurrentVol ] = useState();
 
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
-    let ticker = '';
-    const oldTicker = localStorage.getItem('ticker');
+
+    let ticker = localStorage.getItem('ticker');
+    console.log(`ticker`, localStorage.getItem('ticker'))
     if (ticker === '') {
-        ticker = oldTicker;
+        ticker = props.symbol;
     }
-    console.log(`ticker`, ticker)
-    console.log(`oldTicker`, oldTicker)
+    console.log(`ticker --`, ticker)
     try {
         // Connection opened -> Subscribe
         socket.addEventListener('open', function (event) {
@@ -25,11 +25,12 @@ function Daily(props) {
 
     // Listen for messages
     socket.addEventListener('message', function (event) {
-        // console.log('Message from server ', event.data);
         let d = JSON.parse(event.data);
-        console.log(`event.data`, d[0].p)
-        // setCurrentVal(event.data.p);
-        // setCurrentVol(event.data.v);
+        if (Array.isArray(d.data)) {
+            console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
+            setCurrentVal(d.data[0].p.toFixed(2));
+            setCurrentVol(d.data[0].v);
+        }
     });
 
     // Unsubscribe

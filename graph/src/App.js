@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
