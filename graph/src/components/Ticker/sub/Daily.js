@@ -64,8 +64,11 @@ function Daily(props) {
     return (
         <div className="row">
             <div className="box current">
-                <span>{currentVal}</span>
-                <span>vol: {currentVol}</span>
+                <p>{currentVal}</p>
+                <div className="row">
+                    <p>vol</p>
+                    <span>{currentVol}</span>
+                </div>
             </div>
             <div className="box historical">
                 <div className="row">
