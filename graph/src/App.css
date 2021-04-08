@@ -1,6 +1,23 @@
+/* content */
+@import url("https://fonts.googleapis.com/css?family=Comfortaa&display=swap");
+/* menu */
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+/* title */
+@import url("https://fonts.googleapis.com/css?family=RocknRoll+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Train+One&display=swap");
+
 body {
   height: 100vh;
   width: 100vw;
   padding: 0;
   margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: black;
+  color: chartreuse;
+  font-family: "Comfortaa";
 }

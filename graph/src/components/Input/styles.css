@@ -1,0 +1,54 @@
+.symbol-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.symbol-form .label {
+  font-variant: small-caps;
+  font-size: x-large;
+}
+
+.symbol-form input {
+  background: black;
+  color: chartreuse;
+  margin: 0 15px;
+  height: 2.5rem;
+  font-size: 2rem;
+  width: 10rem;
+  text-transform: uppercase;
+  border: 1px solid chartreuse;
+}
+
+.symbol-form input:focus {
+  background: chartreuse;
+  color: black;
+  scale: 1.1;
+  border: none;
+}
+
+.symbol-form button {
+  margin: auto 0;
+  height: 2.5rem;
+  font-variant: small-caps;
+  font-size: x-large;
+  background: black;
+  color: chartreuse;
+  border: 0.5px solid chartreuse;
+}
+
+.symbol-form button:hover {
+  font-variant: unset;
+  text-transform: uppercase;
+  font-size: 1rem;
+  background: chartreuse;
+  color: black;
+  border: 0.5px solid chartreuse;
+  transform: scale(1.1);
+}
+
+.symbol-form button:active {
+  transform: scale(0.8);
+}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './styles.css';
 
 function Input(props) {
 
@@ -7,7 +8,7 @@ function Input(props) {
     return (
         <div className="symbol-form">
             <form>
-            <label htmlFor="symbol">Symbol: </label>
+            <label htmlFor="symbol" className="label">Symbol: </label>
             <input
                 className=""
                 type="input"
@@ -19,4 +20,4 @@ function Input(props) {
     )
 }
 
-export default Input
+export default Input;
