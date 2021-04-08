@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Peers from './sub/Peers';
 
-function Financials() {
+function Financials(props) {
     return (
         <div className="row">
             <div className="box">
-                box one
+                <Peers symbol={props.symbol} peerClick={props.peerClick} />
             </div>
             <div className="box">
                 box two

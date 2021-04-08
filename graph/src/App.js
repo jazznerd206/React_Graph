@@ -5,8 +5,9 @@ import Input from './components/Input/Input';
 
 function App() {
 
-  const [ data, setData ] = useState({});
-  const [ symbol, setSymbol ] = useState('');
+  const [data, setData] = useState({});
+  const [symbol, setSymbol] = useState('');
+
 
   // console.log(`process.env.FINNKEY`, process.env.REACT_APP_FINNKEY)
   const buildURL = (ticker) => {
@@ -24,9 +25,9 @@ function App() {
       .then(data => {
         // console.log(`data`, data)
         setData(data)
-    })
+      })
   }
-  
+
   useEffect(() => {
     if (symbol === '') return;
     fetchURL();
@@ -38,10 +39,16 @@ function App() {
     setSymbol(value);
   }
 
+  const peerClick = (e, value) => {
+    e.preventDefault();
+    console.log(`value FROM app,js`, value)
+    setSymbol(value);
+  }
+
   return (
     <div className="App">
-      <Input onClick={onClick}/>
-      <Ticker data={data}/>
+      <Input onClick={onClick} />
+      <Ticker data={data} peerClick={peerClick} />
     </div>
   );
 }

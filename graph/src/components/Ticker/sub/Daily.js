@@ -3,22 +3,22 @@ import React, { useEffect, useState } from 'react';
 function Daily(props) {
     // console.log(`props.symbol`, props.symbol)
 
-    const [ currentVal, setCurrentVal ] = useState();
-    const [ currentVol, setCurrentVol ] = useState();
-    const [ data, setData ] = useState({});
+    const [currentVal, setCurrentVal] = useState();
+    const [currentVol, setCurrentVol] = useState();
+    const [data, setData] = useState({});
 
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
 
     let ticker = localStorage.getItem('ticker');
-    console.log(`ticker`, localStorage.getItem('ticker'))
+    // console.log(`ticker`, localStorage.getItem('ticker'))
     if (ticker === '') {
         ticker = props.symbol;
     }
-    console.log(`ticker --`, ticker)
+    // console.log(`ticker --`, ticker)
     try {
         // Connection opened -> Subscribe
         socket.addEventListener('open', function (event) {
-            socket.send(JSON.stringify({'type':'subscribe', 'symbol': ticker}))
+            socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': ticker }))
         });
     } catch (error) {
         console.log(`error`, error)
@@ -28,15 +28,15 @@ function Daily(props) {
     socket.addEventListener('message', function (event) {
         let d = JSON.parse(event.data);
         if (Array.isArray(d.data)) {
-            console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
+            // console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
             setCurrentVal(d.data[0].p.toFixed(2));
             setCurrentVol(d.data[0].v);
         }
     });
 
     // Unsubscribe
-    var unsubscribe = function(symbol) {
-        socket.send(JSON.stringify({'type':'unsubscribe','symbol': `AAPL`}))
+    var unsubscribe = function (symbol) {
+        socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': `AAPL` }))
     }
 
     const buildURL = (ticker) => {
@@ -50,17 +50,17 @@ function Daily(props) {
     const dailyData = () => {
         let URL = buildURL(props.symbol);
         fetch(`${URL}`)
-        .then((res) => res.json())
-        .then(data => {
-            setData(data)
-        })
+            .then((res) => res.json())
+            .then(data => {
+                setData(data)
+            })
     }
-    
+
     useEffect(() => {
         dailyData();
     }, [props.symbol])
 
-    console.log('data: ', data);
+    // console.log('data: ', data);
     return (
         <div className="row">
             <div className="box current">
