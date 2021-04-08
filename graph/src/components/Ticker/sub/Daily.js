@@ -63,16 +63,33 @@ function Daily(props) {
     console.log('data: ', data);
     return (
         <div className="row">
-            <div className="box">
-                <p>current price: {currentVal}</p>
-                <p>current volume: {currentVol}</p>
+            <div className="box current">
+                <span>{currentVal}</span>
+                <span>vol: {currentVol}</span>
             </div>
-            <div className="box">
-                <p>Last Close: {data.pc}</p>
-                <p>Open: {data.o}</p>
-                <p>Close: {data.c}</p>
-                <p>High: {data.h}</p>
-                <p>Low: {data.l}</p>
+            <div className="box historical">
+                <div className="row">
+                    <p>last close</p>
+                    <span>{data.pc}</span>
+                </div>
+                <div className="row">
+                    <p>open</p>
+                    <span>{data.o}</span>
+                </div>
+                <div className="row">
+                    <p>close</p>
+                    <span>{data.c}</span>
+                </div>
+            </div>
+            <div className="box hi-lo">
+                <div className="row">
+                    <p>hi</p>
+                    <span>{data.h}</span>
+                </div>
+                <div className="row">
+                    <p>lo</p>
+                    <span>{data.l}</span>
+                </div>
             </div>
         </div>
     )

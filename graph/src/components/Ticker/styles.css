@@ -1,3 +1,6 @@
+/*
+TICKER.JS STYLES
+*/
 .ticker-container {
   height: 100vh;
   width: 100%;
@@ -11,6 +14,67 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
+/* ===================================== */
+/* ===================================== */
+
+/*
+DAILY.JS STYLES
+*/
+.box {
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+  flex-grow: 1;
+  text-align: left;
+}
+.current {
+  text-align: center;
+  font-size: 3rem;
+}
+.historical {
+  display: flex;
+  flex-direction: column;
+}
+.historical p {
+  width: 50%;
+  text-align: right;
+  padding-right: 15px;
+  font-family: "RocknRoll One";
+}
+.historical span {
+  width: 50%;
+  font-size: 2rem;
+  text-align: left;
+}
+.hi-lo p {
+  width: 50%;
+  text-align: right;
+  padding-right: 15px;
+  font-family: "RocknRoll One";
+}
+.hi-lo span {
+  width: 50%;
+  font-size: 2rem;
+  text-align: left;
+}
+/* ===================================== */
+/* ===================================== */
+
+/*
+MAIN.JS STYLES
+*/
+
+/* ===================================== */
+/* ===================================== */
+
+/*
+FINANCIALS.JS STYLES
+*/
+
+/* ===================================== */
+/* ===================================== */
