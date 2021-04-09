@@ -29,7 +29,8 @@ function BuyHold(props) {
 
     if (data[0] !== undefined) {
         return (
-            <div className="buyHold-container">
+        <div className="buyHold-container">
+            <h1>buy/hold</h1>
             <div className="buy box">
                 <span>{data[0].buy}</span>
                 <p>BUY</p>

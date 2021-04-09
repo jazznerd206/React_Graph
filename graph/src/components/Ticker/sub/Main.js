@@ -35,7 +35,7 @@ function Main(props) {
                         <span>{props.data.marketCapitalization}</span>
                     </div>
                     <div className="row">
-                        <p>shares</p>
+                        <p>shares outstanding</p>
                         <span>{props.data.shareOutstanding}</span>
                     </div>
                 </div>
