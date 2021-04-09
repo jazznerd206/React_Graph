@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 function Daily(props) {
-    // console.log(`props.symbol`, props.symbol)
 
     const [currentVal, setCurrentVal] = useState();
     const [currentVol, setCurrentVol] = useState();
@@ -10,13 +9,12 @@ function Daily(props) {
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
 
     let ticker = localStorage.getItem('ticker');
-    // console.log(`ticker`, localStorage.getItem('ticker'))
     if (ticker === '') {
         ticker = props.symbol;
     }
-    // console.log(`ticker --`, ticker)
+
+    // Connection opened -> Subscribe
     try {
-        // Connection opened -> Subscribe
         socket.addEventListener('open', function (event) {
             socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': ticker }))
         });
@@ -28,7 +26,7 @@ function Daily(props) {
     socket.addEventListener('message', function (event) {
         let d = JSON.parse(event.data);
         if (Array.isArray(d.data)) {
-            // console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
+            console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
             setCurrentVal(d.data[0].p.toFixed(2));
             setCurrentVol(d.data[0].v);
         }
@@ -60,7 +58,6 @@ function Daily(props) {
         dailyData();
     }, [props.symbol])
 
-    // console.log('data: ', data);
     return (
         <div className="row">
             <div className="box current">

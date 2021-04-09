@@ -47,3 +47,32 @@ NEWS STYLES
 /* 
 BUY/HOLD STYLES
 */
+.buyHold-container {
+  display: flex;
+  flex-flow: column;
+  max-width: 25vw;
+}
+.buyHold-container .box {
+  display: flex;
+  flex-direction: row;
+}
+.buyHold-container .box p {
+  width: 50%;
+  font-size: large;
+  text-align: right;
+}
+.buyHold-container .box span {
+  text-align: left;
+  width: 50%;
+  font-size: xx-large;
+  padding-right: 15px;
+}
+.buyHold-container .buy {
+  color: chartreuse;
+}
+.buyHold-container .neutral {
+  color: grey;
+}
+.buyHold-container .sell {
+  color: firebrick;
+}

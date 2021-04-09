@@ -40,7 +40,6 @@ function Marketnews(props) {
         fetch(`${URL}`)
             .then((res) => res.json())
             .then(data => {
-                console.log(`data`, data);
                 setData(data);
             })
         }
@@ -48,27 +47,36 @@ function Marketnews(props) {
         if (props.symbol === '') return;
         fetchURL();
     }, [props.symbol])
-    return (
-        <div>
-            <h1>news</h1>
-            <div className="news-container" id="style-1">
-                {data.map(article => {
-                    let h = article.headline;
-                    if (h.length > 50) {
-                        h = h.substr(0, 47) + '...';
-                    }
-                    return (
-                    <div key={article.id} className="article">
-                        <a href={article.url} target="_blank" rel="noreferrer noopener">
-                            <p>{h}</p>
-                        </a>
-                    </div>
-                    )
-                })}
-            </div>
 
-        </div>
-    )
+    if (data.length === 0) {
+        return (
+            <div>
+                <h1>NO NEWS</h1>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <h1>news</h1>
+                <div className="news-container" id="style-1">
+                    {data.map(article => {
+                        let h = article.headline;
+                        if (h.length > 50) {
+                            h = h.substr(0, 47) + '...';
+                        }
+                        return (
+                        <div key={article.id} className="article">
+                            <a href={article.url} target="_blank" rel="noreferrer noopener">
+                                <p>{h}</p>
+                            </a>
+                        </div>
+                        )
+                    })}
+                </div>
+    
+            </div>
+        )
+    }
 }
 
 export default Marketnews
