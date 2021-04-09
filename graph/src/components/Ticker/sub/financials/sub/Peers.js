@@ -38,7 +38,7 @@ function Peers(props) {
 
     return (
         <div className="peerList-container">
-            <h1>Market Equivalents</h1>
+            <h1>market equivalents</h1>
             <ul>
                 {peerList.map((comp, index) => (
                     <li
