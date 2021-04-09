@@ -1,11 +1,14 @@
 import React from 'react'
 
 function Main(props) {
+
     let x = props.data.exchange;
     if (x !== '') {
         x = 'Awaiting ';
     }
+
     const exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
+    
     return (
         <div className="main-handle">
             <div className="row">

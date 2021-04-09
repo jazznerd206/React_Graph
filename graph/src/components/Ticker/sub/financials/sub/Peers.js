@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function Peers(props) {
-    // console.log(props);
+
     const [peerList, setPeerList] = useState([]);
 
     const buildURL = (t) => {
@@ -10,7 +10,6 @@ function Peers(props) {
         fetchInfo += t;
         fetchInfo += "&token=";
         fetchInfo += process.env.REACT_APP_FINNKEY;
-        // console.log(`fetch/info`, fetchInfo)
         return fetchInfo;
     }
 
@@ -23,8 +22,6 @@ function Peers(props) {
         fetch(`${URL}`)
             .then((res) => res.json())
             .then(data => {
-                // console.log(`ticker`, ticker)
-                // console.log(`peerdata FROM PEERS`, data)
                 setPeerList(data)
             })
     }
@@ -38,9 +35,6 @@ function Peers(props) {
 
         fetchData();
     }, [props.symbol])
-
-
-    // console.log(`peerList -- `, peerList)
 
     return (
         <div className="peerList-container">

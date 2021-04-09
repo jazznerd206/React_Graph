@@ -8,8 +8,6 @@ function App() {
   const [data, setData] = useState({});
   const [symbol, setSymbol] = useState('');
 
-
-  // console.log(`process.env.FINNKEY`, process.env.REACT_APP_FINNKEY)
   const buildURL = (ticker) => {
     let fetchInfo = "https://finnhub.io/api/v1/stock/profile2?symbol=";
     fetchInfo += ticker;
@@ -23,7 +21,6 @@ function App() {
     fetch(`${URL}`)
       .then((res) => res.json())
       .then(data => {
-        // console.log(`data`, data)
         setData(data)
       })
   }
@@ -41,7 +38,6 @@ function App() {
 
   const peerClick = (e, value) => {
     e.preventDefault();
-    // console.log(`value FROM app,js`, value)
     setSymbol(value);
   }
 

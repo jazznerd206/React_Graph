@@ -16,7 +16,7 @@ function Financials(props) {
                 <MarketNews symbol={props.symbol} />
             </div>
             <div className="box">
-                box three
+                <BuyHold symbol={props.symbol}/>
             </div>
             <div className="box">
                 <Hilo symbol={props.symbol} />

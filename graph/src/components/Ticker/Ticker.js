@@ -5,7 +5,7 @@ import Main from './sub/Main';
 import Financials from './sub/financials/Financials';
 
 function Ticker(props) {
-    // console.log(`props FROM TICKER.JS`, props)
+
     return (
         <div className="ticker-container">
             <Daily symbol={props.data.ticker} />
