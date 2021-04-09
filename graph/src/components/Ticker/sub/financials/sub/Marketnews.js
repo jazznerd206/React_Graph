@@ -3,7 +3,7 @@ import './styles.css';
 
 function Marketnews(props) {
 
-    const [ data, setData ] = useState([]);
+    const [data, setData] = useState([]);
 
     const buildDate = () => {
         let d = new Date();
@@ -33,17 +33,17 @@ function Marketnews(props) {
         fetchInfo += "&token=";
         fetchInfo += process.env.REACT_APP_FINNKEY;
         return fetchInfo;
-      }
-    
+    }
+
     const fetchURL = () => {
         let URL = buildURL(props.symbol);
         fetch(`${URL}`)
             .then((res) => res.json())
             .then(data => {
-                console.log(`data`, data);
+                // console.log(`data`, data);
                 setData(data);
             })
-        }
+    }
     useEffect(() => {
         if (props.symbol === '') return;
         fetchURL();
@@ -58,11 +58,11 @@ function Marketnews(props) {
                         h = h.substr(0, 47) + '...';
                     }
                     return (
-                    <div key={article.id} className="article">
-                        <a href={article.url} target="_blank" rel="noreferrer noopener">
-                            <p>{h}</p>
-                        </a>
-                    </div>
+                        <div key={article.id} className="article">
+                            <a href={article.url} target="_blank" rel="noreferrer noopener">
+                                <p>{h}</p>
+                            </a>
+                        </div>
                     )
                 })}
             </div>
