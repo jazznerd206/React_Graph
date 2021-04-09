@@ -76,3 +76,29 @@ BUY/HOLD STYLES
 .buyHold-container .sell {
   color: firebrick;
 }
+
+/*
+Media Queries STYLES
+*/
+@media only screen and (max-width: 768px) {
+  ul {
+    list-style-type: none;
+    max-width: 100vw;
+  }
+  li {
+    margin: 5px 5px;
+    display: inline-block;
+    border-bottom: 0.5px solid chartreuse;
+  }
+  .news-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 100vw;
+    max-height: 20vh;
+    overflow-y: scroll;
+    padding-bottom: 15px;
+  }
+}
+/* ===================================== */
+/* ===================================== */

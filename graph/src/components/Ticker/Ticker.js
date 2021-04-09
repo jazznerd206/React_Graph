@@ -8,12 +8,12 @@ function Ticker(props) {
 
     return (
         <div className="ticker-container">
-            <Daily 
-                symbol={props.data.ticker} 
-            />
             <Main 
                 data={props.data} 
                 exchange={props.data.exchange === '' ? 'No data' : props.data.exchange}
+            />
+            <Daily 
+                symbol={props.data.ticker} 
             />
             <Financials 
                 symbol={props.data.ticker} 
