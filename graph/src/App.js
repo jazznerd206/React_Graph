@@ -41,7 +41,7 @@ function App() {
 
   const peerClick = (e, value) => {
     e.preventDefault();
-    console.log(`value FROM app,js`, value)
+    // console.log(`value FROM app,js`, value)
     setSymbol(value);
   }
 

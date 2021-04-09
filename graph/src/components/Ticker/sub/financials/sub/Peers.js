@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function Peers(props) {
-    console.log(props);
+    // console.log(props);
     const [peerList, setPeerList] = useState([]);
 
-    const buildURL = (ticker) => {
+    const buildURL = (t) => {
         let fetchInfo = "https://finnhub.io/api/v1/stock/peers?symbol=";
-        fetchInfo += ticker;
+        fetchInfo += t;
         fetchInfo += "&token=";
         fetchInfo += process.env.REACT_APP_FINNKEY;
-        console.log(`fetch/info`, fetchInfo)
+        // console.log(`fetch/info`, fetchInfo)
         return fetchInfo;
     }
 
@@ -23,7 +23,8 @@ function Peers(props) {
         fetch(`${URL}`)
             .then((res) => res.json())
             .then(data => {
-                // console.log(`peerdata`, data)
+                // console.log(`ticker`, ticker)
+                // console.log(`peerdata FROM PEERS`, data)
                 setPeerList(data)
             })
     }
@@ -34,7 +35,7 @@ function Peers(props) {
     }
 
     useEffect(() => {
-        if (props.symbol === '') return;
+
         fetchData();
     }, [props.symbol])
 
