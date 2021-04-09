@@ -1,11 +1,11 @@
 import React from 'react'
 
 function Main(props) {
-    // console.log(props.data);
-    const exchange = () => {
-        if (props.data.exchange.substr(0,props.data.exchange.indexOf(' ')) === 'NEW') return 'NYSE'
-        else return props.data.exchange.substr(0,props.data.exchange.indexOf(' '));
+    let x = props.data.exchange;
+    if (x !== '') {
+        x = 'Awaiting ';
     }
+    const exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
     return (
         <div className="main-handle">
             <div className="row">
@@ -19,11 +19,11 @@ function Main(props) {
                     <div className="row ticker">
                         <span>{props.data.ticker}</span>
                     </div>
+                    <div className="row exchange">
+                        <span>{exc}</span>
+                    </div>
                     <div className="row sector">
                         <span>{props.data.finnhubIndustry}</span>
-                    </div>
-                    <div className="row exchange">
-                        <span>{exchange}</span>
                     </div>
                 </div>
                 <div className="box">

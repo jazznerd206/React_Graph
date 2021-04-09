@@ -1,14 +1,16 @@
 import React from 'react';
 import Peers from './sub/Peers';
+import MarketNews from './sub/MarketNews'
 
 function Financials(props) {
+    
     return (
         <div className="row">
             <div className="box">
-                <Peers symbol={props.symbol} peerClick={props.peerClick} />
+                {/* <Peers symbol={props.symbol} peerClick={props.peerClick} /> */}
             </div>
             <div className="box">
-                box two
+                {/* <MarketNews  /> */}
             </div>
             <div className="box">
                 box three
