@@ -22,7 +22,7 @@ function Hilo(props) {
         fetch(`${URL}`)
             .then((res) => res.json())
             .then(data => {
-                console.log(`data api response`, data);
+                // console.log(`data api response`, data);
                 setData(data);
             })
     }
@@ -32,18 +32,24 @@ function Hilo(props) {
         fetchURL();
     }, [s])
 
-    console.log(`data state`, data);
-
-    return (
-        <div className="hilo-container">
-            <div className="row">
-                Annual Book Value
+    if (s === undefined) {
+        return (
+            <div>
+                <h1>search for a symbol!!</h1>
             </div>
-            <div className="row">
-                {data.metric.bookValuePerShareAnnual}
+        )
+    } else {
+        return (
+            <div className="hilo-container">
+                <div className="row">
+                    Annual Book Value
+                </div>
+                <div className="row">
+                    {data.metric.bookValuePerShareAnnual}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Hilo
