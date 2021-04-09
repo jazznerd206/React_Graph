@@ -1,11 +1,12 @@
 import React from 'react';
 import Peers from './sub/Peers';
-import MarketNews from './sub/MarketNews';
+import MarketNews from './sub/Marketnews';
 import BuyHold from './sub/BuyHold';
+import Hilo from './sub/Hilo';
 
 
 function Financials(props) {
-    
+
     return (
         <div className="row">
             <div className="box">
@@ -18,7 +19,7 @@ function Financials(props) {
                 <BuyHold symbol={props.symbol}/>
             </div>
             <div className="box">
-                box four
+                <Hilo symbol={props.symbol} />
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ import './styles.css';
 
 function Marketnews(props) {
 
-    const [ data, setData ] = useState([]);
+    const [data, setData] = useState([]);
 
     const buildDate = () => {
         let d = new Date();
@@ -33,8 +33,8 @@ function Marketnews(props) {
         fetchInfo += "&token=";
         fetchInfo += process.env.REACT_APP_FINNKEY;
         return fetchInfo;
-      }
-    
+    }
+
     const fetchURL = () => {
         let URL = buildURL(props.symbol);
         fetch(`${URL}`)
@@ -42,7 +42,7 @@ function Marketnews(props) {
             .then(data => {
                 setData(data);
             })
-        }
+    }
     useEffect(() => {
         if (props.symbol === '') return;
         fetchURL();
