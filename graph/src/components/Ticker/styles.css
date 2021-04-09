@@ -17,12 +17,7 @@ TICKER.JS STYLES
   justify-content: space-evenly;
   align-items: center;
 }
-/* ===================================== */
-/* ===================================== */
 
-/*
-DAILY.JS STYLES
-*/
 .box {
   padding: 10px 10px;
   display: flex;
@@ -32,6 +27,12 @@ DAILY.JS STYLES
   flex-grow: 1;
   text-align: left;
 }
+/* ===================================== */
+/* ===================================== */
+
+/*
+DAILY.JS STYLES
+*/
 .current {
   display: flex;
   flex-direction: column;
@@ -117,5 +118,21 @@ MAIN.JS STYLES
 FINANCIALS.JS STYLES
 */
 
+/* ===================================== */
+/* ===================================== */
+
+/*
+Media Queries STYLES
+*/
+@media only screen and (max-width: 768px) {
+  .row {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+  .box {
+    display: flex;
+    flex-direction: row;
+  }
+}
 /* ===================================== */
 /* ===================================== */
