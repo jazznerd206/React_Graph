@@ -82,7 +82,7 @@ const CreateTrie = (value) => {
     words.map(word => {
         t.insert(word);
     })
-    console.log('trie: ' + t)
+    console.log('trie root: ' + t.root)
     // console.log(`t.deepLookup('P') -- `, t.deepLookup('P'));
     return t.deepLookup('P');
 }

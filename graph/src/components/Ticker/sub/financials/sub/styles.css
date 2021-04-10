@@ -89,7 +89,7 @@ Media Queries STYLES
     max-width: 100vw;
   }
   li {
-    margin: 5px 5px;
+    /* margin: 5px 5px; */
     display: inline-block;
     border-bottom: 0.5px solid chartreuse;
   }
@@ -108,15 +108,16 @@ Media Queries STYLES
 
 @media only screen and (max-width: 768px) {
   .buyHold-container {
-    width: 100vw;
-    margin: 0 auto;
+    width: 90vw;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-flow: column;
     align-content: center;
   }
   .buyHold-container .box {
     padding: 0 0;
-    width: 50vw;
+    width: 75vw;
     margin: 0 auto;
     margin-bottom: 5px;
   }

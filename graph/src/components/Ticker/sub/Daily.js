@@ -47,7 +47,8 @@ function Daily(props) {
     }
 
     const dailyData = () => {
-        let url = buildURL(props.symbol);
+        let s = localStorage.getItem('ticker')
+        let url = buildURL(s);
         fetch(`${url}`)
             .then((res) => res.json())
             .then(data => {
@@ -63,7 +64,7 @@ function Daily(props) {
         fetch(`${url}`)
             .then((res) => res.json())
             .then(data => {
-                // console.log(`data`, data);
+                console.log(`data`, data);
                 setOpen(data.isTheStockMarketOpen);
             })
     }
@@ -73,7 +74,7 @@ function Daily(props) {
     }, [props.symbol]);
 
     return (
-        <div className="row">
+        <div className="row mobile-daily">
             {/* {console.log('open: ' + open)} */}
             {open !== true && (
                 <div>
