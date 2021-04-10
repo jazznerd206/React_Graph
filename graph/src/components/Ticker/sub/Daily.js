@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 function Daily(props) {
 
-    const [currentVal, setCurrentVal] = useState();
-    const [currentVol, setCurrentVol] = useState();
-    const [data, setData] = useState({});
+    const [ currentVal, setCurrentVal ] = useState();
+    const [ currentVol, setCurrentVol ] = useState();
+    const [ data, setData ] = useState({});
+    const [ open, setOpen ] = useState(false)
 
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
 
@@ -46,30 +47,49 @@ function Daily(props) {
     }
 
     const dailyData = () => {
-        let URL = buildURL(props.symbol);
-        fetch(`${URL}`)
+        let url = buildURL(props.symbol);
+        fetch(`${url}`)
             .then((res) => res.json())
             .then(data => {
+                // console.log(`data`, data);
+                isOpen();
                 setData(data)
+            })
+    }
+
+    const isOpen = () => {
+        let url = 'https://financialmodelingprep.com/api/v3/market-hours?apikey=';
+        url += process.env.REACT_APP_FMPKEY
+        fetch(`${url}`)
+            .then((res) => res.json())
+            .then(data => {
+                console.log(`data`, data);
+                setOpen(data.isTheStockMarketOpen);
             })
     }
 
     useEffect(() => {
         dailyData();
-        // return () => {
-        //     unsubscribe(props.symbol);
-        // }
-    }, [props.symbol])
+    }, [props.symbol]);
 
     return (
         <div className="row">
-            <div className="box current">
-                <p>{currentVal}</p>
-                <div className="row">
-                    <p>vol</p>
-                    <span>{currentVol}</span>
+            {console.log('open: ' + open)}
+            {open !== true && (
+                <div>
+                    <h1>get a life,</h1>
+                    <h1>markets are closed.</h1>
                 </div>
-            </div>
+            )}
+            {open === true && (
+                <div className="box current">
+                    <p>{currentVal}</p>
+                    <div className="row">
+                        <p>vol</p>
+                        <span>{currentVol}</span>
+                    </div>
+                </div>
+            )}
             <div className="box historical">
                 <div className="row">
                     <p>last close</p>

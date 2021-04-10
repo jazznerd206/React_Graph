@@ -3,11 +3,11 @@ import React from 'react'
 function Main(props) {
 
     let x = props.data.exchange;
+    let exc = '';
     if (x !== '') {
-        x = 'Awaiting ';
+        exc = 'Awaiting ';
     }
-
-    const exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
+    exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
     
     return (
         <div className="main-handle">
