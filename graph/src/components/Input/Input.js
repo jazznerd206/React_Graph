@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
+import Trie from '../../hooks/symbolTrie';
 
 function Input(props) {
 
     const [value, setValue] = useState('');
+
+    // const t = Trie();
+
+    useEffect(() => {
+        Trie(value);
+    }, [value])
+
+    // console.log('this should be the trie array: ' + t);
 
     return (
         <div className="symbol-form">

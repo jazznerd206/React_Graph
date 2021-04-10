@@ -63,7 +63,7 @@ function Daily(props) {
         fetch(`${url}`)
             .then((res) => res.json())
             .then(data => {
-                console.log(`data`, data);
+                // console.log(`data`, data);
                 setOpen(data.isTheStockMarketOpen);
             })
     }
@@ -74,7 +74,7 @@ function Daily(props) {
 
     return (
         <div className="row">
-            {console.log('open: ' + open)}
+            {/* {console.log('open: ' + open)} */}
             {open !== true && (
                 <div>
                     <h1>get a life,</h1>
