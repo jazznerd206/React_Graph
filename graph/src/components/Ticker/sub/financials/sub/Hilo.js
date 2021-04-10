@@ -32,7 +32,7 @@ function Hilo(props) {
         fetchURL();
     }, [s])
 
-    if (s === undefined) {
+    if (data.metric === undefined) {
         return (
             <div>
                 <h1>search for a symbol!!</h1>

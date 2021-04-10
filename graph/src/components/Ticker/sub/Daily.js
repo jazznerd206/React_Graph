@@ -34,7 +34,7 @@ function Daily(props) {
 
     // Unsubscribe
     var unsubscribe = function (symbol) {
-        socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': `AAPL` }))
+        socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': symbol }))
     }
 
     const buildURL = (ticker) => {
@@ -56,6 +56,9 @@ function Daily(props) {
 
     useEffect(() => {
         dailyData();
+        // return () => {
+        //     unsubscribe(props.symbol);
+        // }
     }, [props.symbol])
 
     return (

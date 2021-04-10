@@ -26,8 +26,13 @@ function App() {
       })
   }
 
+  const retrieveSymbol = () => {
+    let symbol = localStorage.getItem('ticker');
+    return symbol === '' ? 'AAPL' : symbol;
+  }
+
   useEffect(() => {
-    if (symbol === '') return;
+    if (symbol === '') setSymbol(retrieveSymbol());
     fetchURL();
   }, [symbol])
 
