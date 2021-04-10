@@ -2,11 +2,7 @@ import React from 'react'
 
 function Main(props) {
 
-    let x = props.data.exchange === undefined ? 'AAPL' : props.data.exchange;
-    // let exc = '';
-    // if (x !== '') {
-    //     exc = 'Awaiting ';
-    // }
+    let x = props.data.exchange === undefined ? 'No Data' : props.data.exchange;
     let exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
     
     return (
