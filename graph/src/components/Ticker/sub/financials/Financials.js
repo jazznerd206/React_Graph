@@ -8,7 +8,7 @@ import Hilo from './sub/Hilo';
 function Financials(props) {
 
     return (
-        <div className="row">
+        <div className="row reverse">
             <div className="box">
                 <Peers symbol={props.symbol} peerClick={props.peerClick} />
             </div>

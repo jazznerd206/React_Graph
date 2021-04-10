@@ -131,11 +131,16 @@ Media Queries STYLES
 @media only screen and (max-width: 768px) {
   .row {
     display: flex;
+    flex-flow: column;
+  }
+  .reverse {
+    display: flex;
     flex-flow: column-reverse;
   }
   .box {
     display: flex;
     flex-direction: row;
+    width: 100vw;
   }
 }
 /* ===================================== */
