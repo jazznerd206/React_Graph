@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './styles.css';
 import Daily from './sub/Daily';
 import Main from './sub/Main';

@@ -29,8 +29,33 @@ body {
 p {
   padding: 0;
   margin: 0;
+  animation: fadeIn 0.5s linear 1s;
+}
+
+span {
+  animation: fadeIn 1s linear 1s;
 }
 
 h1 {
   text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
 }

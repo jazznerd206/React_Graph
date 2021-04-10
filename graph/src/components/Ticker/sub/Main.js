@@ -2,12 +2,12 @@ import React from 'react'
 
 function Main(props) {
 
-    let x = props.data.exchange;
-    let exc = '';
-    if (x !== '') {
-        exc = 'Awaiting ';
-    }
-    exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
+    let x = props.data.exchange === undefined ? 'AAPL' : props.data.exchange;
+    // let exc = '';
+    // if (x !== '') {
+    //     exc = 'Awaiting ';
+    // }
+    let exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
     
     return (
         <div className="main-handle">
