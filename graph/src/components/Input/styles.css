@@ -52,3 +52,16 @@
 .symbol-form button:active {
   transform: scale(0.8);
 }
+
+/* ====================================== */
+/* ====================================== */
+/* ========== media  queries ============ */
+@media only screen and (max-width: 600px) {
+  .symbol-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+/* ====================================== */
+/* ====================================== */
