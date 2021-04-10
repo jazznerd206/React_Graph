@@ -14,12 +14,11 @@ TICKER.JS STYLES
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
 .box {
-  /* border: 1px solid goldenrod; */
   padding: 10px 10px;
   display: flex;
   flex-direction: column;
@@ -86,22 +85,33 @@ DAILY.JS STYLES
 /*
 MAIN.JS STYLES
 */
-.main-handle {
-  text-align: center;
+.main-handle .spacer .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-grow: 1;
+  text-align: right;
+}
+.main-handle .spacer .box .row {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
 }
 .main-handle .row h1 {
   font-family: "RocknRoll One";
 }
 .main-handle .row .box .ticker {
-  font-family: "Train One";
+  font-family: "Comfortaa";
   font-size: 3rem;
 }
 .main-handle .row .box .sector {
-  font-family: "Comfortaa";
+  font-family: "Inconsolata";
   font-size: 1rem;
 }
 .main-handle .row .box .exchange {
-  font-family: "Comfortaa";
+  font-family: "Inconsolata";
   font-size: 1rem;
 }
 .main-handle .row .box .row p {
@@ -129,18 +139,54 @@ FINANCIALS.JS STYLES
 Media Queries STYLES
 */
 @media only screen and (max-width: 768px) {
+  .App {
+    text-align: center;
+  }
   .row {
-    display: flex;
-    flex-flow: column;
+    margin-bottom: 25px;
   }
   .reverse {
     display: flex;
-    flex-flow: column-reverse;
+    flex-direction: column-reverse;
   }
   .box {
+    padding: 5px 5px;
     display: flex;
-    flex-direction: row;
-    width: 100vw;
+    flex-flow: row wrap;
+    max-width: 100vw;
+  }
+  .current .row p {
+    /* padding-right: 15px; */
+    width: 90%;
+    /* text-align: right;
+    font-size: 1rem; */
+  }
+  .current .row span {
+    width: 90%;
+    /* text-align: left;
+    font-size: 3rem; */
+  }
+  .historical p {
+    width: 90%;
+    /* text-align: right;
+    padding-right: 15px;
+    font-family: "RocknRoll One"; */
+  }
+  .historical span {
+    width: 90%;
+    /* font-size: 2rem;
+    text-align: left; */
+  }
+  .hi-lo p {
+    width: 90%;
+    /* text-align: right;
+    padding-right: 15px;
+    font-family: "RocknRoll One"; */
+  }
+  .hi-lo span {
+    width: 100%;
+    /* font-size: 2rem;
+    text-align: left; */
   }
 }
 /* ===================================== */

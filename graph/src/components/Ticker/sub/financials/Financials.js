@@ -18,9 +18,9 @@ function Financials(props) {
             <div className="box">
                 <BuyHold symbol={props.symbol}/>
             </div>
-            <div className="box">
+            {/* <div className="box">
                 <Hilo symbol={props.symbol} />
-            </div>
+            </div> */}
         </div>
     )
 }

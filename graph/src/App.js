@@ -32,6 +32,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(`symbol`, symbol)
     if (symbol === '') setSymbol(retrieveSymbol());
     fetchURL();
   }, [symbol])

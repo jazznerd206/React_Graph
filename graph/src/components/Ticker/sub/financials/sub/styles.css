@@ -50,7 +50,7 @@ BUY/HOLD STYLES
 .buyHold-container {
   display: flex;
   flex-flow: column;
-  max-width: 25vw;
+  width: 25vw;
 }
 .buyHold-container .box {
   display: flex;
@@ -68,13 +68,16 @@ BUY/HOLD STYLES
   padding-right: 15px;
 }
 .buyHold-container .buy {
+  border-bottom: 1px solid chartreuse;
   color: chartreuse;
 }
 .buyHold-container .neutral {
   color: grey;
+  border-bottom: 1px solid grey;
 }
 .buyHold-container .sell {
   color: firebrick;
+  border-bottom: 1px solid firebrick;
 }
 
 /*
@@ -98,6 +101,45 @@ Media Queries STYLES
     max-height: 20vh;
     overflow-y: scroll;
     padding-bottom: 15px;
+  }
+}
+/* ===================================== */
+/* ===================================== */
+
+@media only screen and (max-width: 768px) {
+  .buyHold-container {
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+  }
+  .buyHold-container .box {
+    padding: 0 0;
+    width: 50vw;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+  .buyHold-container .box p {
+    /* width: 50%; */
+    font-size: large;
+    text-align: right;
+  }
+  .buyHold-container .box span {
+    text-align: left;
+    width: 100%;
+    font-size: xx-large;
+    /* border-bottom: 1px solid goldenrod; */
+    /* padding-right: 15px; */
+  }
+  .buyHold-container .buy {
+    border-bottom: 1px solid chartreuse;
+  }
+  .buyHold-container .neutral {
+    border-bottom: 1px solid grey;
+  }
+  .buyHold-container .sell {
+    border-bottom: 1px solid firebrick;
   }
 }
 /* ===================================== */
