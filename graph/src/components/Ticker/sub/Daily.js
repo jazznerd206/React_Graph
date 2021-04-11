@@ -9,9 +9,9 @@ function Daily(props) {
 
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
 
-    let ticker = localStorage.getItem('ticker');
+    let ticker = props.symbol;
     if (ticker === '') {
-        ticker = props.symbol;
+        ticker = localStorage.getItem('ticker');
     }
 
     // Connection opened -> Subscribe

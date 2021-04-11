@@ -19,18 +19,17 @@
   font-size: 2rem;
   width: 10rem;
   text-transform: uppercase;
-  border: 1px solid chartreuse;
+  border: .5px solid chartreuse;
 }
 
 .symbol-form input:focus {
   background: chartreuse;
   color: black;
   /* transform: scale(1.1); */
-  border: none;
+  border: 0.5px solid black;
 }
 
 .symbol-form button {
-  margin: auto 0;
   height: 2.5rem;
   font-variant: small-caps;
   font-size: x-large;
@@ -57,7 +56,7 @@
 /* ====================================== */
 /* ========== media  queries ============ */
 @media only screen and (max-width: 768px) {
-  .symbol-form {
+  .symbol-form form {
     display: inline-block;
     text-align: center;
   }
