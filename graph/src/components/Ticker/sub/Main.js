@@ -11,7 +11,7 @@ function Main(props) {
                 <h1>{props.data.name}</h1>
             </div>
             <div className="row spacer">
-                <div className="box">
+                <div className="box logo">
                     <img src={props.data.logo}></img>
                 </div>
                 <div className="box">

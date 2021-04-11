@@ -84,6 +84,7 @@ BUY/HOLD STYLES
 Media Queries STYLES
 */
 @media only screen and (max-width: 768px) {
+  /* BASIC MOBILE STYLES */
   ul {
     list-style-type: none;
     max-width: 100vw;
@@ -107,12 +108,13 @@ Media Queries STYLES
 /* ===================================== */
 
 @media only screen and (max-width: 768px) {
+  /* BUY HOLD MOBILE STYLES */
   .buyHold-container {
-    width: 90vw;
+    width: 100vw;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-flow: column;
+    flex-flow: column wrap;
     align-content: center;
   }
   .buyHold-container .box {
@@ -130,8 +132,6 @@ Media Queries STYLES
     text-align: left;
     width: 100%;
     font-size: xx-large;
-    /* border-bottom: 1px solid goldenrod; */
-    /* padding-right: 15px; */
   }
   .buyHold-container .buy {
     border-bottom: 1px solid chartreuse;
@@ -141,6 +141,50 @@ Media Queries STYLES
   }
   .buyHold-container .sell {
     border-bottom: 1px solid firebrick;
+  }
+  .buyHold-container .row {
+    padding: 0;
+    margin: 0;
+  }
+  /* DAILY MOBILE STYLES */
+  .mobile-daily {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .current {
+    padding: 10px 0;
+    min-width: 100vw;
+  }
+  .historical {
+    padding: 0 0;
+    max-width: 50vw;
+  }
+  .hi-lo {
+    padding: 0 0;
+    max-width: 50vw;
+  }
+  .current .row p {
+    width: auto;
+  }
+  .current .row span {
+    width: auto;
+  }
+  .historical p {
+    padding-right: 5px;
+  }
+  .hi-lo p {
+    padding-right: 5px;
+  }
+  /* BRUTE FORCE MOBILE STYLES -- BAD PRACTICE? MAYBE. MAYBE GO FUCK YOURSELF. */
+  /* 
+  -----------------------  https://rb.gy/0xevkh  --------------------------------
+  */
+  .mobile-handle {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
   }
 }
 /* ===================================== */

@@ -6,7 +6,7 @@ TICKER.JS STYLES
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .row {
@@ -36,6 +36,7 @@ DAILY.JS STYLES
 .current {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .current p {
   width: 100%;
@@ -145,47 +146,15 @@ Media Queries STYLES
   .row {
     margin-bottom: 25px;
   }
-  .mobile-daily {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
   .reverse {
     display: flex;
     flex-direction: column-reverse;
   }
   .box {
-    padding: 5px 5px;
+    padding: 0 0;
     display: flex;
     flex-flow: row wrap;
     max-width: 100vw;
-  }
-  .current .row p {
-    width: 100%;
-  }
-  .current .row span {
-    width: 100%;
-  }
-  .historical {
-    width: 100vh;
-  }
-  .current {
-    width: 100vh;
-  }
-  .historical p {
-    width: 90%;
-    padding-right: 15px;
-  }
-  .historical span {
-    width: 90%;
-  }
-  .hi-lo p {
-    width: 90%;
-    padding-right: 15px;
-  }
-  .hi-lo span {
-    width: 100%;
   }
 }
 /* ===================================== */

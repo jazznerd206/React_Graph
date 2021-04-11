@@ -75,9 +75,8 @@ function Daily(props) {
 
     return (
         <div className="row mobile-daily">
-            {/* {console.log('open: ' + open)} */}
             {open !== true && (
-                <div>
+                <div className="box current">
                     <h1>get a life,</h1>
                     <h1>markets are closed.</h1>
                 </div>
