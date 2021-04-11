@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/React_Graph/static/css/main.5deecdde.chunk.css",
-    "main.js": "/React_Graph/static/js/main.ae87f1ef.chunk.js",
-    "main.js.map": "/React_Graph/static/js/main.ae87f1ef.chunk.js.map",
+    "main.css": "/React_Graph/static/css/main.35419aa2.chunk.css",
+    "main.js": "/React_Graph/static/js/main.83e36297.chunk.js",
+    "main.js.map": "/React_Graph/static/js/main.83e36297.chunk.js.map",
     "runtime-main.js": "/React_Graph/static/js/runtime-main.92bd305c.js",
     "runtime-main.js.map": "/React_Graph/static/js/runtime-main.92bd305c.js.map",
     "static/js/2.4b8fd3fe.chunk.js": "/React_Graph/static/js/2.4b8fd3fe.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.c4d4eb5d.chunk.js": "/React_Graph/static/js/3.c4d4eb5d.chunk.js",
     "static/js/3.c4d4eb5d.chunk.js.map": "/React_Graph/static/js/3.c4d4eb5d.chunk.js.map",
     "index.html": "/React_Graph/index.html",
-    "static/css/main.5deecdde.chunk.css.map": "/React_Graph/static/css/main.5deecdde.chunk.css.map",
+    "static/css/main.35419aa2.chunk.css.map": "/React_Graph/static/css/main.35419aa2.chunk.css.map",
     "static/js/2.4b8fd3fe.chunk.js.LICENSE.txt": "/React_Graph/static/js/2.4b8fd3fe.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.92bd305c.js",
     "static/js/2.4b8fd3fe.chunk.js",
-    "static/css/main.5deecdde.chunk.css",
-    "static/js/main.ae87f1ef.chunk.js"
+    "static/css/main.35419aa2.chunk.css",
+    "static/js/main.83e36297.chunk.js"
   ]
 }
