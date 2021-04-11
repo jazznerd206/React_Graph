@@ -25,6 +25,16 @@ function BuyHold(props) {
     useEffect(() => {
         if (s === '') return;
         fetchURL();
+        let titles = document.querySelectorAll('h1');
+        console.log(`titles`, titles)
+        titles.forEach(title => {
+            title.classList.add('flash');
+        })
+        setTimeout(() => {
+            titles.forEach(title => {
+                title.classList.remove('flash');
+            })
+            }, 3000);
     }, [s])
 
     if (data[0] !== undefined) {

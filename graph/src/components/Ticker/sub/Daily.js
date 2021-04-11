@@ -27,7 +27,7 @@ function Daily(props) {
     socket.addEventListener('message', function (event) {
         let d = JSON.parse(event.data);
         if (Array.isArray(d.data)) {
-            console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
+            // console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
             setCurrentVal(d.data[0].p.toFixed(2));
             setCurrentVol(d.data[0].v);
         }
@@ -64,13 +64,23 @@ function Daily(props) {
         fetch(`${url}`)
             .then((res) => res.json())
             .then(data => {
-                console.log(`data`, data);
+                // console.log(`data`, data);
                 setOpen(data.isTheStockMarketOpen);
             })
     }
 
     useEffect(() => {
         dailyData();
+        let titles = document.querySelectorAll('h1');
+        console.log(`titles`, titles)
+        titles.forEach(title => {
+            title.classList.add('flash');
+        })
+        setTimeout(() => {
+            titles.forEach(title => {
+                title.classList.remove('flash');
+            })
+            }, 3000);
     }, [props.symbol]);
 
     return (

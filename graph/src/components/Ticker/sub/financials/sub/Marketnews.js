@@ -46,6 +46,16 @@ function Marketnews(props) {
     useEffect(() => {
         if (props.symbol === '') return;
         fetchURL();
+        let titles = document.querySelectorAll('h1');
+        console.log(`titles`, titles)
+        titles.forEach(title => {
+            title.classList.add('flash');
+        })
+        setTimeout(() => {
+            titles.forEach(title => {
+                title.classList.remove('flash');
+            })
+            }, 3000);
     }, [props.symbol])
 
     if (data.length === 0) {
