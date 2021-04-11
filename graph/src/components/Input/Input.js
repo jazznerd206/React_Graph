@@ -12,8 +12,6 @@ function Input(props) {
         Trie(value);
     }, [value])
 
-    // console.log('this should be the trie array: ' + t);
-
     return (
         <div className="symbol-form">
             <form>
@@ -22,6 +20,7 @@ function Input(props) {
                     className=""
                     type="input"
                     name="symbol"
+                    value={value}
                     onChange={(e) => setValue(e.target.value)} />
                 <button type="submit" className='btn btn-success' onClick={e => props.onClick(e, value)}>Get quote</button>
             </form>
