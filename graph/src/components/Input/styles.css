@@ -25,7 +25,7 @@
 .symbol-form input:focus {
   background: chartreuse;
   color: black;
-  scale: 1.1;
+  /* transform: scale(1.1); */
   border: none;
 }
 
@@ -46,7 +46,7 @@
   background: chartreuse;
   color: black;
   border: 0.5px solid chartreuse;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .symbol-form button:active {
@@ -56,11 +56,10 @@
 /* ====================================== */
 /* ====================================== */
 /* ========== media  queries ============ */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .symbol-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    display: inline-block;
+    text-align: center;
   }
 }
 /* ====================================== */
