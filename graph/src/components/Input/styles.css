@@ -57,9 +57,12 @@
 /* ========== media  queries ============ */
 @media only screen and (max-width: 768px) {
   .symbol-form form {
-    padding: 5px;
     display: inline-block;
     text-align: center;
+  }
+  .symbol-form input {
+    font-size: 2rem;
+    width: 6rem;
   }
 }
 /* ====================================== */
