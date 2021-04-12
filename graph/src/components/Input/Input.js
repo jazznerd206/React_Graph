@@ -4,7 +4,7 @@ import './styles.css';
 
 function Input(props) {
 
-    console.log(`props.trie: `, props.trie)
+    // console.log(`props.trie: `, props.trie)
 
     const [ value, setValue ] = useState('');
 
@@ -12,12 +12,16 @@ function Input(props) {
 
     const onChange = event => {
         event.preventDefault();
-        // let searchResults = props.onSearch(props.trie, value);
+        let searchResults = props.onSearch(props.trie, event.target.value);
         // console.log(`typeof searchResults`, typeof searchResults);
         // console.log(`List of symbols generated from trie: ${searchResults}`);
-        // setDropdownList(searchResults);
+        setDropdownList(searchResults);
         setValue(event.target.value);
     }
+
+    useEffect(() => {
+        
+    })
 
     return (
         <div className="symbol-form">
@@ -27,7 +31,7 @@ function Input(props) {
                         className=""
                         type="input"
                         list="symbol"
-                        name="symbol"
+                        // name="symbol"
                         value={value}
                         onChange={(e) => onChange(e)}
                     />

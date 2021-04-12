@@ -1,11 +1,5 @@
 import HashMap from 'hashmap';
 
-/**
- * 
- * path to symbols file directory 
- * 
- */
-
 function Trie() {
     this.root = new Node();
 }
@@ -22,7 +16,6 @@ Trie.prototype.insert = function(v) {
         }
         curr = curr.map.get(char);
     }
-    // console.log(`curr.words`, curr.words)
     curr.words.push(v);
     return;
 }
@@ -54,13 +47,12 @@ function deepLookupHelper(curr) {
     return mergedResult;
 }
 
-export const CreateTrie = (list) => {
+export const CreateTrie = () => {
     let t = new Trie();
-    console.log(`typeof list: `, Array.isArray(list))
-    console.log(`list`, list)
+    let list = ['AAPL', 'GOOG', 'LULU', 'MSFT', 'TSLA', 'PLTR', 'GME', 'ETSY', 'EBAY', 'SBUX', 'ACAB', 'AAL', 'AMAT', 'MXIM', 'MNST', 'BMRN', 'ORLY', 'NVDA', 'NTAP', 'NFLX', 'AMZN', 'CERN', 'PAYX', 'PCAR', 'CSCO', 'CTXS', 'EA', 'VRSN', 'SPCE', 'WYNN', 'XLNX', 'IDXX']
     for (let i = 0; i < list.length; i++) {
         try {
-            t.prototype.insert(list[i]);
+            t.insert(list[i]);
             console.log('inserted')
         } catch (err) {
             console.log(err);
