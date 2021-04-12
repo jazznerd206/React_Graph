@@ -12,9 +12,9 @@ function Input(props) {
 
     const onChange = event => {
         event.preventDefault();
-        let searchResults = props.onSearch(props.trie, value);
-        console.log(`typeof searchResults`, typeof searchResults);
-        console.log(`List of symbols generated from trie: ${searchResults}`);
+        // let searchResults = props.onSearch(props.trie, value);
+        // console.log(`typeof searchResults`, typeof searchResults);
+        // console.log(`List of symbols generated from trie: ${searchResults}`);
         // setDropdownList(searchResults);
         setValue(event.target.value);
     }
