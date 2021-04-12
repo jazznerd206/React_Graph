@@ -65,14 +65,14 @@ function Daily(props) {
             .then((res) => res.json())
             .then(data => {
                 // console.log(`data`, data);
-                setOpen(data.isTheStockMarketOpen);
+                setOpen(data[0].isTheStockMarketOpen);
             })
     }
 
     useEffect(() => {
         dailyData();
         let titles = document.querySelectorAll('h1');
-        console.log(`titles`, titles)
+        // console.log(`titles`, titles)
         titles.forEach(title => {
             title.classList.add('flash');
         })

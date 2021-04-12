@@ -19,7 +19,7 @@
   font-size: 2rem;
   width: 10rem;
   text-transform: uppercase;
-  border: .5px solid chartreuse;
+  border: 0.5px solid chartreuse;
 }
 
 .symbol-form input:focus {
@@ -39,17 +39,40 @@
 }
 
 .symbol-form button:hover {
-  font-variant: unset;
-  text-transform: uppercase;
-  font-size: 1rem;
+  /* font-variant: unset; */
+  /* text-transform: uppercase; */
+  /* font-size: 1rem; */
   background: chartreuse;
   color: black;
   border: 0.5px solid chartreuse;
   /* transform: scale(1.1); */
 }
 
-.symbol-form button:active {
-  /* transform: scale(0.8); */
+/* DROPDOWN STYLES  */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  /* display: none; */
+  position: absolute;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
 }
 
 /* ====================================== */

@@ -26,7 +26,7 @@ function BuyHold(props) {
         if (s === '') return;
         fetchURL();
         let titles = document.querySelectorAll('h1');
-        console.log(`titles`, titles)
+        // console.log(`titles`, titles)
         titles.forEach(title => {
             title.classList.add('flash');
         })
