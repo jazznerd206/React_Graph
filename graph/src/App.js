@@ -3,9 +3,11 @@ import './App.css';
 import './media.css';
 import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
+import { CreateTrie, SearchTrie } from './hooks/symbolTrie';
 
 function App() {
 
+  const trie = CreateTrie();
   const [data, setData] = useState({});
   const [symbol, setSymbol] = useState('');
 
@@ -32,7 +34,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(`symbol`, symbol)
     if (symbol === '') setSymbol(retrieveSymbol());
     fetchURL();
   }, [symbol])
@@ -50,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      <Input onClick={onClick} />
+      <Input onClick={onClick} trie={trie} onSearch={SearchTrie}/>
       <Ticker data={data} peerClick={peerClick} />
     </div>
   );

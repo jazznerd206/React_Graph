@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import Trie from '../../hooks/symbolTrie';
+// import { CreateTrie } from '../../hooks/symbolTrie';
 
 function Input(props) {
 
-    const [value, setValue] = useState('');
+    const [ value, setValue ] = useState('');
 
-    // const t = Trie();
+    // console.log(`Trie`, Trie);
 
-    useEffect(() => {
-        Trie(value);
-    }, [value])
+    // useEffect(() => {
+    //     CreateTrie(value);
+    // }, [value])
+
+    const onChange = event => {
+        event.preventDefault();
+        let sList = props.onSearch(props.trie, event.target.value);
+        console.log(`List of symbols generated from trie: ${sList}`);
+        setValue(event.target.value);
+    }
 
     return (
         <div className="symbol-form">
@@ -21,7 +28,7 @@ function Input(props) {
                     type="input"
                     name="symbol"
                     value={value}
-                    onChange={(e) => setValue(e.target.value)} />
+                    onChange={(e) => onChange(e)} />
                 <button type="submit" className='btn btn-success' onClick={e => props.onClick(e, value)}>Get quote</button>
             </form>
         </div>

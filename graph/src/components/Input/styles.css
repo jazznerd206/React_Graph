@@ -19,7 +19,7 @@
   font-size: 2rem;
   width: 10rem;
   text-transform: uppercase;
-  border: .5px solid chartreuse;
+  border: 0.5px solid chartreuse;
 }
 
 .symbol-form input:focus {
@@ -39,17 +39,13 @@
 }
 
 .symbol-form button:hover {
-  font-variant: unset;
-  text-transform: uppercase;
-  font-size: 1rem;
+  /* font-variant: unset; */
+  /* text-transform: uppercase; */
+  /* font-size: 1rem; */
   background: chartreuse;
   color: black;
   border: 0.5px solid chartreuse;
   /* transform: scale(1.1); */
-}
-
-.symbol-form button:active {
-  /* transform: scale(0.8); */
 }
 
 /* ====================================== */
