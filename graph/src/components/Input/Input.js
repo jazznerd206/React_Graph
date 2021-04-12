@@ -4,15 +4,18 @@ import './styles.css';
 
 function Input(props) {
 
+    console.log(`props.trie: `, props.trie)
+
     const [ value, setValue ] = useState('');
 
     const [ dropdownList, setDropdownList ] = useState([])
 
     const onChange = event => {
         event.preventDefault();
-        let sList = props.onSearch(props.trie, event.target.value);
-        console.log(`List of symbols generated from trie: ${sList}`);
-        setDropdownList(sList);
+        let searchResults = props.onSearch(props.trie, value);
+        console.log(`typeof searchResults`, typeof searchResults);
+        console.log(`List of symbols generated from trie: ${searchResults}`);
+        // setDropdownList(searchResults);
         setValue(event.target.value);
     }
 

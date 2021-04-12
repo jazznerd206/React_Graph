@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-// import { List, Item } from 'linked-list';
 import HashMap from 'hashmap';
 
 /**
@@ -24,6 +22,7 @@ Trie.prototype.insert = function(v) {
         }
         curr = curr.map.get(char);
     }
+    // console.log(`curr.words`, curr.words)
     curr.words.push(v);
     return;
 }
@@ -55,12 +54,18 @@ function deepLookupHelper(curr) {
     return mergedResult;
 }
 
-export const CreateTrie = (value) => {
-    let words = ['AAPL', 'GME', 'MSFT', 'PLTR', 'P', 'PGE', 'PNDA'];
+export const CreateTrie = (list) => {
     let t = new Trie();
-    words.forEach(word => {
-        t.insert(word);
-    })
+    console.log(`typeof list: `, Array.isArray(list))
+    console.log(`list`, list)
+    for (let i = 0; i < list.length; i++) {
+        try {
+            t.prototype.insert(list[i]);
+            console.log('inserted')
+        } catch (err) {
+            console.log(err);
+        }
+    }
     return t;
 }
 

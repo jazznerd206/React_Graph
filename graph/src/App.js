@@ -7,9 +7,9 @@ import { CreateTrie, SearchTrie } from './hooks/symbolTrie';
 
 function App() {
 
-  const trie = CreateTrie();
-  const [data, setData] = useState({});
-  const [symbol, setSymbol] = useState('');
+  let T;
+  const [ data, setData ] = useState({});
+  const [ symbol, setSymbol ] = useState('');
 
   const buildURL = (ticker) => {
     let fetchInfo = "https://finnhub.io/api/v1/stock/profile2?symbol=";
@@ -36,7 +36,23 @@ function App() {
   useEffect(() => {
     if (symbol === '') setSymbol(retrieveSymbol());
     fetchURL();
-  }, [symbol])
+  }, [symbol]);
+
+  useEffect(() => {
+    let symbolList = [];
+    let fetchInfo = "https://finnhub.io/api/v1/stock/symbol?exchange=US&token=";
+    fetchInfo += process.env.REACT_APP_FINNKEY;
+    fetch(`${fetchInfo}`)
+      .then((res) => res.json())
+      .then(data => {
+        data.forEach((element) => {
+          symbolList.push(element.displaySymbol);
+          // setSymbolList(symbolList => [...symbolList, element.displaySymbol]);
+        })
+      })
+    T = CreateTrie(symbolList);
+    console.log(T)
+  }, []);
 
   const onClick = (e, value) => {
     e.preventDefault();
@@ -48,10 +64,12 @@ function App() {
     e.preventDefault();
     setSymbol(value);
   }
+  
+  // console.log(symbolList);
 
   return (
     <div className="App">
-      <Input onClick={onClick} trie={trie} onSearch={SearchTrie}/>
+      <Input onClick={onClick} trie={T} onSearch={SearchTrie}/>
       <Ticker data={data} peerClick={peerClick} />
     </div>
   );
