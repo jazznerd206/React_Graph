@@ -18,6 +18,7 @@ function Daily(props) {
     try {
         socket.addEventListener('open', function (event) {
             socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': ticker }))
+            unsubscribe(ticker)
         });
     } catch (error) {
         console.log(`error`, error)
@@ -65,7 +66,12 @@ function Daily(props) {
             .then((res) => res.json())
             .then(data => {
                 // console.log(`data`, data);
-                setOpen(data[0].isTheStockMarketOpen);
+                if (data[0] === undefined) {
+                    setOpen(true);
+                    return;
+                } else {
+                    setOpen(data[0].isTheStockMarketOpen);
+                }
             })
     }
 

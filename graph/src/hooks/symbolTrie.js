@@ -53,12 +53,15 @@ export const CreateTrie = () => {
     for (let i = 0; i < list.length; i++) {
         try {
             t.insert(list[i]);
-            console.log('inserted')
         } catch (err) {
             console.log(err);
         }
     }
     return t;
+}
+
+export const InsertIntoTrie = (trie, value) => {
+    return trie.insert(value);
 }
 
 export const SearchTrie = (trie, value) => {

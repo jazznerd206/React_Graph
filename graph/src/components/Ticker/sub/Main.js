@@ -4,6 +4,8 @@ function Main(props) {
 
     let x = props.data.exchange === undefined ? 'No Data' : props.data.exchange;
     let exc = x.substr(0, x.indexOf(' ')) === 'NEW' ? 'NYSE' : x.substr(0, x.indexOf(' '));
+
+    // console.log(`props.data: `, props.data)
     
     return (
         <div className="main-handle">
@@ -25,7 +27,7 @@ function Main(props) {
                         <span>{props.data.finnhubIndustry}</span>
                     </div>
                 </div>
-                {/* <div className="box">
+                <div className="box">
                     <div className="row">
                         <p>market cap</p>
                         <span>{props.data.marketCapitalization}</span>
@@ -34,7 +36,7 @@ function Main(props) {
                         <p>shares outstanding</p>
                         <span>{props.data.shareOutstanding}</span>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     )
