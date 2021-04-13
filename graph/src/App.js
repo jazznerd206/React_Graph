@@ -9,6 +9,7 @@ function App() {
 
   let T = CreateTrie();
   const [ data, setData ] = useState({});
+  const [ list, setList ] = useState();
   const [ symbol, setSymbol ] = useState('');
 
   const buildURL = (ticker) => {
@@ -38,6 +39,23 @@ function App() {
     fetchURL();
   }, [symbol]);
 
+  useEffect(() => {
+    const fetchURL = () => {
+      let URL = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=';
+      URL += process.env.FMPKEY;
+      console.log(`URL`, URL)
+      fetch(`${URL}`)
+        .then((res) => res.json())
+        .then(data => {
+          console.log(`data`, data[0])
+          data[0].forEach(el => {
+            setList(list => [...list, data.symbol])
+          })
+        })
+    fetchURL();
+    }
+  }, [])
+
   const onClick = (e, value) => {
     e.preventDefault();
     localStorage.setItem('ticker', value);
@@ -48,6 +66,8 @@ function App() {
     e.preventDefault();
     setSymbol(value);
   }
+
+  // console.log(`list: `, list)
 
   return (
     <div className="App">
