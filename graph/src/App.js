@@ -4,9 +4,11 @@ import './media.css';
 import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
 import { CreateTrie, SearchTrie } from './hooks/symbolTrie';
+import { CreateBand } from './hooks/bands';
 
 function App() {
 
+  let B = CreateBand();
   let T = CreateTrie();
   const [ data, setData ] = useState({});
   const [ list, setList ] = useState();
@@ -67,7 +69,7 @@ function App() {
     setSymbol(value);
   }
 
-  // console.log(`list: `, list)
+  // console.log(`Bands: `, B);
 
   return (
     <div className="App">
