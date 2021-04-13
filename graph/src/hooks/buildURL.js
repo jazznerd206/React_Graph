@@ -1,7 +1,9 @@
 import { ohShitWhatUpItsDatDate } from './getDate'
 
 export const buildURL = (symbol, type, key) => {
+
     key = key === 'FMP' ? '&apikey=' + process.env.REACT_APP_FMPKEY : '&token=' + process.env.REACT_APP_FINNKEY;
+    
     switch(type) {
         case 'profile':
             type = "https://finnhub.io/api/v1/stock/profile2?symbol="
@@ -39,6 +41,6 @@ export const buildURL = (symbol, type, key) => {
         default:
             return;
     }
-    console.log(`key`, type.concat(key));
+    
     return type.concat(key);
 }

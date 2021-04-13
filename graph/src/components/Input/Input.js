@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-// import { CreateTrie } from '../../hooks/symbolTrie';
 
 function Input(props) {
-
-    // console.log(`props.trie: `, props.trie)
 
     const [ value, setValue ] = useState('');
 
@@ -13,25 +10,21 @@ function Input(props) {
     const onChange = event => {
         event.preventDefault();
         let searchResults = props.onSearch(props.trie, event.target.value);
-        // console.log(`typeof searchResults`, typeof searchResults);
-        // console.log(`List of symbols generated from trie: ${searchResults}`);
-        setDropdownList(searchResults);
+        if (searchResults === undefined) {
+            setDropdownList([]);
+        } else {
+            setDropdownList(searchResults);
+        }
         setValue(event.target.value);
     }
-
-    useEffect(() => {
-        
-    })
 
     return (
         <div className="symbol-form">
             <form>
                 <label htmlFor="symbol" className="label">Symbol: </label>
                     <input
-                        className=""
                         type="input"
                         list="symbol"
-                        // name="symbol"
                         value={value}
                         onChange={(e) => onChange(e)}
                     />
