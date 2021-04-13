@@ -5,6 +5,7 @@ import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
 import { CreateTrie, SearchTrie } from './hooks/symbolTrie';
 import { CreateBand } from './hooks/bands';
+import bURL from './hooks/buildURL';
 
 function App() {
 
@@ -13,14 +14,16 @@ function App() {
   const [ data, setData ] = useState({});
   const [ list, setList ] = useState();
   const [ symbol, setSymbol ] = useState('');
-
+  
   const buildURL = (ticker) => {
     let fetchInfo = "https://finnhub.io/api/v1/stock/profile2?symbol=";
     fetchInfo += ticker;
     fetchInfo += "&token=";
     fetchInfo += process.env.REACT_APP_FINNKEY;
+    console.log(`fetchInfo == `, fetchInfo)
     return fetchInfo;
   }
+
 
   const fetchURL = () => {
     let URL = buildURL(symbol);
@@ -42,6 +45,8 @@ function App() {
   }, [symbol]);
 
   useEffect(() => {
+    let temp = bURL('profile', 'FMP', undefined);
+    console.log(`temp: `, temp)
     const fetchURL = () => {
       let URL = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=';
       URL += process.env.FMPKEY;

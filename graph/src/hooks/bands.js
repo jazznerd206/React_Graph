@@ -1,3 +1,3 @@
 export const CreateBand = () => {
-    console.log('bands');
+    // console.log('bands');
 }

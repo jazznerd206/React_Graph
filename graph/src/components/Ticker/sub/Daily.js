@@ -65,7 +65,12 @@ function Daily(props) {
             .then((res) => res.json())
             .then(data => {
                 // console.log(`data`, data);
-                setOpen(data[0].isTheStockMarketOpen);
+                if (data[0] === undefined) {
+                    setOpen(true);
+                    return;
+                } else {
+                    setOpen(data[0].isTheStockMarketOpen);
+                }
             })
     }
 
