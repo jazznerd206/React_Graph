@@ -5,7 +5,7 @@ import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
 import { CreateTrie, SearchTrie } from './hooks/symbolTrie';
 import { CreateBand } from './hooks/bands';
-import bURL from './hooks/buildURL';
+import { buildURL } from './hooks/buildURL';
 
 function App() {
 
@@ -15,21 +15,24 @@ function App() {
   const [ list, setList ] = useState();
   const [ symbol, setSymbol ] = useState('');
   
-  const buildURL = (ticker) => {
-    let fetchInfo = "https://finnhub.io/api/v1/stock/profile2?symbol=";
-    fetchInfo += ticker;
-    fetchInfo += "&token=";
-    fetchInfo += process.env.REACT_APP_FINNKEY;
-    console.log(`fetchInfo == `, fetchInfo)
-    return fetchInfo;
-  }
+  // const temp = (ticker) => {
+  //   let fetchInfo = "https://finnhub.io/api/v1/stock/profile2?symbol=";
+  //   fetchInfo += ticker;
+  //   fetchInfo += "&token=";
+  //   fetchInfo += process.env.REACT_APP_FINNKEY;
+  //   console.log(`fetchInfo == `, fetchInfo)
+  //   return fetchInfo;
+  // }
 
 
-  const fetchURL = () => {
-    let URL = buildURL(symbol);
-    fetch(`${URL}`)
+  const fetchURL = async s => {
+    let URL = await buildURL(s, 'profile', 'FINN');
+    console.log(`URL`, URL)
+    // URL += '&token=' + process.env.REACT_APP_FINNKEY
+    fetch(URL)
       .then((res) => res.json())
       .then(data => {
+        console.log(`data`, data)
         setData(data)
       })
   }
@@ -41,12 +44,15 @@ function App() {
 
   useEffect(() => {
     if (symbol === '') setSymbol(retrieveSymbol());
-    fetchURL();
+    fetchURL(symbol);
   }, [symbol]);
 
   useEffect(() => {
-    let temp = bURL('profile', 'FMP', undefined);
-    console.log(`temp: `, temp)
+    // let temp = bURL('AAPL', 'profile', 'FMP');
+    // let temp2 = bURL('AAPL', 'list', 'FINN');
+    // console.log(`temp: \n`, temp)
+
+    // console.log(`temp2: \n`, temp2)
     const fetchURL = () => {
       let URL = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=';
       URL += process.env.FMPKEY;

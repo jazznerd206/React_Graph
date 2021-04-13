@@ -18,6 +18,7 @@ function Daily(props) {
     try {
         socket.addEventListener('open', function (event) {
             socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': ticker }))
+            unsubscribe(ticker)
         });
     } catch (error) {
         console.log(`error`, error)
