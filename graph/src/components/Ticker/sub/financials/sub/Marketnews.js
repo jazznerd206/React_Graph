@@ -1,35 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import { ohShitWhatUpItsDatDate } from '../../../../../hooks/getDate';
+import { buildURL } from '../../../../../hooks/buildURL';
 
 function Marketnews(props) {
 
+    let s = props.symbol;
     const [data, setData] = useState([]);
 
-    const buildURL = (ticker) => {
-        let dates = ohShitWhatUpItsDatDate();
-        // console.log(`dates`, dates)
-        let fetchInfo = "https://finnhub.io/api/v1/company-news?symbol=";
-        fetchInfo += ticker;
-        fetchInfo += "&from" + dates[1];
-        fetchInfo += "&to" + dates[0];
-        fetchInfo += "&token=";
-        fetchInfo += process.env.REACT_APP_FINNKEY;
-        return fetchInfo;
-    }
-
-    const fetchURL = () => {
-        let URL = buildURL(props.symbol);
-        fetch(`${URL}`)
+    useEffect(() => {
+        if (s === '') return;
+        fetch(buildURL(s, 'news', 'FINN'))
             .then((res) => res.json())
             .then(data => {
-                // console.log(`data: `, data)
-                setData(data);
+                setData(data)
             })
-    }
-    useEffect(() => {
-        if (props.symbol === '') return;
-        fetchURL();
         let titles = document.querySelectorAll('h1');
         titles.forEach(title => {
             title.classList.add('flash');
@@ -39,7 +23,7 @@ function Marketnews(props) {
                 title.classList.remove('flash');
             })
             }, 3000);
-    }, [props.symbol])
+    }, [s])
 
     if (data.length === 0) {
         return (

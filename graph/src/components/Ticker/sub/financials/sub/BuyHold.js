@@ -1,32 +1,18 @@
 import React, { useState, useEffect } from 'react';
-
+import { buildURL } from '../../../../../hooks/buildURL'
 function BuyHold(props) {
     
     let s = props.symbol;
     const [ data, setData ] = useState({});
-
-    const buildURL = (ticker) => {
-        let fetchInfo = "https://finnhub.io/api/v1/stock/recommendation?symbol=";
-        fetchInfo += ticker;
-        fetchInfo += "&token=";
-        fetchInfo += process.env.REACT_APP_FINNKEY;
-        return fetchInfo;
-    }
-
-    const fetchURL = () => {
-        let URL = buildURL(s);
-        fetch(`${URL}`)
-        .then((res) => res.json())
-        .then(data => {
-            setData(data)
-        })
-    }
     
     useEffect(() => {
         if (s === '') return;
-        fetchURL();
+        fetch(buildURL(s, 'reco', 'FINN'))
+            .then((res) => res.json())
+            .then(data => {
+                setData(data)
+            })
         let titles = document.querySelectorAll('h1');
-        // console.log(`titles`, titles)
         titles.forEach(title => {
             title.classList.add('flash');
         })

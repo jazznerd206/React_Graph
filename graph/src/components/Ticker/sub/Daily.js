@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { buildURL } from '../../../hooks/buildURL'
 
 function Daily(props) {
 
@@ -18,7 +19,7 @@ function Daily(props) {
     try {
         socket.addEventListener('open', function (event) {
             socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': ticker }))
-            unsubscribe(ticker)
+            // unsubscribe(ticker)
         });
     } catch (error) {
         console.log(`error`, error)
@@ -39,55 +40,30 @@ function Daily(props) {
         socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': symbol }))
     }
 
-    const buildURL = (ticker) => {
-        let fetchInfo = "https://finnhub.io/api/v1/quote?symbol=";
-        fetchInfo += ticker;
-        fetchInfo += "&token=";
-        fetchInfo += process.env.REACT_APP_FINNKEY;
-        return fetchInfo;
-    }
-
-    const dailyData = () => {
-        let s = localStorage.getItem('ticker')
-        let url = buildURL(s);
-        fetch(`${url}`)
-            .then((res) => res.json())
-            .then(data => {
-                // console.log(`data`, data);
-                isOpen();
-                setData(data)
-            })
-    }
-
     const isOpen = () => {
-        let url = 'https://financialmodelingprep.com/api/v3/market-hours?apikey=';
-        url += process.env.REACT_APP_FMPKEY
-        fetch(`${url}`)
-            .then((res) => res.json())
-            .then(data => {
-                // console.log(`data`, data);
-                if (data[0] === undefined) {
-                    setOpen(true);
-                    return;
-                } else {
-                    setOpen(data[0].isTheStockMarketOpen);
-                }
-            })
+        let d = new Date();
+        if (d.getDay() === 0 || d.getDay() === 6) return false;
+        let time = d.getHours();
+        if (time < 8 || time > 16) return false
+        if (time === 8) {
+            if (d.getMinutes() < 30) return false;
+            return true;
+        }
+        return true;
     }
 
     useEffect(() => {
-        dailyData();
-        let titles = document.querySelectorAll('h1');
-        // console.log(`titles`, titles)
-        titles.forEach(title => {
-            title.classList.add('flash');
-        })
-        setTimeout(() => {
-            titles.forEach(title => {
-                title.classList.remove('flash');
+        console.log(`ticker : props.symbol `, ticker, props.symbol)
+        let symbol = props.symbol === '' ? localStorage.getItem('ticker') : props.symbol;
+        fetch(buildURL(symbol, 'quote', 'FINN'))
+            .then((res) => res.json())
+            .then(data => {
+                if (isOpen()) setOpen(true);
+                console.log(`props.symbol`, props.symbol);
+                setData(data)
+                console.log(`props.symbol`, props.symbol);
             })
-            }, 3000);
-    }, [props.symbol]);
+    }, [props]);
 
     return (
         <div className="row mobile-daily">

@@ -1,40 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { buildURL } from '../../../../../hooks/buildURL';
 import './styles.css';
 
 function Peers(props) {
 
+    let s = props.symbol;
     const [peerList, setPeerList] = useState([]);
 
-    const buildURL = (t) => {
-        let fetchInfo = "https://finnhub.io/api/v1/stock/peers?symbol=";
-        fetchInfo += t;
-        fetchInfo += "&token=";
-        fetchInfo += process.env.REACT_APP_FINNKEY;
-        return fetchInfo;
-    }
-
-    const fetchData = () => {
-        let ticker = props.symbol;
-        if (ticker === '') {
-            ticker = getTicker();
-        }
-        let URL = buildURL(ticker);
-        fetch(`${URL}`)
+    useEffect(() => {
+        fetch(buildURL(s, 'peers', 'FINN'))
             .then((res) => res.json())
             .then(data => {
-                setPeerList(data)
+                // console.log(`data`, data)
+                setPeerList(data);
             })
-    }
-
-    const getTicker = () => {
-        let ticker = localStorage.getItem('ticker');
-        return ticker === '' ? 'AAPL' : ticker;
-    }
-
-    useEffect(() => {
-
-        fetchData();
-    }, [props.symbol])
+    }, [s])
 
     return (
         <div className="peerList-container">

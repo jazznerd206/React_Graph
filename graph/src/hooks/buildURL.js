@@ -41,6 +41,6 @@ export const buildURL = (symbol, type, key) => {
         default:
             return;
     }
-    
+    // console.log(`type.concat(key)`, type.concat(key));
     return type.concat(key);
 }
