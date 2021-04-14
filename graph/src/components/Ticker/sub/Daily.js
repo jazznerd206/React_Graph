@@ -54,16 +54,19 @@ function Daily(props) {
 
     useEffect(() => {
         console.log(`ticker : props.symbol `, ticker, props.symbol)
-        let symbol = props.symbol === '' ? localStorage.getItem('ticker') : props.symbol;
+        let symbol = props.symbol === undefined ? localStorage.getItem('ticker') : props.symbol;
         fetch(buildURL(symbol, 'quote', 'FINN'))
             .then((res) => res.json())
             .then(data => {
-                if (isOpen()) setOpen(true);
                 console.log(`props.symbol`, props.symbol);
                 setData(data)
                 console.log(`props.symbol`, props.symbol);
             })
     }, [props]);
+
+    useEffect(() => {
+        if (isOpen()) setOpen(true);
+    }, [data])
 
     return (
         <div className="row mobile-daily">
