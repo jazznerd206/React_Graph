@@ -53,6 +53,7 @@ function App() {
   const onClick = (e, value) => {
     e.preventDefault();
     localStorage.setItem('ticker', value);
+    console.log(`SearchTrie(value)`, SearchTrie(T, value))
     setSymbol(value);
   }
 
