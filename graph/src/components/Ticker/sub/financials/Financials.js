@@ -7,6 +7,8 @@ import Hilo from './sub/Hilo';
 
 function Financials(props) {
 
+    console.log('financials')
+
     return (
         <div className="row reverse">
             <div className="box">

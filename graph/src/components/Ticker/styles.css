@@ -87,13 +87,31 @@ DAILY.JS STYLES
 /*
 MAIN.JS STYLES
 */
-.main-handle .spacer .box {
+.main-handle .row {
+  max-height: 30vh;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+.main-handle .spacer {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.main-handle .spacer .profile {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-grow: 1;
-  text-align: right;
+  /* justify-content: space-between; */
+  /* height: 100%;
+  width: 80%;
+  margin: 0 auto; */
+  overflow: scroll;
+}
+.main-handle .spacer .profile .row span {
+  width: 100%;
+  padding: 0;
+  max-height: 30vh;
 }
 .main-handle .spacer .box .row {
   display: flex;
@@ -104,7 +122,6 @@ MAIN.JS STYLES
 .main-handle .row h1 {
   font-family: "RocknRoll One";
   /* animation: flash .5s linear .5s; */
-
 }
 .main-handle .row .box .ticker {
   font-family: "Comfortaa";
@@ -124,10 +141,7 @@ MAIN.JS STYLES
   padding-right: 15px;
   font-family: "RocknRoll One";
 }
-.main-handle .row .box .row span {
-  width: 50%;
-  /* font-size: 1.5rem; */
-  text-align: left;
+.main-handle .row .profile {
 }
 /* ===================================== */
 /* ===================================== */
@@ -162,8 +176,6 @@ Media Queries STYLES
 }
 /* ===================================== */
 /* ===================================== */
-
-
 
 @keyframes fadeIn {
   from {

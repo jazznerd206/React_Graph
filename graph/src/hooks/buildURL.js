@@ -2,7 +2,7 @@ import { ohShitWhatUpItsDatDate } from './getDate'
 
 export const buildURL = (symbol, type, key) => {
 
-    key = key === 'FMP' ? '&apikey=' + process.env.REACT_APP_FMPKEY : '&token=' + process.env.REACT_APP_FINNKEY;
+    key = key === 'FMP' ? '?apikey=' + process.env.REACT_APP_FMPKEY : '&token=' + process.env.REACT_APP_FINNKEY;
     
     switch(type) {
         case 'profile':
@@ -38,8 +38,17 @@ export const buildURL = (symbol, type, key) => {
         case 'list':
             type = 'https://financialmodelingprep.com/api/v3/stock/list';
             break;
+        case 'FMPquote':
+            type = 'https://financialmodelingprep.com/api/v3/quote/';
+            type += symbol
+            break;
+        case 'FMPprofile':
+            type = 'https://financialmodelingprep.com/api/v3/profile/';
+            type += symbol
+            break;
         default:
             return;
+            
     }
     // console.log(`type.concat(key)`, type.concat(key));
     return type.concat(key);

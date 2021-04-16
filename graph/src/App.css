@@ -42,7 +42,25 @@ h1 {
 }
 
 .flash {
-  animation: flash .25s linear .25s;
+  animation: flash 0.25s linear 0.25s;
+}
+
+.data-attr {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: xx-small;
+  text-transform: lowercase;
+  font-style: italic;
+}
+.data-attr a {
+  padding: 0 3px;
+  color: aqua;
+  text-decoration: none;
+  font-size: x-small;
+  font-variant: small-caps;
+  font-style: none;
 }
 
 @keyframes fadeIn {

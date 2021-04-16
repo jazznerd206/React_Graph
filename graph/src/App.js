@@ -5,29 +5,40 @@ import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
 import { CreateBand } from './hooks/bands';
-import { buildURL } from './hooks/buildURL';
-import axios from 'axios';
+import { get } from './utils/fetchAPI'
+// import axios from 'axios';
+// import { buildURL } from './hooks/buildURL';
 
 function App() {
 
+  console.log('app')
+
   let B = CreateBand();
   let T = CreateTrie();
+  const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
 
   const retrieveSymbol = () => {
     let symbol = localStorage.getItem('ticker');
-    return symbol === '' ? 'AAPL' : symbol;
+    console.log(`symbol from retrieve symbol -> \n`, symbol)
+    return symbol === undefined ? 'AAPL' : symbol;
   }
 
-  useEffect(() => {
-    if (symbol === '') setSymbol(retrieveSymbol());
-    fetch(buildURL(symbol, 'profile', 'FINN'))
-      .then((res) => res.json())
-      .then(data => {
-        setData(data);
-      })
-    }, [symbol]);
+  useEffect(async () => {
+      if (symbol === undefined) setSymbol(retrieveSymbol());
+      console.log(`symbol ->`, symbol)
+      let temp = await get(symbol);
+      console.log(`temp -> \n`, temp)
+      let result = !Object.values(temp).every(o => o === null);
+      console.log(`result`, result);
+      if (result) {
+        setLoading(false);
+        // setSymbol(symbol)
+        setData(temp);
+      }
+  }, [symbol]);
+
 
   // useEffect(() => {
   //   let newUser = {
@@ -59,19 +70,26 @@ function App() {
   const onClick = (e, value) => {
     e.preventDefault();
     localStorage.setItem('ticker', value);
-    // console.log(`SearchTrie(value)`, SearchTrie(T, value));
     setSymbol(value);
   }
 
   const peerClick = (e, value) => {
     e.preventDefault();
+    // INSERT INTO TREE AFTER NULL CHECK
     setSymbol(value);
   }
+
+  // console.log(`data.FMPdata`, data.FMPdata)
 
   return (
     <div className="App">
       <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie}/>
-      <Ticker data={data} peerClick={peerClick} />
+      <Ticker loading={loading} data={data} peerClick={peerClick} />
+      <p className="data-attr">Data provided by 
+        <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
+          Financial Modeling Prep
+        </a>
+      </p>
     </div>
   );
 }

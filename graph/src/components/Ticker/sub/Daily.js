@@ -3,10 +3,9 @@ import { buildURL } from '../../../hooks/buildURL'
 
 function Daily(props) {
 
+    let FINN = props.data.FINNquote;
     const [ currentVal, setCurrentVal ] = useState();
     const [ currentVol, setCurrentVol ] = useState();
-    const [ data, setData ] = useState({});
-    const [ open, setOpen ] = useState(false)
 
     const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
 
@@ -44,39 +43,27 @@ function Daily(props) {
         let d = new Date();
         if (d.getDay() === 0 || d.getDay() === 6) return false;
         let time = d.getHours();
-        if (time < 8 || time > 16) return false
-        if (time === 8) {
+        if (time < 5 || time > 15) return false
+        if (time === 5) {
             if (d.getMinutes() < 30) return false;
             return true;
+        }
+        if (time === 14) {
+            if (d.getMinutes() < 30) return true;
+            return false;
         }
         return true;
     }
 
-    useEffect(() => {
-        console.log(`ticker : props.symbol `, ticker, props.symbol)
-        let symbol = props.symbol === undefined ? localStorage.getItem('ticker') : props.symbol;
-        fetch(buildURL(symbol, 'quote', 'FINN'))
-            .then((res) => res.json())
-            .then(data => {
-                console.log(`props.symbol`, props.symbol);
-                setData(data)
-                console.log(`props.symbol`, props.symbol);
-            })
-    }, [props]);
-
-    useEffect(() => {
-        if (isOpen()) setOpen(true);
-    }, [data])
-
     return (
         <div className="row mobile-daily">
-            {open !== true && (
+            {isOpen() !== true && (
                 <div className="box current">
                     <h1>get a life,</h1>
                     <h1>markets are closed.</h1>
                 </div>
             )}
-            {open === true && (
+            {isOpen() === true && (
                 <div className="box current">
                     <p>{currentVal}</p>
                     <div className="row">
@@ -88,25 +75,25 @@ function Daily(props) {
             <div className="box historical">
                 <div className="row">
                     <p>last close</p>
-                    <span>{data.pc}</span>
+                    <span>{FINN.pc}</span>
                 </div>
                 <div className="row">
                     <p>open</p>
-                    <span>{data.o}</span>
+                    <span>{FINN.o}</span>
                 </div>
                 <div className="row">
                     <p>close</p>
-                    <span>{data.c}</span>
+                    <span>{FINN.c}</span>
                 </div>
             </div>
             <div className="box hi-lo">
                 <div className="row">
                     <p>hi</p>
-                    <span>{data.h}</span>
+                    <span>{FINN.h}</span>
                 </div>
                 <div className="row">
                     <p>lo</p>
-                    <span>{data.l}</span>
+                    <span>{FINN.l}</span>
                 </div>
             </div>
         </div>

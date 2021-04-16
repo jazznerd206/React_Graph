@@ -7,17 +7,25 @@ import Financials from './sub/financials/Financials';
 
 function Ticker(props) {
 
+    console.log('ticker')
+
+    if (props.data.FMPdata === undefined) {
+        return(
+            <h1>loading</h1>
+        )
+    }
+
     return (
         <div className="ticker-container">
-            <Main 
-                data={props.data} 
-                exchange={props.data.exchange === '' ? 'No data' : props.data.exchange}
-            />
             <Daily 
-                symbol={props.data.ticker} 
+                data={props.data}
+                symbol={props.data.FMPdata.symbol} 
+            />
+            <Main
+                data={props.data} 
             />
             <Financials 
-                symbol={props.data.ticker} 
+                symbol={props.data.FMPdata.symbol} 
                 peerClick={props.peerClick} 
             />
         </div>
