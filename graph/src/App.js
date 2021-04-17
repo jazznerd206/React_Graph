@@ -18,26 +18,29 @@ function App() {
   const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
+  // console.log(`localStorage.getItem('andrew')`, localStorage.getItem('andrew'))
 
   const retrieveSymbol = () => {
     let symbol = localStorage.getItem('ticker');
     console.log(`symbol from retrieve symbol -> \n`, symbol)
-    return symbol === undefined ? 'AAPL' : symbol;
+    return symbol === null ? 'AAPL' : symbol;
   }
 
   useEffect(async () => {
-      if (symbol === undefined) setSymbol(retrieveSymbol());
+      if (symbol === '') setSymbol(retrieveSymbol());
       console.log(`symbol ->`, symbol)
       let temp = await get(symbol);
       console.log(`temp -> \n`, temp)
       let result = !Object.values(temp).every(o => o === null);
       console.log(`result`, result);
-      if (result) {
+      if (result && symbol !== '') {
         setLoading(false);
         // setSymbol(symbol)
         setData(temp);
       }
   }, [symbol]);
+
+
 
 
   // useEffect(() => {
@@ -87,7 +90,7 @@ function App() {
       <Ticker loading={loading} data={data} peerClick={peerClick} />
       <p className="data-attr">Data provided by 
         <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
-          Financial Modeling Prep
+          financial modeling prep
         </a>
       </p>
     </div>
