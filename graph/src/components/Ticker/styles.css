@@ -94,6 +94,9 @@ MAIN.JS STYLES
   flex-direction: row;
   flex-grow: 1;
 }
+.main-handle .row .logo-box {
+  min-width: 15vw;
+}
 .main-handle .spacer {
   display: flex;
   flex-flow: row;
@@ -102,16 +105,13 @@ MAIN.JS STYLES
 .main-handle .spacer .profile {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  /* height: 100%;
-  width: 80%;
-  margin: 0 auto; */
   overflow: scroll;
 }
 .main-handle .spacer .profile .row span {
   width: 100%;
   padding: 0;
   max-height: 30vh;
+  line-height: 1.5rem;
 }
 .main-handle .spacer .box .row {
   display: flex;
@@ -141,7 +141,35 @@ MAIN.JS STYLES
   padding-right: 15px;
   font-family: "RocknRoll One";
 }
-.main-handle .row .profile {
+.main-handle .row .company-health {
+  min-width: 30vw;
+  padding: 0 10px;
+  overflow-y: scroll;
+}
+.main-handle .row .company-health .table-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-right: 1px dashed chartreuse;
+  border-bottom: 1px dashed chartreuse;
+}
+.main-handle .row .company-health .table-row:hover {
+}
+.main-handle .row .company-health .table-row p {
+  padding: 0;
+  width: 50%;
+  text-align: right;
+  font-size: medium;
+  font-variant: small-caps;
+  font-weight: 400;
+}
+.main-handle .row .company-health .table-row span {
+  padding: 0 10px;
+  width: 50%;
+  text-align: left;
+  font-size: xx-large;
+  font-weight: 500;
 }
 /* ===================================== */
 /* ===================================== */
