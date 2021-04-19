@@ -1,51 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { buildURL } from '../../../hooks/buildURL'
+import Open from './partials/Open';
+import Closed from './partials/Closed';
 
 function Daily(props) {
 
-    let FINN = props.data.FINNquote;
-    const [ currentVal, setCurrentVal ] = useState();
-    const [ currentVol, setCurrentVol ] = useState();
-
-    const socket = new WebSocket(`wss://ws.finnhub.io?token=${process.env.REACT_APP_FINNKEY}`);
-
-    let ticker = props.symbol;
-    if (ticker === '') {
-        ticker = localStorage.getItem('ticker');
-    }
-
-    // Connection opened -> Subscribe
-    try {
-        socket.addEventListener('open', function (event) {
-            socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': ticker }))
-            // unsubscribe(ticker)
-        });
-    } catch (error) {
-        console.log(`error`, error)
-    }
-
-    // Listen for messages
-    socket.addEventListener('message', function (event) {
-        let d = JSON.parse(event.data);
-        if (Array.isArray(d.data)) {
-            // console.log(`data`, d.data[0].p.toFixed(2), d.data[0].v);
-            setCurrentVal(d.data[0].p.toFixed(2));
-            setCurrentVol(d.data[0].v);
-        }
-    });
-
-    // Unsubscribe
-    var unsubscribe = function (symbol) {
-        socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': symbol }))
-    }
+    const [ mktOpen, setMktOpen ] = useState(false);
+    const [ openAlert, setOpenAlert ] = useState(false);
 
     const isOpen = () => {
         let d = new Date();
         if (d.getDay() === 0 || d.getDay() === 6) return false;
         let time = d.getHours();
-        if (time < 5 || time > 15) return false
-        if (time === 5) {
-            if (d.getMinutes() < 30) return false;
+        if (time < 6 || time > 15) return false
+        if (time === 6) {
+            if (d.getMinutes() < 30) {
+                setOpenAlert(true);
+                return false
+            };
             return true;
         }
         if (time === 14) {
@@ -55,24 +26,26 @@ function Daily(props) {
         return true;
     }
 
+    useEffect(() => {
+        if (isOpen()) setMktOpen(true);
+    }, [])
+
     return (
         <div className="row mobile-daily">
-            {isOpen() !== true && (
-                <div className="box current">
-                    <h1>get a life,</h1>
-                    <h1>markets are closed.</h1>
-                </div>
+            {mktOpen !== true && (
+                <Closed
+                    open={mktOpen}
+                    openAlert={openAlert} 
+                    data={props.data}
+                />
             )}
-            {isOpen() === true && (
-                <div className="box current">
-                    <p>{currentVal}</p>
-                    <div className="row">
-                        <p>vol</p>
-                        <span>{currentVol}</span>
-                    </div>
-                </div>
+            {mktOpen === true && (
+                <Open 
+                    symbol={props.symbol}
+                    data={props.data}
+                />
             )}
-            <div className="box historical">
+            {/* <div className="box historical">
                 <div className="row">
                     <p>last close</p>
                     <span>{FINN.pc}</span>
@@ -95,7 +68,7 @@ function Daily(props) {
                     <p>lo</p>
                     <span>{FINN.l}</span>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

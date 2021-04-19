@@ -10,6 +10,8 @@ TICKER.JS STYLES
 }
 
 .row {
+  height: auto;
+  max-height: 33vw;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -33,54 +35,21 @@ TICKER.JS STYLES
 /*
 DAILY.JS STYLES
 */
-.current {
+.box .current {
+  width: 100vw;
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-flow: row wrap;
+  justify-content: center;
+  flex-grow: unset;
+  padding: 0;
+  margin: 0;
 }
-.current p {
-  width: 100%;
-  /* text-align: center; */
-  font-size: 3rem;
-}
-.current .row p {
-  padding-right: 15px;
-  width: 50%;
-  text-align: right;
-  font-size: 1rem;
-}
+
 .current .row span {
-  width: 50%;
-  /* text-align: left; */
   font-size: 3rem;
 }
-.historical {
-  display: flex;
-  flex-direction: column;
-}
-.historical p {
-  width: 50%;
-  text-align: right;
-  padding-right: 15px;
-  font-family: "RocknRoll One";
-}
-.historical span {
-  width: 50%;
-  font-size: 2rem;
-  text-align: left;
-}
-.hi-lo p {
-  width: 50%;
-  text-align: right;
-  padding-right: 15px;
-  font-family: "RocknRoll One";
-}
-.hi-lo span {
-  width: 50%;
-  font-size: 2rem;
-  text-align: left;
-}
+
 /* ===================================== */
 /* ===================================== */
 
@@ -96,6 +65,11 @@ MAIN.JS STYLES
 }
 .main-handle .row .logo-box {
   min-width: 15vw;
+  overflow: hidden;
+}
+.main-handle img {
+  max-height: auto;
+  max-width: 100px;
 }
 .main-handle .spacer {
   display: flex;
@@ -142,19 +116,19 @@ MAIN.JS STYLES
   font-family: "RocknRoll One";
 }
 .main-handle .row .company-health {
-  min-width: 30vw;
+  margin: 0 auto;
+  width: auto;
+  min-width: 25vw;
   padding: 0 10px;
   overflow-y: scroll;
 }
 .main-handle .row .company-health .table-row {
-  width: 100%;
+  padding: 2px 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-right: 1px dashed chartreuse;
   border-bottom: 1px dashed chartreuse;
-}
-.main-handle .row .company-health .table-row:hover {
 }
 .main-handle .row .company-health .table-row p {
   padding: 0;

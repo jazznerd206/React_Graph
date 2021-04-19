@@ -28,7 +28,7 @@ function mainTable(props) {
     };
     
     return (
-        <>
+        <div className="sibling-fade">
             <div className="table-row">
                 <p>
                     Market Cap
@@ -39,7 +39,7 @@ function mainTable(props) {
             </div>
             <div className="table-row">
                 <p>
-                    Sh Outstanding
+                    Shits Outstanding
                 </p>
                 <span>
                     <NumericLabel params={numbers}>{d[1]}</NumericLabel>
@@ -101,7 +101,7 @@ function mainTable(props) {
                     <NumericLabel params={money}>{d[6]}</NumericLabel>
                 </span>
             </div>
-        </>
+        </div>
     )
 }
 
