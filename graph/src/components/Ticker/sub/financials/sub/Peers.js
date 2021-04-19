@@ -11,7 +11,6 @@ function Peers(props) {
         fetch(buildURL(s, 'peers', 'FINN'))
             .then((res) => res.json())
             .then(data => {
-                // console.log(`data`, data)
                 setPeerList(data);
             })
     }, [s])

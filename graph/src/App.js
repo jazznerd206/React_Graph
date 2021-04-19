@@ -1,17 +1,15 @@
-import React, { useState, useEffect, cloneElement } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import './media.css';
 import Ticker from './components/Ticker/Ticker';
 import Input from './components/Input/Input';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
-import { CreateBand } from './hooks/bands';
+// import { CreateBand } from './hooks/bands';
 import { get } from './utils/fetchAPI'
 
 function App() {
 
-  console.log('app')
-
-  let B = CreateBand();
+  // let B = CreateBand();
   let T = CreateTrie();
   const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
@@ -22,15 +20,18 @@ function App() {
     return symbol === null ? 'AAPL' : symbol;
   }
 
-  useEffect(async () => {
-      if (symbol === '') setSymbol(retrieveSymbol());
-      let temp = await get(symbol);
-      let result = !Object.values(temp).every(o => o === null);
-      if (result && symbol !== '') {
-        setLoading(false);
-        setData(temp);
+  useEffect(() => {
+      const f = async () => {
+        if (symbol === '') setSymbol(retrieveSymbol());
+        let temp = await get(symbol);
+        let result = !Object.values(temp).every(o => o === null);
+        if (result && symbol !== '') {
+          setData(temp);
+          setLoading(false);
+        }
       }
-  }, [symbol]);
+      f();
+  }, [symbol, loading]);
 
   const onClick = (e, value) => {
     e.preventDefault();

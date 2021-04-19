@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 function Open(props) {
-
-    console.log(`props.data`, props.data)
 
     const [ currentVal, setCurrentVal ] = useState();
     const [ currentVol, setCurrentVol ] = useState();

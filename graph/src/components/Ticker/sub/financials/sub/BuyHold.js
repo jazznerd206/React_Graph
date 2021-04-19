@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { buildURL } from '../../../../../hooks/buildURL'
+import { buildURL } from '../../../../../hooks/buildURL';
+
 function BuyHold(props) {
     
     let s = props.symbol;

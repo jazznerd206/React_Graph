@@ -2,12 +2,9 @@ import React from 'react';
 import Peers from './sub/Peers';
 import MarketNews from './sub/Marketnews';
 import BuyHold from './sub/BuyHold';
-import Hilo from './sub/Hilo';
 
 
 function Financials(props) {
-
-    console.log('financials')
 
     return (
         <div className="row reverse">
@@ -20,9 +17,6 @@ function Financials(props) {
             <div className="box">
                 <BuyHold symbol={props.symbol}/>
             </div>
-            {/* <div className="box">
-                <Hilo symbol={props.symbol} />
-            </div> */}
         </div>
     )
 }

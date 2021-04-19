@@ -25,7 +25,7 @@ function Main(props) {
                 <div className="logo-box">
                     <div className="row logo">
                         <a href={props.data.FMPdata.website} rel="noreferrer" target="_blank">
-                            <img src={props.data.FMPdata.image}></img>
+                            <img src={props.data.FMPdata.image} alt="company-logo"></img>
                         </a>
                     </div>
                     <div className="row address">

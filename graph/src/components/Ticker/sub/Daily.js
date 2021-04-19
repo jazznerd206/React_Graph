@@ -45,30 +45,6 @@ function Daily(props) {
                     data={props.data}
                 />
             )}
-            {/* <div className="box historical">
-                <div className="row">
-                    <p>last close</p>
-                    <span>{FINN.pc}</span>
-                </div>
-                <div className="row">
-                    <p>open</p>
-                    <span>{FINN.o}</span>
-                </div>
-                <div className="row">
-                    <p>close</p>
-                    <span>{FINN.c}</span>
-                </div>
-            </div>
-            <div className="box hi-lo">
-                <div className="row">
-                    <p>hi</p>
-                    <span>{FINN.h}</span>
-                </div>
-                <div className="row">
-                    <p>lo</p>
-                    <span>{FINN.l}</span>
-                </div>
-            </div> */}
         </div>
     )
 }

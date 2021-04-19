@@ -2,9 +2,7 @@ import React from 'react';
 import NumericLabel from 'react-pretty-numbers'
 
 function mainTable(props) {
-    let d = props.data;
-    console.log(`props.data`, props.data)
-
+    
     let numbers = {
         justification: 'L',
         locales : 'en-US',
@@ -27,6 +25,8 @@ function mainTable(props) {
         shortFormatPrecision: 1,
     };
     
+    let d = props.data;
+
     return (
         <div className="sibling-fade">
             <div className="table-row">
