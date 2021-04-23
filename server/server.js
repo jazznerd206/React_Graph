@@ -32,6 +32,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 		});
 	}
 	else {
-		(console.log('mongoose error: ' + error))
+		(console.log('mongoose error: ' + error));
 	};
 });

@@ -22,7 +22,7 @@ function Main(props) {
                 <h1>{props.data.FMPdata.companyName}</h1>
             </div>
             <div className="row spacer">
-                <div className="logo-box">
+                <div className="box logo-box">
                     <div className="row logo">
                         <a href={props.data.FMPdata.website} rel="noreferrer" target="_blank">
                             <img src={props.data.FMPdata.image} alt="company-logo"></img>

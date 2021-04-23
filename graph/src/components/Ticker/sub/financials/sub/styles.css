@@ -181,15 +181,14 @@ Media Queries STYLES
   /* 
   -----------------------  https://rb.gy/0xevkh  --------------------------------
   */
-  .mobile-handle {
+  .mobile-daily {
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: space-evenly;
   }
 }
 /* ===================================== */
 /* ===================================== */
-
 
 @keyframes fadeIn {
   from {
