@@ -25,18 +25,26 @@ function Closed(props) {
         if (props.openAlert === true) {
             tick();
         }
-        // return () => {
-        //     return;
-        // }
     }, [props.openAlert])
-    return (
-        <div className="row closed">
-            <div className="box current">
-                <span>Markets open in:</span>
-                <h1>{time}</h1>
+    
+    if (props.openAlert === true) {
+        return (
+            <div className="row closed">
+                <div className="box current">
+                    <span>Markets open in:</span>
+                    <h1>{time}</h1>
+                </div>
             </div>
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div className="row closed">
+                <div className="box current">
+                    <span>Markets closed</span>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default Closed

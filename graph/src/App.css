@@ -39,6 +39,9 @@ span {
 h1 {
   text-align: center;
   width: 100%;
+  background: -webkit-linear-gradient(white, chartreuse);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .flash {

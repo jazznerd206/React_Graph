@@ -19,7 +19,7 @@ function Main(props) {
     return (
         <div className="main-handle">
             <div className="row">
-                <h1>{props.data.FMPdata.companyName}</h1>
+                <h1 className="gradient-text">{props.data.FMPdata.companyName}</h1>
             </div>
             <div className="row spacer">
                 <div className="box logo-box">

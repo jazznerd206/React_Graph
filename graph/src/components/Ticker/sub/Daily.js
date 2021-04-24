@@ -11,7 +11,10 @@ function Daily(props) {
         let d = new Date();
         if (d.getDay() === 0 || d.getDay() === 6) return false;
         let time = d.getHours();
-        if (time < 6 || time > 15) return false
+        if (time < 6 || time > 15) {
+            setOpenAlert(false);
+            return false
+        }
         if (time === 6) {
             if (d.getMinutes() < 30) {
                 setOpenAlert(true);
@@ -21,6 +24,7 @@ function Daily(props) {
         }
         if (time === 14) {
             if (d.getMinutes() < 30) return true;
+            setOpenAlert(false);
             return false;
         }
         return true;
