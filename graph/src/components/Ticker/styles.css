@@ -63,13 +63,13 @@ MAIN.JS STYLES
   flex-direction: row;
   flex-grow: 1;
 }
-.main-handle .row .logo-box {
+.main-handle .spacer .logo-box {
   min-width: 15vw;
-  overflow: hidden;
 }
 .main-handle img {
   max-height: auto;
   max-width: 100px;
+  padding-bottom: 5px;
 }
 .main-handle .spacer {
   display: flex;
@@ -110,6 +110,7 @@ MAIN.JS STYLES
 .main-handle .row .box .exchange {
   font-family: "Inconsolata";
   font-size: 1rem;
+  padding: 5px 0px;
 }
 .main-handle .row .box .row p {
   width: 50%;

@@ -40,7 +40,7 @@ function Closed(props) {
         return (
             <div className="row closed">
                 <div className="box current">
-                    <span>Markets closed</span>
+                    <h1>Markets closed</h1>
                 </div>
             </div>
         )
