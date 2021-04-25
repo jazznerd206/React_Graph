@@ -4,22 +4,22 @@
 <br />
 <p align="center">
   <a href="https://github.com/jazznerd206/React_Graph">
-    <img src="" alt="Logo" width="80" height="80">
+    <img src="./readme_assets/Full_Shot.png" alt="Logo" width="250" height="175">
   </a>
 
   <h3 align="center">Stocker</h3>
 
   <p align="center">
-    project_description
+    Stonks go up 🚀🚀🚀
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/jazznerd206/React_Graph"><strong>DD »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/jazznerd206/React_Graph">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/jazznerd206/React_Graph/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/jazznerd206/React_Graph/issues">Request Feature</a>
   </p>
 </p>
 
@@ -50,66 +50,65 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
-
+[Stocker](https://jazznerd206.github.io/React_Graph.com)
 
 ### Built With
 
-* []()
-* []()
-* []()
-
-
+- [ReactJS](https://reactjs.org/)
+- [Create React App](https://create-react-app.dev/)
+- [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/)
+- [FinnHub API/Websockets](https://finnhub.io/docs/api/introduction)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+- npm
   ```sh
-  npm install npm@latest -g
+  npm i npm@latest -g
   ```
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/jazznerd206/React_Graph.git
    ```
-2. Install NPM packages
+2. Navigate to react app directory
    ```sh
-   npm install
+   cd graph
    ```
-
-
+3. Install NPM packages
+   ```sh
+   npm i
+   ```
 
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+As of the latest update, Stocker is a real time stock tracking application. Using the symbol search field, users can search valid stock symbols to return data about the company including basic biographical information, current news, financial health markers, current price and volume and analyst ratings.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+> FEATURE ONE: THE SEARCH TRIE
+> ![Full Trie](/readme_assets/Full_Trie.png)
 
-
+- Using a custom made m-ary prefix tree (Trie), the search field will return results in a dropdown for all symbols starting with the prefix value. IE typing 'M' into the symbol field will populate a dropdown with all symbols available starting with 'M'. Currently a naive implementation using a pre-made array of symbols, will update to CSV when available.
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
-
-
+See the [open issues](https://github.com/jazznerd206/React_Graph/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -120,23 +119,19 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
+
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
+Distributed under the Unlicense. See `LICENSE` for more information.
 
 <!-- CONTACT -->
+
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-
+-> add persons of contact here
+Project Link: [https://github.com/jazznerd206/React_Graph](https://github.com/jazznerd206/React_Graph)
 
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
