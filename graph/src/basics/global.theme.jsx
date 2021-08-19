@@ -15,10 +15,11 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     height: 100%;
     width: 100%;
-    background-image: ${props => props.theme.bgi};
+    background-image: url('${props => props.theme.bgi}');
     background-position: center;
-    background-fit: cover;
+    background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;

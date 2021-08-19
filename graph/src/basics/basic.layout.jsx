@@ -7,11 +7,15 @@ export const Page = styled.div`
     flex: 1 1 auto;
     flex-direction: column;
     justify-content: center;
-    background-color: ${props => props.theme.bg};
-    background-image: url(${props => props.theme.bgi});
+    // background-image: url('${props => props.theme.bgi}');
+    // background-color: ${props => props.theme.bg};
+    // background-attachment: fixed;
+    // background-size: contain;
+    // background-repeat: none;
     color: ${props => props.theme.color};
     margin: 0;
     padding: 0;
+    text-decoration: ${props => props.theme.deco}
 `
 
 export const Container = styled.div`
