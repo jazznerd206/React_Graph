@@ -18,7 +18,7 @@ export const themes = {
         coloralt: 'rgb(0,0,0,.25)',
         deco: 'goldenrod',
         accent: 'chartreuse',
-        font: 'sans-serif',
+        font: 'Basic',
         fw: '400',
     },
     dark: {
