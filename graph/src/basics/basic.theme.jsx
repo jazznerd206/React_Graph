@@ -13,6 +13,7 @@ export const themes = {
         name: 'light',
         bg: 'white',
         bgalt: 'silvergrey',
+        bgi: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.publicdomainpictures.net%2Fen%2Fview-image.php%3Fimage%3D28763%26picture%3Dplain-white-background&psig=AOvVaw3uWU29-rDqtt50Drd-Zx6t&ust=1629482863996000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjpve_WvfICFQAAAAAdAAAAABAD',
         color: 'black',
         coloralt: 'rgb(0,0,0,.25)',
         deco: 'goldenrod',
@@ -24,6 +25,7 @@ export const themes = {
         name: 'dark',
         bg: 'black',
         bgalt: 'charcoal',
+        bgi: 'https://wallpaperaccess.com/full/173801.png',
         color: 'chartreuse',
         coloralt: 'lightgreen',
         deco: 'goldenrod',
@@ -35,6 +37,7 @@ export const themes = {
         name: 'solar',
         bg: 'rgb(45, 57, 58)', // gray black
         bgalt: 'rgb(28, 40, 81)', // dark blue
+        bgi: 'https://solarsystem.nasa.gov/system/news_items/main_images/492_Pluto_Main_1600.jpg', // pluto
         color: 'rgb(255, 199, 74)', // yellow
         coloralt: 'rgb(255, 122, 24)', // orange
         deco: 'rgb(73, 99, 107)', // green blue

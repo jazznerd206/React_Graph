@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './App.css';
+import './App.css';
 import './media.css';
 import LandingPage from './components/LandingPage/LandingPage';
 import Input from './components/Input/Input';
@@ -91,7 +91,7 @@ function App() {
     <Theme theme={theme} className="App">
       <GlobalStyle theme={theme}/>
       <ThemeSwitch switch={switchTheme} theme={theme}/>
-      <LandingPage name={theme.name} />
+      <LandingPage theme={theme} />
       <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie}/>
       <Ticker loading={loading} data={data} peerClick={peerClick} />
       <p className="data-attr">Data provided by 

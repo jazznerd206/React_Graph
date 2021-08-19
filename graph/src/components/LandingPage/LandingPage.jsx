@@ -4,13 +4,14 @@ import { theme } from '../../basics/basic.theme'
 import { DropDownLi } from '../../basics/basic.layout';
 
 
-function LandingPage({name}) {
+function LandingPage(props) {
 
+    console.log('props :>> ', props);
 
     return (
         <Page>
             <Row>
-                <h1>{name}</h1>
+                <h1>{props.theme.font.replace(' ', '+')}</h1>
             </Row>
         </Page>
     )

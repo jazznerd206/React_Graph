@@ -8,8 +8,10 @@ export const Page = styled.div`
     flex-direction: column;
     justify-content: center;
     background-color: ${props => props.theme.bg};
+    background-image: url(${props => props.theme.bgi});
     color: ${props => props.theme.color};
-    font-family: ${props => props.theme.font};
+    margin: 0;
+    padding: 0;
 `
 
 export const Container = styled.div`
@@ -33,7 +35,7 @@ export const Row = styled.div`
 `
 
 export const ToggleContainer = styled.button`
-    position: relative;
+    position: fixed;
     display: inline-block;
     top: 1em;
     left: 1em;
