@@ -1,19 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+// import './App.css';
 import './media.css';
-import Ticker from './components/Ticker/Ticker';
+import LandingPage from './components/LandingPage/LandingPage';
 import Input from './components/Input/Input';
+import Ticker from './components/Ticker/Ticker';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
-// import { CreateBand } from './hooks/bands';
 import { get } from './utils/fetchAPI'
+import Theme, { themes } from './basics/basic.theme';
+import { GlobalStyle } from './basics/global.theme';
+import ThemeSwitch from './components/ThemeSwitch/ThemeSwitch';
 
 function App() {
 
-  // let B = CreateBand();
   let T = CreateTrie();
   const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
+  const [ theme, setTheme ] = useState(themes.light);
+
+  const switchTheme = (data) => {
+    switch(data) {
+      case 'light':
+        console.log('light');
+        setTheme(themes.light);
+        break;
+      case 'dark':
+        setTheme(themes.dark);
+        console.log('dark');
+        break;
+      case 'solar':
+        setTheme(themes.solar);
+        console.log('solar');
+        break;
+      case 'jazz':
+        setTheme(themes.jazz);
+        console.log('jazz');
+        break;
+      case 'grayscale':
+        setTheme(themes.grayscale);
+        console.log('grayscale');
+        break;
+      case 'rainbow':
+        setTheme(themes.rainbow);
+        console.log('rainbow');
+        break;
+      case 'golf':
+        setTheme(themes.golf);
+        console.log('golf');
+        break;
+      default:
+        console.log('null')
+        break;
+    }
+  }
 
   const retrieveSymbol = () => {
     let symbol = localStorage.getItem('ticker');
@@ -41,12 +80,18 @@ function App() {
 
   const peerClick = (e, value) => {
     e.preventDefault();
-    // INSERT INTO TREE AFTER NULL CHECK
     setSymbol(value);
   }
 
+  useEffect(() => {
+    setTheme(themes.light);
+  }, [])
+
   return (
-    <div className="App">
+    <Theme theme={theme} className="App">
+      <GlobalStyle theme={theme}/>
+      <ThemeSwitch switch={switchTheme} theme={theme}/>
+      <LandingPage name={theme.name} />
       <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie}/>
       <Ticker loading={loading} data={data} peerClick={peerClick} />
       <p className="data-attr">Data provided by 
@@ -54,7 +99,7 @@ function App() {
           financial modeling prep
         </a>
       </p>
-    </div>
+    </Theme>
   );
 }
 

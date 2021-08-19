@@ -36,7 +36,7 @@ function Daily(props) {
 
     return (
         <div className="row mobile-daily">
-            {mktOpen !== true && (
+            {/* {mktOpen !== true && (
                 <Closed
                     open={mktOpen}
                     openAlert={openAlert} 
@@ -48,7 +48,7 @@ function Daily(props) {
                     symbol={props.symbol}
                     data={props.data}
                 />
-            )}
+            )} */}
         </div>
     )
 }
