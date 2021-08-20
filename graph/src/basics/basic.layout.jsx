@@ -31,6 +31,15 @@ export const Container = styled.div`
     align-items: center;
 `
 
+export const I = styled.i`
+  border: 1px solid ${props => props.theme.coloralt};
+  padding: 5px 5px;
+`
+
+export const LandingTitle = styled.h1`
+  margin-right: 1em;
+`
+
 export const Row = styled.div`
     width: 100%;
     height: 100%;
@@ -41,8 +50,9 @@ export const Row = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: '10px solid ${props => props.theme.coloralt}';
-    margin: 250px;
+    &${I} {
+      margin-left: 5em;
+    }
 `
 
 export const ToggleContainer = styled.button`
