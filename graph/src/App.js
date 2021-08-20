@@ -84,7 +84,7 @@ function App() {
   }
 
   useEffect(() => {
-    setTheme(themes.light);
+    setTheme(themes.dark);
   }, [])
 
   return (
@@ -99,6 +99,11 @@ function App() {
           financial modeling prep
         </a>
       </p>
+      <p className="data-attr">Images provided by 
+        <a href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
+          BluePNG
+        </a>
+      </p>
     </Theme>
   );
 }
@@ -108,3 +113,4 @@ export default App;
 
 
 
+<a href='https://pngtree.com/so/Blue'>Blue png from pngtree.com/</a>

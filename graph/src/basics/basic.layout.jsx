@@ -1,20 +1,29 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Page = styled.div`
+    margin: 0;
+    padding: 0;
     height: 100vh;
     width: 100vw;
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    justify-content: center;
     color: ${props => props.theme.color};
-    margin: 0;
-    padding: 0;
     text-decoration: '${props => props.theme.deco}';
+`
+
+export const HiddenBonus = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%:
+  width: 100%;
+  display: flex;
 `
 
 export const Container = styled.div`
     width: 100vw;
+    height: 100vh;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -24,6 +33,7 @@ export const Container = styled.div`
 
 export const Row = styled.div`
     width: 100%;
+    height: 100%;
     height: auto;
     display: flex;
     flex: 1;
