@@ -32,7 +32,6 @@ export const Container = styled.div`
 `
 
 export const I = styled.i`
-  border: 1px solid ${props => props.theme.coloralt};
   padding: 5px 5px;
 `
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import './media.css';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -88,23 +89,25 @@ function App() {
   }, [])
 
   return (
-    <Theme theme={theme} className="App">
-      <GlobalStyle theme={theme}/>
-      <ThemeSwitch switch={switchTheme} theme={theme}/>
-      <LandingPage theme={theme} />
-      <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie}/>
-      <Ticker loading={loading} data={data} peerClick={peerClick} />
-      <p className="data-attr">Data provided by 
-        <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
-          financial modeling prep
-        </a>
-      </p>
-      <p className="data-attr">Images provided by 
-        <a href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
-          BluePNG
-        </a>
-      </p>
-    </Theme>
+    <Router>
+      <Theme theme={theme} className="App">
+        <GlobalStyle theme={theme}/>
+        <ThemeSwitch switch={switchTheme} theme={theme}/>
+        <LandingPage theme={theme} />
+        <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie} id="stocker" />
+        <Ticker loading={loading} data={data} peerClick={peerClick} />
+        <p className="data-attr">Data provided by 
+          <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
+            financial modeling prep
+          </a>
+        </p>
+        <p className="data-attr">Images provided by 
+          <a href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
+            BluePNG
+          </a>
+        </p>
+      </Theme>
+    </Router>
   );
 }
 

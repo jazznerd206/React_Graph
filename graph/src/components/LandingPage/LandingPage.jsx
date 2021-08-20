@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
 import { Page, Row, HiddenBonus, I, LandingTitle } from '../../basics/basic.layout';
 import { Flash } from '../../basics/basic.keyframes';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
@@ -17,14 +18,14 @@ function LandingPage(props) {
             </HiddenBonus>
             <Row>
                 <LandingTitle>charge your knowledge</LandingTitle>
-                <Flash>
-                    <I className="fas fa-chevron-right fa-1x"></I>
-                </Flash>
+                <I className="fas fa-chevron-right fa-1x"></I>
             </Row>
             <Row>
                 <LandingTitle>stock with intent</LandingTitle>
                 <Flash>
-                    <I className="fas fa-chevron-down fa-1x"></I>
+                    <Link to="#stocker">
+                        <I className="fas fa-chevron-down fa-1x"></I>
+                    </Link>
                 </Flash>
             </Row>
         </Page>
