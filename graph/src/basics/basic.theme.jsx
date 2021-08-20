@@ -4,21 +4,22 @@ import { ThemeProvider } from "styled-components";
 
 const Theme = ({ children, theme }) => (
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  );
+);
 
 export default Theme;
 
 export const themes = {
     light: {
         name: 'light',
-        bg: 'white',
-        bgalt: 'silvergrey',
+        bg: 'rgb(255,255,255)', // white
+        bgalt: 'rgb(192,192,192)', // silver
         bgi: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.publicdomainpictures.net%2Fen%2Fview-image.php%3Fimage%3D28763%26picture%3Dplain-white-background&psig=AOvVaw3uWU29-rDqtt50Drd-Zx6t&ust=1629482863996000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjpve_WvfICFQAAAAAdAAAAABAD', // white
-        color: 'black',
-        coloralt: 'rgb(0,0,0,.25)',
-        deco: 'goldenrod',
-        accent: 'chartreuse',
+        color: 'rgb(0,0,0)', // black
+        coloralt: 'rgb(0,0,0,.25)', // transparent black
+        deco: 'rgb(218, 165, 32)', // goldenrod
+        accent: 'rgb(127, 255, 0)', // chartreuse
         font: 'Basic',
+        fs: 'medium',
         fw: '400',
     },
     dark: {
@@ -31,6 +32,7 @@ export const themes = {
         deco: 'goldenrod',
         accent: 'white',
         font: 'Inconsolata',
+        fs: 'large',
         fw: '400'
     },
     solar: {
@@ -43,6 +45,7 @@ export const themes = {
         deco: 'rgb(73, 99, 107)', // green blue
         accent: 'rgb(219, 37, 32)', // red
         font: 'Space Mono',
+        fs: 'xx-large',
         fw: '700'
     },
     jazz: {
@@ -55,6 +58,7 @@ export const themes = {
         deco: 'rgb(163, 188, 208)', // gray
         accent: 'rgb(246, 147, 240)', // pink
         font: 'Yesteryear',
+        fs: 'medium',
         fw: '700'
     },
     grayscale: {
@@ -67,6 +71,7 @@ export const themes = {
         deco: 'rgb(153, 153, 153)', // spanish gray
         accent: 'rgb(153, 153, 153)', // spanish gray
         font: 'Tenali Ramakrishna',
+        fs: 'large',
         fw: '300'
     },
     rainbow: {
@@ -79,6 +84,7 @@ export const themes = {
         deco: 'rgb(255, 238, 0)', // yellow
         accent: 'rgb(246, 0, 0)', // red
         font: 'Rozha One',
+        fs: '2em',
         fw: '700'
     },
     golf: {
@@ -91,6 +97,7 @@ export const themes = {
         deco: 'rgb(196, 172, 108)', // sand
         accent: 'rgb(231, 222, 180)', // lighter sand
         font: 'Space Mono',
-        fw: '700'
+        fs: '1.5em',
+        fw: '500'
     }
 }

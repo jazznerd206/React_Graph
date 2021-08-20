@@ -7,15 +7,10 @@ export const Page = styled.div`
     flex: 1 1 auto;
     flex-direction: column;
     justify-content: center;
-    // background-image: url('${props => props.theme.bgi}');
-    // background-color: ${props => props.theme.bg};
-    // background-attachment: fixed;
-    // background-size: contain;
-    // background-repeat: none;
     color: ${props => props.theme.color};
     margin: 0;
     padding: 0;
-    text-decoration: ${props => props.theme.deco}
+    text-decoration: '${props => props.theme.deco}';
 `
 
 export const Container = styled.div`
@@ -36,6 +31,8 @@ export const Row = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border: '10px solid ${props => props.theme.coloralt}';
+    margin: 250px;
 `
 
 export const ToggleContainer = styled.button`
@@ -43,26 +40,28 @@ export const ToggleContainer = styled.button`
     display: inline-block;
     top: 1em;
     left: 1em;
-`
-
-export const Ul = styled.ul`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+    margin: 0 auto;
+    padding: 0;
 `;
-
-export const Li = styled.li`
-  float: left;
+    
+    export const Ul = styled.ul`
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    `;
+    
+    export const Li = styled.li`
+    float: left;
 `;
-
-export const OpenButton = styled.div`
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+    
+    export const OpenButton = styled.div`
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: 1px solid ${props => props.theme.coloralt};
 `;
 
 export const Content = styled.div`

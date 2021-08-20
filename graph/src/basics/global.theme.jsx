@@ -10,11 +10,13 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: '${props => props.theme.font}';
+    color: '${props => props.theme.coloralt}';
   }
   body {
     position: relative;
     height: 100%;
     width: 100%;
+    background-color: '${props => props.theme.bg}';
     background-image: url('${props => props.theme.bgi}');
     background-position: center;
     background-size: cover;

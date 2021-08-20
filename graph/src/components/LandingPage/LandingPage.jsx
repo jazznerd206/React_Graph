@@ -11,7 +11,7 @@ function LandingPage(props) {
     return (
         <Page>
             <Row>
-                <h1>{props.theme.font.replace(' ', '+')}</h1>
+                this is a test
             </Row>
         </Page>
     )
