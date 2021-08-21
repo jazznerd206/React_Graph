@@ -27,7 +27,7 @@ export const Layer = styled.div`
     justify-content: space-evenly;
     background: none;
     border-bottom-left-radius: 25px;
-    pointer-events: none;
+    /* pointer-events: none; */
     transition: .5s all ease-in-out;
 `
 
@@ -51,10 +51,16 @@ export const Element = styled.div`
 
 export const Circle = styled.div`
     border: 5px solid ${props => props.theme.deco};
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    width: 50%;
     border-radius: 50%;
     margin: 1em auto;
     background: rgb(0,0,0);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
 export const Bridge = styled.div`

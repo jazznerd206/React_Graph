@@ -14,7 +14,7 @@ function LandingPage(props) {
     return (
         <Page>
             <HiddenBonus>
-                <LoadingAnimation />
+                <LoadingAnimation index={props.index} chooseIndex={props.chooseIndex} />
             </HiddenBonus>
             <Row>
                 <LandingTitle>charge your knowledge</LandingTitle>

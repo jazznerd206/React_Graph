@@ -9,7 +9,7 @@ import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
 import { get } from './utils/fetchAPI'
 import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
-import ThemeSwitch from './components/ThemeSwitch/ThemeSwitch';
+import ThemeSwitch from './components/Switches/ThemeSwitch';
 
 function App() {
 
@@ -18,8 +18,21 @@ function App() {
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
   const [ theme, setTheme ] = useState(themes.light);
+  const [ index, setIndex ] = useState('');
 
-  const switchTheme = (data) => {
+  const chooseIndex = data => {
+    console.log(data);
+    switch(data) {
+      case 'nyse':
+        console.log(`data`, data);
+        break;
+      default:
+        console.log('nothing to see here');
+        break;
+    }
+  }
+
+  const switchTheme = data => {
     switch(data) {
       case 'light':
         console.log('light');
@@ -85,6 +98,7 @@ function App() {
   }
 
   useEffect(() => {
+    setIndex('nyse');
     setTheme(themes.dark);
   }, [])
 
@@ -93,7 +107,7 @@ function App() {
       <Theme theme={theme} className="App">
         <GlobalStyle theme={theme}/>
         <ThemeSwitch switch={switchTheme} theme={theme}/>
-        <LandingPage theme={theme} />
+        <LandingPage theme={theme} index={index} chooseIndex={chooseIndex} />
         <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie} id="stocker" />
         <Ticker loading={loading} data={data} peerClick={peerClick} />
         <p className="data-attr">Data provided by 
