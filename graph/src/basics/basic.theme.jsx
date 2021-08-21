@@ -24,13 +24,13 @@ export const themes = {
     },
     dark: {
         name: 'dark',
-        bg: 'black',
-        bgalt: 'charcoal',
+        bg: 'rgb(0,0,0)',
+        bgalt: 'rgb(0,0,0,.25)',
         bgi: 'https://wallpaperaccess.com/full/173801.png', // black
-        color: 'chartreuse',
-        coloralt: 'lightgreen',
-        deco: 'goldenrod',
-        accent: 'white',
+        color: 'rgb(255,255,255)',
+        coloralt: 'rgb(192,192,192)',
+        deco: 'rgb(218, 165, 32)',
+        accent: 'rgb(127, 255, 0)',
         font: 'Inconsolata',
         fs: 'large',
         fw: '400'

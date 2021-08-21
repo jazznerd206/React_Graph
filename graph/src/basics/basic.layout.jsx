@@ -16,9 +16,6 @@ export const HiddenBonus = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%:
-  width: 100%;
-  display: flex;
 `
 
 export const Container = styled.div`

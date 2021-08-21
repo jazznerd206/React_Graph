@@ -23,7 +23,7 @@ function LandingPage(props) {
             <Row>
                 <LandingTitle>stock with intent</LandingTitle>
                 <Flash>
-                    <Link to="#stocker">
+                    <Link style={{color: "inherit"}} to="#stocker">
                         <I className="fas fa-chevron-down fa-1x"></I>
                     </Link>
                 </Flash>

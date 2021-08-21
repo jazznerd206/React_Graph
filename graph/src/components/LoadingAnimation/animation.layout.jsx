@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import hidden_bg from './hidden_bg.png';
+import hidden_bg from '../../images/hidden_bg.png'
 
 export const Shade = styled.div`
-    position: absolute:
+    position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    transform: translate(0%, -100%);
     display: flex;
     flex: 1 1 auto;
     flex-grow: 1;
@@ -20,11 +19,9 @@ export const Shade = styled.div`
 
 
 export const Layer = styled.div`
-    position: absolute:
+    position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -38,10 +35,11 @@ export const Element = styled.div`
     background: url(${hidden_bg}) no-repeat center center;
     background-size: cover;
     position: relative;
-    display: inline;
+    top: 0px;
+    right: 0px;
     border-bottom-left-radius: 25px;
     height: 25vh;
-    width 25vw;
+    width: 25vw;
     overflow: hidden;
     &:hover ${Shade} {
         padding: 0;
