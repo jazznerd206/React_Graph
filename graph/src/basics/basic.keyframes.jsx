@@ -18,5 +18,20 @@ export const Flash = styled.div`
             box-shadow: 0 0 100px rgb(255,255,255);
         }
       }
+`
 
+export const Scroll = styled.div`
+    animation: scroll 125s infinite;
+    display: flex;
+    flex-direction: row;
+
+    @keyframes scroll {
+      0% {
+        transform: translate3d(50%, 0, 0);
+        visibility: visible;
+      }
+      100% {
+        transform: translate3d(-150%, 0, 0);
+      }
+    }
 `

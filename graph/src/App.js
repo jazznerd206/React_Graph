@@ -18,16 +18,27 @@ function App() {
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
   const [ theme, setTheme ] = useState(themes.light);
-  const [ index, setIndex ] = useState('');
+  const [ query, setQuery ] = useState('');
 
   const chooseIndex = data => {
-    console.log(data);
     switch(data) {
-      case 'nyse':
+      case 'index':
         console.log(`data`, data);
+        setQuery(data);
+        break;
+      case 'gainers':
+        console.log(`data`, data);
+        setQuery(data);
+        break;
+      case 'losers':
+        console.log(`data`, data);
+        setQuery(data);
+        break;
+      case 'new':
+        console.log(`data`, data);
+        setQuery(data);
         break;
       default:
-        console.log('nothing to see here');
         break;
     }
   }
@@ -98,7 +109,7 @@ function App() {
   }
 
   useEffect(() => {
-    setIndex('nyse');
+    setQuery('Indices');
     setTheme(themes.dark);
   }, [])
 
@@ -107,7 +118,7 @@ function App() {
       <Theme theme={theme} className="App">
         <GlobalStyle theme={theme}/>
         <ThemeSwitch switch={switchTheme} theme={theme}/>
-        <LandingPage theme={theme} index={index} chooseIndex={chooseIndex} />
+        <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
         <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie} id="stocker" />
         <Ticker loading={loading} data={data} peerClick={peerClick} />
         <p className="data-attr">Data provided by 

@@ -9,12 +9,10 @@ import { DropDownLi } from '../../basics/basic.layout';
 
 function LandingPage(props) {
 
-    console.log('props :>> ', props);
-
     return (
         <Page>
             <HiddenBonus>
-                <LoadingAnimation index={props.index} chooseIndex={props.chooseIndex} />
+                <LoadingAnimation query={props.query} chooseIndex={props.chooseIndex} />
             </HiddenBonus>
             <Row>
                 <LandingTitle>charge your knowledge</LandingTitle>

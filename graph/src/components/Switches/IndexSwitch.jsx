@@ -10,11 +10,13 @@ function IndexSwitch(props) {
         <Ul>
             <DropList>
             <OpenButton>
-                <h1>{props.index}</h1>
+                <h1>{props.query}</h1>
             </OpenButton>
-            <Content>
-                <Link onClick={() => props.chooseIndex("nyse")}>NYSE</Link>
-                <Link onClick={() => props.chooseIndex("sp500")}>SP 500</Link>
+            <Content style={{fontSize: '1em'}}>
+                <Link onClick={() => props.chooseIndex("indices")}>Indices</Link>
+                <Link onClick={() => props.chooseIndex("Gainers")}>Gainers</Link>
+                <Link onClick={() => props.chooseIndex("Losers")}>Losers</Link>
+                <Link onClick={() => props.chooseIndex("New")}>New</Link>
             </Content>
             </DropList>
         </Ul>

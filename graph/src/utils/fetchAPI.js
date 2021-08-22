@@ -20,3 +20,28 @@ export const get = async (symbol) => {
     // console.log(`newState -> \n `, newState)
     return newState;
 }
+
+export const ticker = async symbol => {
+    let newState = {};
+    switch(symbol) {
+        case 'gainers':
+            await fetch(buildURL(symbol, 'gainers', 'FMP'))
+                .then(res => res.json())
+                .then(data => {newState.newStocks = data});
+            break;
+        case 'losers':
+            await fetch(buildURL(symbol, 'losers', 'FMP'))
+                .then(res => res.json())
+                .then(data => {newState.newStocks = data});
+            break;
+        case 'indices':
+            // await fetch(buildURL(symbol, 'x', 'FMP'))
+            //     .then(res => res.json())
+            //     .then(data => newState.newStocks = data);
+            break;
+        default:
+            break;
+    }
+    return newState;
+}
+
