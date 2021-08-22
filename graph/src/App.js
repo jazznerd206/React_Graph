@@ -10,6 +10,7 @@ import { get } from './utils/fetchAPI'
 import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
+import Attribution from './components/Attribution/Attribution';
 
 function App() {
 
@@ -115,22 +116,14 @@ function App() {
 
   return (
     <Router>
+      <Attribution />
       <Theme theme={theme} className="App">
         <GlobalStyle theme={theme}/>
         <ThemeSwitch switch={switchTheme} theme={theme}/>
         <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
         <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie} id="stocker" />
         <Ticker loading={loading} data={data} peerClick={peerClick} />
-        <p className="data-attr">Data provided by 
-          <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
-            financial modeling prep
-          </a>
-        </p>
-        <p className="data-attr">Images provided by 
-          <a href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
-            BluePNG
-          </a>
-        </p>
+        
       </Theme>
     </Router>
   );

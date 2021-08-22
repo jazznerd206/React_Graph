@@ -60,18 +60,18 @@ export const ToggleContainer = styled.button`
     padding: 0;
 `;
     
-    export const Ul = styled.ul`
+export const Ul = styled.ul`
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    `;
+`;
     
-    export const Li = styled.li`
+export const Li = styled.li`
     float: left;
 `;
     
-    export const OpenButton = styled.div`
+export const OpenButton = styled.div`
     margin: 0;
     display: inline-block;
     text-align: center;
@@ -109,3 +109,15 @@ export const Link = styled.a`
     background-color: #f1f1f1;
   }
 `;
+
+export const Tag = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  `
+
+export const DataAttr = styled.p`
+  color: white;
+  font-size: xx-small;
+`
