@@ -9,8 +9,6 @@ function Attribution() {
                 <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
                     financial modeling prep
                 </a>
-            {/* </DataAttr>
-            <DataAttr className="data-attr"> */}
                 Images provided by 
                 <a href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
                     BluePNG

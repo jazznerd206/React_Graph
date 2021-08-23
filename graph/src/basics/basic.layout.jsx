@@ -8,7 +8,7 @@ export const Page = styled.div`
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     color: ${props => props.theme.color};
     text-decoration: '${props => props.theme.deco}';
@@ -32,6 +32,10 @@ export const Container = styled.div`
 
 export const I = styled.i`
   padding: 5px 5px;
+`
+
+export const A = styled.a`
+
 `
 
 export const LandingTitle = styled.h1`
@@ -125,7 +129,36 @@ export const DataAttr = styled.p`
 `
 
 export const UserInput = styled.input`
-  width: 10em;
+  width: 5em;
   height: 1.5em;
   font-size: 1.25em;
+  padding: .25em;
+
+`
+
+export const Label = styled.label`
+  padding-right: 2em;
+  font-size: inherit;
+`
+export const Submit = styled.input.attrs({ 
+  type: 'submit',
+  value: 'Search'
+})`
+  background: ${props => props.theme.bgalt};
+  color: ${props => props.theme.coloralt};
+  font-family: ${props => props.theme.font};
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 5em;
+  border-radius: 5px;
+  height: 3em;
+  margin-left: 3em;
+  border: none;
+  transition: 0.15s;
+  text-align: center;
+  &:active {
+    background-color: ${props => props.theme.bg};
+    color: ${props => props.theme.color};
+    border: .5px solid ${props => props.theme.deco};
+  }
 `

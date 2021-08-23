@@ -5,7 +5,7 @@ function Input(props) {
 
     const [ value, setValue ] = useState('');
 
-    const [ dropdownList, setDropdownList ] = useState([])
+    const [ dropdownList, setDropdownList ] = useState([]);
 
     const onChange = event => {
         event.preventDefault();

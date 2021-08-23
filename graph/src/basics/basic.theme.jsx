@@ -25,7 +25,7 @@ export const themes = {
     dark: {
         name: 'dark',
         bg: 'rgb(0,0,0)',
-        bgalt: 'rgb(0,0,0,.25)',
+        bgalt: 'rgb(51, 51, 51)',
         bgi: 'https://wallpaperaccess.com/full/173801.png', // black
         color: 'rgb(255,255,255)',
         coloralt: 'rgb(192,192,192)',
