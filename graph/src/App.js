@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-import './media.css';
 import LandingPage from './components/LandingPage/LandingPage';
-import Input from './components/Input/Input';
-import Ticker from './components/Ticker/Ticker';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
 import { get } from './utils/fetchAPI'
 import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
+import Content from './components/Content/Content';
+import './App.css';
+import './media.css';
 
 function App() {
 
@@ -85,18 +84,18 @@ function App() {
     return symbol === null ? 'AAPL' : symbol;
   }
 
-  useEffect(() => {
-      const f = async () => {
-        if (symbol === '') setSymbol(retrieveSymbol());
-        let temp = await get(symbol);
-        let result = !Object.values(temp).every(o => o === null);
-        if (result && symbol !== '') {
-          setData(temp);
-          setLoading(false);
-        }
-      }
-      f();
-  }, [symbol, loading]);
+  // useEffect(() => {
+  //     const f = async () => {
+  //       if (symbol === '') setSymbol(retrieveSymbol());
+  //       let temp = await get(symbol);
+  //       let result = !Object.values(temp).every(o => o === null);
+  //       if (result && symbol !== '') {
+  //         setData(temp);
+  //         setLoading(false);
+  //       }
+  //     }
+  //     f();
+  // }, [symbol, loading]);
 
   const onClick = (e, value) => {
     e.preventDefault();
@@ -121,9 +120,16 @@ function App() {
         <GlobalStyle theme={theme}/>
         <ThemeSwitch switch={switchTheme} theme={theme}/>
         <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
-        <Input onClick={onClick} trie={T} insert={InsertIntoTrie} onSearch={SearchTrie} id="stocker" />
-        <Ticker loading={loading} data={data} peerClick={peerClick} />
-        
+        <Content 
+          data={data}
+          laoding={loading}
+          trie={T}
+          onClick={onClick}
+          peerClick={peerClick}
+          insert={InsertIntoTrie} 
+          onSearch={SearchTrie} 
+          id="stocker"
+        />
       </Theme>
     </Router>
   );

@@ -8,6 +8,8 @@ export const Page = styled.div`
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: ${props => props.theme.color};
     text-decoration: '${props => props.theme.deco}';
 `
@@ -120,4 +122,10 @@ export const Tag = styled.div`
 export const DataAttr = styled.p`
   color: white;
   font-size: xx-small;
+`
+
+export const UserInput = styled.input`
+  width: 10em;
+  height: 1.5em;
+  font-size: 1.25em;
 `
