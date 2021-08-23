@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Page, UserInput, Label, Submit } from '../../basics/basic.layout';
-import { Upper, Lower } from './content.layout';
+import { Page, UserInput, Label, Submit, I } from '../../basics/basic.layout';
+import { Upper, Lower, Data, Close } from './content.layout';
 import Input from '../Input/Input';
 import Ticker from '../Ticker/Ticker';
 
@@ -28,14 +28,21 @@ function Content(props) {
     }
 
     useEffect(() => {
+        const upper = document.getElementById('upper');
+        const lower = document.getElementById('lower');
+        const label = document.getElementById('label');
+        const button = document.getElementById('close');
         if (current !== '') {
-            const upper = document.getElementById('upper');
-            const lower = document.getElementById('lower');
-            const label = document.getElementById('label');
             label.innerHTML = '';
-            lower.style.display = 'flex';
+            // lower.style.display = 'flex';
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
+            button.style.display = 'flex';
+        } else {
+            label.innerHTML = ' stock symbol -> ';
+            button.style.display = 'none';
+            lower.style.flexGrow = 0;
+            upper.style.flexGrow = 1;
         }
     }, [current])
 
@@ -60,7 +67,11 @@ function Content(props) {
                 <Submit onClick={submitSymbol}></Submit>
             </Upper>
             <Lower id="lower">
-                <div>Lower</div>
+                <Data>
+                    <Close>
+                        <I id="close" onClick={() => setCurrent('')} className="fas fa-times fa-2x"></I>
+                    </Close>
+                </Data>
             </Lower>
         </Page>
     )

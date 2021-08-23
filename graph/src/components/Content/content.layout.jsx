@@ -8,16 +8,15 @@ export const Upper = styled.div`
     width: 100%;
     height: auto;
     flex-grow: 1;
-    transition: all 1s ease-in-out;
+    transition: all .5s ease-in-out;
 `
 
 export const Lower = styled.div`
-    /* z-index: 99; */
-    background-image: url(${props => props.theme.bgi});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    /* border: 1px solid ${props => props.theme.deco}; */
+    position: relative;
+    /* background-image: url(${props => props.theme.bgi}); */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+    /* background-size: cover; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,10 +25,31 @@ export const Lower = styled.div`
     width: 100%;
     height: auto;
     margin: auto 2em;
-    transition: all 1s ease-in-out;
-    /* backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px ); */
+    transition: all .5s ease-in-out;
+    /* backdrop-filter: blur( 4px ); */
+    /* -webkit-backdrop-filter: blur( 4px ); */
     &:before {
         background-image: url(${props => props.theme.bgi});
+        content: "";
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.75;
     }
+`
+
+export const Data = styled.div`
+    position: relative;
+    height: 100%;
+    width: 100%;
+`
+
+export const Close = styled.div`
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
 `

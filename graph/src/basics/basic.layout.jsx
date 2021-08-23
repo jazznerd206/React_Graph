@@ -64,6 +64,7 @@ export const ToggleContainer = styled.button`
     left: 1em;
     margin: 0 auto;
     padding: 0;
+    z-index: 999;
 `;
     
 export const Ul = styled.ul`
