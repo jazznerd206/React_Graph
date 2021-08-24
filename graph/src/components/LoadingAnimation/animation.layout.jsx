@@ -87,14 +87,14 @@ export const Radio = styled.div`
 `
 
 export const ScrollChild = styled.div`
+    color: ${props => props.query === 'gainers' ? 'red' : 'green'};
     display: flex;
-    color: ${props => props.query === 'losers' ? 'red' : 'green'};
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
     margin: 0 3em;
-`
+    `
 
 export const Title = styled.div`
     font-size: xx-large;

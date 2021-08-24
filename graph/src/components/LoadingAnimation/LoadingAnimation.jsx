@@ -34,7 +34,7 @@ function LoadingAnimation() {
     // handles reveal
     useEffect(() => {
         const shade = document.getElementById('shade');
-        if (coords.x >= width / 4 && coords.y <= height / 4) {
+        if (coords.x >= width - width / 4 && coords.y <= height / 4) {
             shade.style.transform = 'translate(100%, -200%)';
         } else {
             shade.style.transform = 'translate(0%, 0%)';

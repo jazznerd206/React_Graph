@@ -110,10 +110,22 @@ function App() {
   return (
     <Router>
       <Attribution />
-      <Theme theme={theme} className="App">
-        <GlobalStyle theme={theme}/>
-        <ThemeSwitch switch={switchTheme} theme={theme}/>
-        <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
+      <Theme 
+        theme={theme} 
+        className="App"
+      >
+        <GlobalStyle 
+          theme={theme}
+        />
+        <ThemeSwitch 
+          switch={switchTheme} 
+          theme={theme}
+        />
+        <LandingPage 
+          theme={theme} 
+          query={query} 
+          chooseIndex={chooseIndex} 
+        />
         <Content 
           data={data}
           laoding={loading}

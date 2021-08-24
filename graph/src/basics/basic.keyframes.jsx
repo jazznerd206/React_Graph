@@ -21,7 +21,7 @@ export const Flash = styled.div`
 `
 
 export const Scroll = styled.div`
-    animation: scroll 125s infinite;
+    animation: scroll 110s infinite;
     display: flex;
     flex-direction: row;
 
@@ -31,7 +31,7 @@ export const Scroll = styled.div`
         visibility: visible;
       }
       100% {
-        transform: translate3d(-150%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
       }
     }
 `

@@ -37,10 +37,7 @@ export const ticker = async symbol => {
         case 'x':
             await fetch(buildURL(symbol, 'x', 'FMP'))
                 .then(res => res.json())
-                .then(data => {
-                    console.log(`data => `, data);
-                    // newState.newStocks = data
-                });
+                .then(data => newState.newStocks = data);
             break;
         default:
             break;

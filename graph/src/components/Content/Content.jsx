@@ -58,25 +58,8 @@ function Content(props) {
                     onClick={props.onClick} 
                     trie={props.trie} 
                     insert={props.insert} 
-                    onSearch={props.onSearch} />
-
-                {/* <Ul>
-                    <DropList>
-                    <OpenButton>
-                        {value}
-                    </OpenButton>
-                    <Content>
-                        <Link onClick={() => props.switch("light")}>Light</Link>
-                    </Content>
-                    </DropList>
-                </Ul> */}
-
-                    {/* <datalist id="symbol" name="symbolDD">
-                        {dropdownList.map((symbol, index) => {
-                            return <option key={index} value={symbol}>{symbol}</option>
-                        })}
-                    </datalist> */}
-
+                    onSearch={props.onSearch} 
+                />
 
                 <Submit onClick={submitSymbol}></Submit>
             </Upper>
