@@ -3,11 +3,15 @@ import { Element, Shade, Layer, Circle, Radio } from './animation.layout';
 import IndexSwitch from '../Switches/IndexSwitch.jsx';
 import ScrollingTicker from './ScrollingTicker';
 import { ticker } from '../../utils/fetchAPI';
+import { GetPosition } from '../../hooks/GetMouseCoords';
 
 function LoadingAnimation(props) {
     
     const [ active, setActive ] = useState('');
     const [ current, setCurrent ] = useState([]);
+    const coords = GetPosition();
+    const height = window.innerHeight;
+    const width = window.innerWidth;
 
     const handleClick = data => {
         setActive(data);
@@ -23,13 +27,22 @@ function LoadingAnimation(props) {
     }
 
     useEffect(() => {
-        setActive('new');
+        setActive('gainers');
     }, [])
+
+    useEffect(() => {
+        const shade = document.getElementById('shade');
+        if (coords.x >= width / 4 && coords.y <= height / 4) {
+            console.log('coords :>> ', coords);
+            shade.style.transform = 'translate(100%, -200%)';
+        } else {
+            shade.style.transform = 'translate(0%, 0%)';
+        }
+    }, [coords])
 
     useEffect(() => {
         let f = async () => {
             let temp = await ticker(active);
-            console.log(`temp from loading animation component => `, temp)
             setCurrent(temp);
         };
         f();
@@ -48,7 +61,7 @@ function LoadingAnimation(props) {
                     <ScrollingTicker query={props.query} current={current}/>
                 </Circle>
             </Layer>
-            <Shade>
+            <Shade id="shade">
                 
             </Shade>
         </Element>

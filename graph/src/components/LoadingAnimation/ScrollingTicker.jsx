@@ -4,13 +4,11 @@ import { ScrollChild, Title, Change, Price } from './animation.layout.jsx';
 
 function ScrollingTicker(props) {
 
-    console.log('props.query :>> ', props.query);
-
     return (
         <Scroll>
-            {props.current.newStocks !== undefined && props.current.newStocks.map(el => {
+            {props.current.newStocks !== undefined && props.current.newStocks.map((el, index) => {
                 return (
-                    <ScrollChild>
+                    <ScrollChild key={index}>
                         <Title className="name">
                             {el.ticker.toUpperCase()}
                         </Title>

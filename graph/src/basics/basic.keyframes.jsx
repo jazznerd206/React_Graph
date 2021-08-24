@@ -11,11 +11,11 @@ export const Flash = styled.div`
 
     @keyframes flash {
         from {
-          box-shadow: 0 0 0 rgb(255,255,255);
+          box-shadow: 0 0 0 ${props => props.theme.coloralt};
         }
       
         to {
-            box-shadow: 0 0 100px rgb(255,255,255);
+            box-shadow: 0 0 100px ${props => props.theme.coloralt};
         }
       }
 `

@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 import hidden_bg from '../../images/hidden_bg.png'
 
+export const Popup = styled.div`
+  background-image: url('https://www.pngplay.com/wp-content/uploads/9/Gopher-PNG-Clipart-Background.png');
+  position: absolute;
+  top: 100vh;
+  left: 25px;
+  transform: translate3d(0,0,0);
+  transition: all 1s;
+`
+
 export const Shade = styled.div`
     position: absolute;
     width: 100%;
@@ -14,7 +23,7 @@ export const Shade = styled.div`
     justify-content: space-evenly;
     background: ${props => props.theme.bg};
     border-bottom-left-radius: 25px;
-    transition: .5s all ease-out;
+    transition: .5s transform ease-in-out;
 `
 
 
@@ -27,7 +36,6 @@ export const Layer = styled.div`
     justify-content: space-evenly;
     background: none;
     border-bottom-left-radius: 25px;
-    /* pointer-events: none; */
     transition: .5s all ease-in-out;
 `
 
@@ -41,17 +49,12 @@ export const Element = styled.div`
     height: 25vh;
     width: 25vw;
     overflow: hidden;
-    &:hover ${Shade} {
-        padding: 0;
-        transform: translate(100%, -200%);
-    }
     transition: .5s all ease-in-out;
 `
 
 
 export const Circle = styled.div`
     border: 5px solid ${props => props.theme.deco};
-    /* flex-grow: 1; */
     width: 50%;
     border-radius: 50%;
     margin: 1em auto;
@@ -85,7 +88,7 @@ export const Radio = styled.div`
 
 export const ScrollChild = styled.div`
     display: flex;
-    color: ${props => props.query === 'gainers' ? 'red' : 'green'};
+    color: ${props => props.query === 'losers' ? 'red' : 'green'};
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -111,3 +114,4 @@ export const Price = styled.div`
 export const Bridge = styled.div`
 
 `
+

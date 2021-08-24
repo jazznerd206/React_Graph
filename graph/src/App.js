@@ -9,7 +9,7 @@ import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
 import Content from './components/Content/Content';
 import './App.css';
-import './media.css';
+import { GetPosition } from './hooks/GetMouseCoords';
 
 function App() {
 
@@ -19,10 +19,11 @@ function App() {
   const [ symbol, setSymbol ] = useState('');
   const [ theme, setTheme ] = useState(themes.light);
   const [ query, setQuery ] = useState('');
+  const coords = GetPosition();
 
   const chooseIndex = data => {
     switch(data) {
-      case 'index':
+      case 'x':
         console.log(`data`, data);
         setQuery(data);
         break;
@@ -31,10 +32,6 @@ function App() {
         setQuery(data);
         break;
       case 'losers':
-        console.log(`data`, data);
-        setQuery(data);
-        break;
-      case 'new':
         console.log(`data`, data);
         setQuery(data);
         break;
@@ -109,7 +106,7 @@ function App() {
   }
 
   useEffect(() => {
-    setQuery('Indices');
+    setQuery('gainers');
     setTheme(themes.dark);
   }, [])
 
@@ -127,7 +124,7 @@ function App() {
           onClick={onClick}
           peerClick={peerClick}
           insert={InsertIntoTrie} 
-          onSearch={SearchTrie} 
+          onSearch={SearchTrie}
           id="stocker"
         />
       </Theme>

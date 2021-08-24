@@ -19,7 +19,7 @@ export const themes = {
         deco: 'rgb(218, 165, 32)', // goldenrod
         accent: 'rgb(127, 255, 0)', // chartreuse
         font: 'Basic',
-        fs: 'medium',
+        fs: 'large',
         fw: '400',
     },
     dark: {
@@ -58,7 +58,7 @@ export const themes = {
         deco: 'rgb(163, 188, 208)', // gray
         accent: 'rgb(246, 147, 240)', // pink
         font: 'Yesteryear',
-        fs: 'medium',
+        fs: 'xx-large',
         fw: '700'
     },
     grayscale: {
@@ -84,7 +84,7 @@ export const themes = {
         deco: 'rgb(255, 238, 0)', // yellow
         accent: 'rgb(246, 0, 0)', // red
         font: 'Rozha One',
-        fs: '2em',
+        fs: 'xx-large',
         fw: '700'
     },
     golf: {
@@ -97,7 +97,7 @@ export const themes = {
         deco: 'rgb(196, 172, 108)', // sand
         accent: 'rgb(231, 222, 180)', // lighter sand
         font: 'Space Mono',
-        fs: '1.5em',
+        fs: 'x-large',
         fw: '500'
     }
 }
