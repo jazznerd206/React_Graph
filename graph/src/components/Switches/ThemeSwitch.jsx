@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ToggleContainer, Row, Ul, OpenButton, Content, DropList, Link } from '../../basics/basic.layout';
-import { theme } from '../../basics/basic.theme'
+import React from 'react';
+import { ToggleContainer, Ul, OpenButton, Content, DropList, Link } from '../../basics/basic.layout';
 
 function ThemeSwitch(props) {
 

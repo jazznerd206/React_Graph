@@ -1,11 +1,7 @@
 import React from 'react';
-import { ToggleContainer, Row, Ul, OpenButton, Content, DropList, Link } from '../../basics/basic.layout';
-import { theme } from '../../basics/basic.theme'
+import { Ul, OpenButton, Content, DropList, Link } from '../../basics/basic.layout';
 
 function IndexSwitch(props) {
-
-    console.log('props.index :>> ', props.index);
-
     return (
         <Ul>
             <DropList>

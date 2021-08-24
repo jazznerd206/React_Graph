@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Page, UserInput, Label, Submit, I, Ul, DropList, OpenButton, Link } from '../../basics/basic.layout';
+import { Page, UserInput, Label, Submit, I } from '../../basics/basic.layout';
 import { Upper, Lower, Data, Close } from './content.layout';
 
 
@@ -91,6 +91,4 @@ function Content(props) {
     )
 }
 
-export default Content
-
-/* <Ticker loading={props.loading} data={props.data} peerClick={props.peerClick} /> */
+export default Content;

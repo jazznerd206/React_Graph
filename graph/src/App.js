@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
-import { get } from './utils/fetchAPI'
 import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
 import Content from './components/Content/Content';
 import './App.css';
-import { GetPosition } from './hooks/GetMouseCoords';
 
 function App() {
 
@@ -19,7 +17,6 @@ function App() {
   const [ symbol, setSymbol ] = useState('');
   const [ theme, setTheme ] = useState(themes.light);
   const [ query, setQuery ] = useState('');
-  const coords = GetPosition();
 
   const chooseIndex = data => {
     switch(data) {
@@ -133,8 +130,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-<a href='https://pngtree.com/so/Blue'>Blue png from pngtree.com/</a>

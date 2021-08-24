@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import { Page, Row, HiddenBonus, I, LandingTitle } from '../../basics/basic.layout';
-
 import { Flash } from '../../basics/basic.keyframes';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
-import { theme } from '../../basics/basic.theme';
-import { DropDownLi } from '../../basics/basic.layout';
-import { Popup } from '../LoadingAnimation/animation.layout';
 
 
 function LandingPage(props) {
@@ -28,9 +24,6 @@ function LandingPage(props) {
                     </Link>
                 </Flash>
             </Row>
-            {/* <Popup id='popup'>
-                this
-            </Popup> */}
         </Page>
     )
 }

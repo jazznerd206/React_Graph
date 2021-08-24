@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export const GetPosition = () => {
@@ -14,5 +14,7 @@ export const GetPosition = () => {
             setZ(0);
         })
     })
+
     return { x, y, z };
+
 }

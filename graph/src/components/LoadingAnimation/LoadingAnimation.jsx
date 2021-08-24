@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Element, Shade, Layer, Circle, Radio } from './animation.layout';
-import IndexSwitch from '../Switches/IndexSwitch.jsx';
 import ScrollingTicker from './ScrollingTicker';
 import { ticker } from '../../utils/fetchAPI';
 import { GetPosition } from '../../hooks/GetMouseCoords';
 
-function LoadingAnimation(props) {
+function LoadingAnimation() {
     
     const [ active, setActive ] = useState('');
     const [ current, setCurrent ] = useState([]);
@@ -13,6 +12,7 @@ function LoadingAnimation(props) {
     const height = window.innerHeight;
     const width = window.innerWidth;
 
+    // handles click, you dumb fuck
     const handleClick = data => {
         setActive(data);
         const els = document.getElementsByClassName('radio')
@@ -26,27 +26,29 @@ function LoadingAnimation(props) {
         }
     }
 
+    // handles initial state
     useEffect(() => {
-        setActive('gainers');
+        setActive('x');
     }, [])
 
+    // handles reveal
     useEffect(() => {
         const shade = document.getElementById('shade');
         if (coords.x >= width / 4 && coords.y <= height / 4) {
-            console.log('coords :>> ', coords);
             shade.style.transform = 'translate(100%, -200%)';
         } else {
             shade.style.transform = 'translate(0%, 0%)';
         }
-    }, [coords])
+    }, [ coords, height, width ])
 
+    // handles data grab
     useEffect(() => {
         let f = async () => {
             let temp = await ticker(active);
             setCurrent(temp);
         };
         f();
-    }, [active])
+    }, [ active ])
 
     return (
         <Element>
@@ -55,10 +57,9 @@ function LoadingAnimation(props) {
                     <Radio className="radio" onClick={() => handleClick('gainers')} id="gainers">Gainers</Radio>
                     <Radio className="radio" onClick={() => handleClick('losers')} id="losers">Losers</Radio>
                     <Radio className="radio" onClick={() => handleClick('x')} id="x">Indices</Radio>
-                    {/* <IndexSwitch query={props.query} chooseIndex={props.chooseIndex}/> */}
                 </Circle>
                 <Circle id="right-lens">
-                    <ScrollingTicker query={props.query} current={current}/>
+                    <ScrollingTicker query={active} current={current}/>
                 </Circle>
             </Layer>
             <Shade id="shade">
