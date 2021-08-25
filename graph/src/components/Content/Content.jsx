@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Page, UserInput, List, Label, Submit, I } from '../../basics/basic.layout';
-import { Upper, Lower, Data, Close } from './content.layout';
+import { Upper, Lower, Data, Close, CompanyData } from './content.layout';
 
 
 function Content(props) {
@@ -67,6 +67,9 @@ function Content(props) {
                     <Close>
                         <I id="close" onClick={() => {setActive(false); setValue('');}} className="fas fa-times fa-2x"></I>
                     </Close>
+                    <CompanyData>
+                        <h1>stocks</h1>
+                    </CompanyData>
                 </Data>
             </Lower>
         </Page>
