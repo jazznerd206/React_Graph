@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Page, UserInput, Label, Submit, I } from '../../basics/basic.layout';
+import { Page, UserInput, List, Label, Submit, I } from '../../basics/basic.layout';
 import { Upper, Lower, Data, Close } from './content.layout';
 
 
@@ -9,21 +9,16 @@ function Content(props) {
     const [ active, setActive ] = useState(false);
     const [ dropdownList, setDropdownList ] = useState([]);
 
-    // const submitSymbol = () => {
-    //     console.log('value :>> ', value);
-    //     setActive(true);
-    // }
-
     const onChange = event => {
         event.preventDefault();
-        setValue(event.target.value);
-        let searchResults = props.search(props.trie, value);
+        let searchResults = props.search(props.trie, event.target.value);
         if (searchResults === undefined) {
             setDropdownList([]);
         } else {
             setDropdownList(searchResults);
         }
-        console.log('value, dropdownList :>> ', event.target.value, dropdownList);
+        setValue(event.target.value);
+        return;
     }
 
     useEffect(() => {
@@ -45,22 +40,26 @@ function Content(props) {
     }, [active])
 
     useEffect(() => {
-        // console.log('props.trie :>> ', props.trie);
-    }, [])
+        console.log('dropdownList :>> ', dropdownList);
+    }, [dropdownList])
 
     return (
         <Page id="content">
             <Upper id="upper">
                 <Label id="label">Search for a symbol {' -> '}</Label>
                 <UserInput 
+                    list="symbol"
                     value={value}
                     onChange={(e) => onChange(e)}
                     onClick={props.onClick} 
                     trie={props.trie} 
-                    insert={props.insert} 
-                    // search={props.search} 
+                    insert={props.insert}
                 />
-
+                <List id="symbol">
+                    {dropdownList.map((symbol, index) => {
+                        return <option key={index} value={symbol}>{symbol}</option>
+                    })}
+                </List>
                 <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
             </Upper>
             <Lower id="lower">

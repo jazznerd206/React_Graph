@@ -4,9 +4,9 @@ import { ScrollChild, Title, Change, Price } from './animation.layout.jsx';
 
 function ScrollingTicker(props) {
 
-    useEffect(() => {
-        console.log('props.current :>> ', props.current);
-    }, [props.current])
+    // useEffect(() => {
+    //     console.log('props.current :>> ', props.current);
+    // }, [props.current])
 
     return (
         <Scroll>

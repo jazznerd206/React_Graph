@@ -130,12 +130,23 @@ export const DataAttr = styled.p`
 `
 
 export const UserInput = styled.input`
+  position: relative;
   width: 5em;
   height: 1.5em;
   font-size: 1.25em;
   padding: .25em;
   background: ${props => props.theme.deco};
   text-transform: uppercase;
+`
+
+export const List = styled.datalist`
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    max-height: 500px;
+    overflow: auto;
+    border: 1px solid rgb(155, 147, 147);
+    z-index: 1;
 `
 
 export const Label = styled.label`
