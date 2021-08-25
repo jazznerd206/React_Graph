@@ -134,7 +134,8 @@ export const UserInput = styled.input`
   height: 1.5em;
   font-size: 1.25em;
   padding: .25em;
-
+  background: ${props => props.theme.deco};
+  text-transform: uppercase;
 `
 
 export const Label = styled.label`

@@ -6,18 +6,18 @@ import { Upper, Lower, Data, Close } from './content.layout';
 function Content(props) {
 
     const [ value, setValue ] = useState('');
-    const [ current, setCurrent ] = useState('');
+    const [ active, setActive ] = useState(false);
     const [ dropdownList, setDropdownList ] = useState([]);
 
-    const submitSymbol = () => {
-        console.log('value :>> ', value);
-        setCurrent(value);
-    }
+    // const submitSymbol = () => {
+    //     console.log('value :>> ', value);
+    //     setActive(true);
+    // }
 
     const onChange = event => {
         event.preventDefault();
         setValue(event.target.value);
-        let searchResults = props.onSearch(props.trie, value);
+        let searchResults = props.search(props.trie, value);
         if (searchResults === undefined) {
             setDropdownList([]);
         } else {
@@ -31,18 +31,18 @@ function Content(props) {
         const lower = document.getElementById('lower');
         const label = document.getElementById('label');
         const button = document.getElementById('close');
-        if (current !== '') {
+        if (active === true) {
             label.innerHTML = '';
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
             button.style.display = 'flex';
-        } else {
+        } else if (active === false) {
             label.innerHTML = ' stock symbol -> ';
             button.style.display = 'none';
             lower.style.flexGrow = 0;
             upper.style.flexGrow = 1;
         }
-    }, [current])
+    }, [active])
 
     useEffect(() => {
         // console.log('props.trie :>> ', props.trie);
@@ -58,15 +58,15 @@ function Content(props) {
                     onClick={props.onClick} 
                     trie={props.trie} 
                     insert={props.insert} 
-                    onSearch={props.onSearch} 
+                    // search={props.search} 
                 />
 
-                <Submit onClick={submitSymbol}></Submit>
+                <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
             </Upper>
             <Lower id="lower">
                 <Data>
                     <Close>
-                        <I id="close" onClick={() => {setCurrent(''); setValue('')}} className="fas fa-times fa-2x"></I>
+                        <I id="close" onClick={() => {setActive(false); setValue('');}} className="fas fa-times fa-2x"></I>
                     </Close>
                 </Data>
             </Lower>

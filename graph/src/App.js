@@ -127,13 +127,14 @@ function App() {
           chooseIndex={chooseIndex} 
         />
         <Content 
+          symbol={symbol}
           data={data}
           laoding={loading}
           trie={T}
           onClick={onClick}
           peerClick={peerClick}
           insert={InsertIntoTrie} 
-          onSearch={SearchTrie}
+          search={SearchTrie}
           id="stocker"
         />
       </Theme>

@@ -13,10 +13,6 @@ export const Upper = styled.div`
 
 export const Lower = styled.div`
     position: relative;
-    /* background-image: url(${props => props.theme.bgi}); */
-    /* background-repeat: no-repeat; */
-    /* background-position: center; */
-    /* background-size: cover; */
     display: flex;
     flex-direction: row;
     justify-content: center;
