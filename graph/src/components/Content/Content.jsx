@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Page, UserInput, List, Label, Submit, I } from '../../basics/basic.layout';
+import { Page, UserInput, List, Option, Label, Submit, I } from '../../basics/basic.layout';
 import { Upper, Lower, Data, Close, CompanyData } from './content.layout';
 
 
@@ -16,7 +16,6 @@ function Content(props) {
         if (searchResults === undefined) {
             setDropdownList([]);
         } else {
-            console.log('searchResults :>> ', searchResults);
             setDropdownList(searchResults);
         }
         setValue(event.target.value);
@@ -59,7 +58,7 @@ function Content(props) {
                 />
                 <List id="symbol">
                     {dropdownList.map((symbol, index) => {
-                        return <option key={index} value={symbol}>{symbol}</option>
+                        return <Option key={index} value={symbol}>{symbol}</Option>
                     })}
                 </List>
                 <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>

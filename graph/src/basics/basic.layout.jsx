@@ -149,6 +149,10 @@ export const List = styled.datalist`
     z-index: 1;
 `
 
+export const Option = styled.option`
+  
+`
+
 export const Label = styled.label`
   padding-right: 2em;
   font-size: inherit;
