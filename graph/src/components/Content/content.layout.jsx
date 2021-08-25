@@ -22,8 +22,6 @@ export const Lower = styled.div`
     height: auto;
     margin: auto 2em;
     transition: all .5s ease-in-out;
-    /* backdrop-filter: blur( 4px ); */
-    /* -webkit-backdrop-filter: blur( 4px ); */
     &:before {
         background-image: url(${props => props.theme.bgi});
         content: "";

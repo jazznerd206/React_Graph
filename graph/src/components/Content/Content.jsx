@@ -8,6 +8,7 @@ function Content(props) {
     const [ value, setValue ] = useState('');
     const [ active, setActive ] = useState(false);
     const [ dropdownList, setDropdownList ] = useState([]);
+    const [ current, setCurrent ] = useState({});
 
     const onChange = event => {
         event.preventDefault();
@@ -15,6 +16,7 @@ function Content(props) {
         if (searchResults === undefined) {
             setDropdownList([]);
         } else {
+            console.log('searchResults :>> ', searchResults);
             setDropdownList(searchResults);
         }
         setValue(event.target.value);
@@ -39,9 +41,9 @@ function Content(props) {
         }
     }, [active])
 
-    useEffect(() => {
-        console.log('dropdownList :>> ', dropdownList);
-    }, [dropdownList])
+    // useEffect(() => {
+    //     console.log('dropdownList :>> ', dropdownList);
+    // }, [dropdownList])
 
     return (
         <Page id="content">
@@ -68,7 +70,7 @@ function Content(props) {
                         <I id="close" onClick={() => {setActive(false); setValue('');}} className="fas fa-times fa-2x"></I>
                     </Close>
                     <CompanyData>
-                        <h1>stocks</h1>
+                        {current === {} ? <div>this</div>: null}
                     </CompanyData>
                 </Data>
             </Lower>

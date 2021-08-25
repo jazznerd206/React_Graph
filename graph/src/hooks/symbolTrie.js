@@ -2,6 +2,7 @@ import HashMap from 'hashmap';
 
 function Trie() {
     this.root = new Node();
+    this.size = 0;
 }
 function Node() {
     this.words = [];
@@ -17,6 +18,7 @@ Trie.prototype.insert = function(v) {
         curr = curr.map.get(char);
     }
     curr.words.push(v);
+    ++this.size;
     return;
 }
 Trie.prototype.deepLookup = function(v) {
@@ -29,6 +31,9 @@ Trie.prototype.deepLookup = function(v) {
         curr = curr.map.get(char);
     }
     return deepLookupHelper(curr);
+}
+Trie.prototype.size = function() {
+    return this.size;
 }
 function deepLookupHelper(curr) {
     if (curr === null) {
@@ -47,9 +52,8 @@ function deepLookupHelper(curr) {
     return mergedResult;
 }
 
-export const CreateTrie = () => {
+export const CreateTrie = list => {
     let t = new Trie();
-    let list = ['AAPL', 'GOOG', 'LULU', 'MSFT', 'TSLA', 'PLTR', 'GME', 'ETSY', 'EBAY', 'SBUX', 'ACAB', 'AAL', 'AMAT', 'MXIM', 'MNST', 'BMRN', 'ORLY', 'NVDA', 'NTAP', 'NFLX', 'AMZN', 'CERN', 'PAYX', 'PCAR', 'CSCO', 'CTXS', 'EA', 'VRSN', 'SPCE', 'WYNN', 'XLNX', 'IDXX']
     for (let i = 0; i < list.length; i++) {
         try {
             t.insert(list[i]);

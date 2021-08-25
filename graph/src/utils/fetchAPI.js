@@ -45,3 +45,11 @@ export const ticker = async symbol => {
     return newState;
 }
 
+export const sBuilder = async () => {
+    let newState = {};
+    await fetch(buildURL(null, 'builder', 'FMP'))
+        .then(res => res.json())
+        .then(data => newState.data = data);
+    return newState;
+}
+

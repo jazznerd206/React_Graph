@@ -55,6 +55,9 @@ export const buildURL = (symbol, type, key) => {
         case 'x':
             type = 'https://financialmodelingprep.com/api/v3/quotes/index';
             break;
+        case 'builder':
+            type = 'https://financialmodelingprep.com/api/v3/stock/list'
+            break;
         default:
             return;
             

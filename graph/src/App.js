@@ -8,11 +8,13 @@ import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
 import Content from './components/Content/Content';
 import './App.css';
+import { SymbolBuilder } from './hooks/symbolBuilder';
 
 function App() {
 
-  let T = CreateTrie();
-  const [ loading, setLoading ] = useState(true);
+  let _SB = SymbolBuilder();
+  let T = CreateTrie(_SB);
+  const [ loading, setLoading ] = useState(false);
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
   const [ theme, setTheme ] = useState(themes.light);
@@ -107,39 +109,53 @@ function App() {
     setTheme(themes.dark);
   }, [])
 
-  return (
-    <Router>
-      <Attribution />
-      <Theme 
-        theme={theme} 
-        className="App"
-      >
-        <GlobalStyle 
-          theme={theme}
-        />
-        <ThemeSwitch 
-          switch={switchTheme} 
-          theme={theme}
-        />
-        <LandingPage 
+  useEffect(() => {
+    let i = 0;
+    for (i; i < _SB.length; ++i) {
+      // console.log(`_SB[i]`, _SB[i]);
+      // T.insert(_SB[i].toString());
+      InsertIntoTrie(T, _SB[i]);
+    }
+    setLoading(true)
+  }, [])
+
+  if (loading === false) {
+    return null;
+  } else {
+    return (
+      <Router>
+        <Attribution />
+        <Theme 
           theme={theme} 
-          query={query} 
-          chooseIndex={chooseIndex} 
-        />
-        <Content 
-          symbol={symbol}
-          data={data}
-          laoding={loading}
-          trie={T}
-          onClick={onClick}
-          peerClick={peerClick}
-          insert={InsertIntoTrie} 
-          search={SearchTrie}
-          id="stocker"
-        />
-      </Theme>
-    </Router>
-  );
+          className="App"
+        >
+          <GlobalStyle 
+            theme={theme}
+          />
+          <ThemeSwitch 
+            switch={switchTheme} 
+            theme={theme}
+          />
+          <LandingPage 
+            theme={theme} 
+            query={query} 
+            chooseIndex={chooseIndex} 
+          />
+          <Content 
+            symbol={symbol}
+            data={data}
+            laoding={loading}
+            trie={T}
+            onClick={onClick}
+            peerClick={peerClick}
+            insert={InsertIntoTrie} 
+            search={SearchTrie}
+            id="stocker"
+          />
+        </Theme>
+      </Router>
+    );
+  }
 }
 
 export default App;
