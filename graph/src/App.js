@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import LandingPage from './components/LandingPage/LandingPage';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
+import { SymbolBuilder } from './hooks/symbolBuilder';
+import { getGraphData } from './hooks/getGraphData';
 import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
+import LandingPage from './components/LandingPage/LandingPage';
+import Content from './components/Content/Content';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
-import Content from './components/Content/Content';
 import './App.css';
-import { SymbolBuilder } from './hooks/symbolBuilder';
 
 function App() {
 
   let _SB = SymbolBuilder();
   let T = CreateTrie(_SB);
-  const [ loading, setLoading ] = useState(false);
+  const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
   const [ theme, setTheme ] = useState(themes.light);
   const [ query, setQuery ] = useState('');
+  const [ indices, setIndices ] = useState([]);
+  const [ graph, setGraph] = useState([]);
 
   const chooseIndex = data => {
     switch(data) {
@@ -107,19 +110,19 @@ function App() {
   useEffect(() => {
     setQuery('gainers');
     setTheme(themes.dark);
-  }, [])
-
-  useEffect(() => {
     let i = 0;
     for (i; i < _SB.length; ++i) {
-      // console.log(`_SB[i]`, _SB[i]);
-      // T.insert(_SB[i].toString());
       InsertIntoTrie(T, _SB[i]);
     }
-    setLoading(true)
+    getGraphData().then(data => setIndices(data));
+    setLoading(false)
   }, [])
 
-  if (loading === false) {
+  // useEffect(() => {
+  //   console.log(`indices => `, indices);
+  // }, [indices])
+
+  if (indices === []) {
     return null;
   } else {
     return (
@@ -142,9 +145,10 @@ function App() {
             chooseIndex={chooseIndex} 
           />
           <Content 
+            indices={indices}
             symbol={symbol}
             data={data}
-            laoding={loading}
+            loading={loading}
             trie={T}
             onClick={onClick}
             peerClick={peerClick}

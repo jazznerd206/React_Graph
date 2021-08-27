@@ -77,7 +77,7 @@ export const Radio = styled.div`
     color: ${props => props.theme.color};
     border-radius: 25px;
     padding: .25em .5em;
-    margin: .1em auto;
+    margin: .1em .5em;
     cursor: pointer;
     &:hover {
         border: .5px solid ${props => props.theme.bg};

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Page, UserInput, List, Option, Label, Submit, I } from '../../basics/basic.layout';
+import { Page, Row, UserInput, List, Option, Label, Submit, I } from '../../basics/basic.layout';
+import { Radio } from '../LoadingAnimation/animation.layout';
 import { Upper, Lower, Data, Close, CompanyData } from './content.layout';
+import Graph from '../Graph/Graph';
 
 
 function Content(props) {
@@ -9,6 +11,8 @@ function Content(props) {
     const [ active, setActive ] = useState(false);
     const [ dropdownList, setDropdownList ] = useState([]);
     const [ current, setCurrent ] = useState({});
+    const [ d, setD ] = useState([]);
+    const [ currentSymbol, setCurrentSynbol ] = useState('');
 
     const onChange = event => {
         event.preventDefault();
@@ -40,28 +44,35 @@ function Content(props) {
         }
     }, [active])
 
-    // useEffect(() => {
-    //     console.log('dropdownList :>> ', dropdownList);
-    // }, [dropdownList])
+    useEffect(() => {
+        setD(props.indices);
+        // fetch these:
+            // historical daily prices for indices line graph and stock price daily movement
+            // insider trading volume/short float pie graphs
+    }, [props.indices])
 
     return (
         <Page id="content">
             <Upper id="upper">
-                <Label id="label">Search for a symbol {' -> '}</Label>
-                <UserInput 
-                    list="symbol"
-                    value={value}
-                    onChange={(e) => onChange(e)}
-                    onClick={props.onClick} 
-                    trie={props.trie} 
-                    insert={props.insert}
-                />
-                <List id="symbol">
-                    {dropdownList.map((symbol, index) => {
-                        return <Option key={index} value={symbol}>{symbol}</Option>
-                    })}
-                </List>
-                <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
+                <Row>
+                    <Label id="label">Search for a symbol {' -> '}</Label>
+                    <UserInput 
+                        list="symbol"
+                        value={value}
+                        onChange={(e) => onChange(e)}
+                        onClick={props.onClick} 
+                        trie={props.trie} 
+                        insert={props.insert}
+                    />
+                    <List id="symbol">
+                        {dropdownList.map((symbol, index) => {
+                            return <Option key={index} value={symbol}>{symbol}</Option>
+                        })}
+                    </List>
+                    <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
+                </Row>
+                <Graph id="graph" indices={props.indices}>
+                </Graph>
             </Upper>
             <Lower id="lower">
                 <Data>
@@ -69,7 +80,6 @@ function Content(props) {
                         <I id="close" onClick={() => {setActive(false); setValue('');}} className="fas fa-times fa-2x"></I>
                     </Close>
                     <CompanyData>
-                        {current === {} ? <div>this</div>: null}
                     </CompanyData>
                 </Data>
             </Lower>

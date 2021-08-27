@@ -55,6 +55,8 @@ export const Row = styled.div`
     &${I} {
       margin-left: 5em;
     }
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 `
 
 export const ToggleContainer = styled.button`
