@@ -31,16 +31,19 @@ function Content(props) {
         const lower = document.getElementById('lower');
         const label = document.getElementById('label');
         const button = document.getElementById('close');
+        const graphs = document.getElementById('graphs');
         if (active === true) {
             label.innerHTML = '';
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
             button.style.display = 'flex';
+            graphs.style.display = 'none';
         } else if (active === false) {
             label.innerHTML = ' stock symbol -> ';
             button.style.display = 'none';
             lower.style.flexGrow = 0;
             upper.style.flexGrow = 1;
+            graphs.style.display = 'flex';
         }
     }, [active])
 
@@ -71,8 +74,10 @@ function Content(props) {
                     </List>
                     <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
                 </Row>
-                <Graph id="graph" indices={props.indices}>
-                </Graph>
+                <Row id="graphs">
+                    <Graph id="graph" indices={props.indices}>
+                    </Graph>
+                </Row>
             </Upper>
             <Lower id="lower">
                 <Data>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Row } from '../../basics/basic.layout'
-import { Buttons, Chart } from './graph.layout';
+import { Buttons, Chart, ChartTitle } from './graph.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
 import { LineChart, PieChart } from 'react-chartkick'
 import { setGraphData } from '../../hooks/getGraphData';
@@ -12,6 +12,7 @@ function Graph(props) {
     const [ width, setWidth ] = useState(window.innerWidth);
     const [ data, setData ] = useState([]);
     const [ graphData, setGData ] = useState({});
+    const [ title, setTitle ] = useState('')
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -24,14 +25,22 @@ function Graph(props) {
 
     const setGraph = symbol => {
         setGraphData(symbol).then(data => {
-            console.log('data :>> ', data);
             setGData(data);
         });
     }
+
+    const graphTitle = name => {
+        setTitle(name);
+    }
     
+    // useEffect(() => {
+    //     console.log('data use effect :>> ', graphData);
+    // }, [graphData])
+
     useEffect(() => {
-        console.log('data use effect :>> ', graphData);
-    }, [graphData])
+        setGraph('^DJI')
+        setTitle('Dow Jones Industrial Average')
+    }, [])
 
     return (
         <div>
@@ -41,13 +50,21 @@ function Graph(props) {
                         return(
                             <Radio 
                                 id={`idx${item.index}`}
-                                onClick={() => setGraph(item.symbol)}
+                                onClick={() => {
+                                    setGraph(item.symbol);
+                                    graphTitle(item.name)
+                                }}
                             >
                                 {item.symbol}
                             </Radio>
                         )
                     })}
                 </Buttons>
+            </Row>
+            <Row>
+                <ChartTitle>
+                    {title}
+                </ChartTitle>
             </Row>
             <Chart>
                 <LineChart 

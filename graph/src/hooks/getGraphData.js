@@ -27,6 +27,7 @@ export const setGraphData = async symbol => {
     base += symbol;
     base += `?apikey=${process.env.REACT_APP_FMPKEY}`;
     await fetch(base).then(res => res.json()).then(data => temp = data);
+    console.log(`temp`, temp)
     for (let i = 0; i < temp.historical.length; ++i) {
         let obj = temp.historical[i];
         // const neo = {

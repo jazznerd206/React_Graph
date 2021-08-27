@@ -24,3 +24,9 @@ export const Chart = styled.div`
     justify-content: center;
     align-items: center;
 `
+
+export const ChartTitle = styled.h1`
+    font-variant: small-caps;
+    color: ${props => props.theme.color};
+    text-shadow: 2px 2px ${props => props.theme.bgalt};
+`
