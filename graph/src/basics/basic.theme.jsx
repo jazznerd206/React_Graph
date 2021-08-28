@@ -31,7 +31,7 @@ export const themes = {
         coloralt: 'rgb(192,192,192)',
         deco: 'rgb(218, 165, 32)',
         accent: 'rgb(127, 255, 0)',
-        font: 'Inconsolata',
+        font: 'Space Mono',
         fs: 'large',
         fw: '400'
     },
@@ -59,7 +59,7 @@ export const themes = {
         accent: 'rgb(246, 147, 240)', // pink
         font: 'Yesteryear',
         fs: 'xx-large',
-        fw: '700'
+        fw: '400'
     },
     grayscale: {
         name: 'grayscale',
@@ -72,7 +72,7 @@ export const themes = {
         accent: 'rgb(153, 153, 153)', // spanish gray
         font: 'Tenali Ramakrishna',
         fs: 'large',
-        fw: '300'
+        fw: '400'
     },
     rainbow: {
         name: 'rainbow',
@@ -85,7 +85,7 @@ export const themes = {
         accent: 'rgb(246, 0, 0)', // red
         font: 'Rozha One',
         fs: 'xx-large',
-        fw: '700'
+        fw: '400'
     },
     golf: {
         name: 'golf',
@@ -98,6 +98,6 @@ export const themes = {
         accent: 'rgb(231, 222, 180)', // lighter sand
         font: 'Space Mono',
         fs: 'x-large',
-        fw: '500'
+        fw: '400'
     }
 }
