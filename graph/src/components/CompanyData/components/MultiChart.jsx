@@ -28,9 +28,6 @@ function MultiChart({data, setInterval}) {
             length: '1w'
         },
     ]
-    useEffect(() => {
-        console.log('data :>> ', data);
-    }, [data])
     if (data === {}) {
         return (
             <div>Loading</div>

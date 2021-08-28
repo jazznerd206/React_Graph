@@ -15,6 +15,7 @@ export const Quarter = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 50%;
+    width: 50vw;
+    height: 50vh;
+
 `

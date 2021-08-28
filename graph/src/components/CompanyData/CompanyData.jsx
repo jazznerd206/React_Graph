@@ -44,7 +44,7 @@ function CompanyData({data}) {
         return (
             <DataContainer id='company'>
                 {/* company name and biographicals, top left */}
-                <Biographical data={data.FMPquote?.name}/>
+                <Biographical data={data.FMPdata}/>
                 {/* current price and simple data, top right */}
                 <CurrentData data={'Current Data'} />
                 {/* chart, current price with volumes if you can manage it */}
