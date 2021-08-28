@@ -36,7 +36,8 @@ export const I = styled.i`
 `
 
 export const A = styled.a`
-
+  color: ${props => props.theme.color};
+  text-decoration: underline ${props => props.theme.color};
 `
 
 export const LandingTitle = styled.h1`
