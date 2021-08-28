@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Content from './components/Content/Content';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
+import { get } from './utils/fetchAPI'
 import './App.css';
 
 function App() {
@@ -83,18 +84,18 @@ function App() {
     return symbol === null ? 'AAPL' : symbol;
   }
 
-  // useEffect(() => {
-  //     const f = async () => {
-  //       if (symbol === '') setSymbol(retrieveSymbol());
-  //       let temp = await get(symbol);
-  //       let result = !Object.values(temp).every(o => o === null);
-  //       if (result && symbol !== '') {
-  //         setData(temp);
-  //         setLoading(false);
-  //       }
-  //     }
-  //     f();
-  // }, [symbol, loading]);
+  useEffect(() => {
+      const f = async () => {
+        if (symbol === '') setSymbol(retrieveSymbol());
+        let temp = await get(symbol);
+        let result = !Object.values(temp).every(o => o === null);
+        if (result && symbol !== '') {
+          setData(temp);
+          setLoading(false);
+        }
+      }
+      f();
+  }, [symbol, loading]);
 
   const onClick = (e, value) => {
     e.preventDefault();
@@ -117,10 +118,6 @@ function App() {
     getGraphData().then(data => setIndices(data));
     setLoading(false)
   }, [])
-
-  // useEffect(() => {
-  //   console.log(`indices => `, indices);
-  // }, [indices])
 
   if (indices === []) {
     return null;

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Graph = styled.div`
-    /* height: 100%; */
-    /* width: 100%; */
     max-width: 50vh;
     display: flex;
     flex-direction: column;

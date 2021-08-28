@@ -19,7 +19,6 @@ export const getGraphData = async symbol => {
     return newState;
 }
 
-
 export const setGraphData = async symbol => {
     let newState = {};
     let temp = [];
@@ -27,14 +26,8 @@ export const setGraphData = async symbol => {
     base += symbol;
     base += `?apikey=${process.env.REACT_APP_FMPKEY}`;
     await fetch(base).then(res => res.json()).then(data => temp = data);
-    console.log(`temp`, temp)
     for (let i = 0; i < temp.historical.length; ++i) {
         let obj = temp.historical[i];
-        // const neo = {
-        //     date: obj.date,
-        //     open: obj.open
-        // }
-        // newState.push(neo);
         newState[obj.date] = obj.open;
     }
     return newState;
