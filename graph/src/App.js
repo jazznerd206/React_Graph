@@ -91,12 +91,13 @@ function App() {
         let temp = await get(symbol);
         let result = !Object.values(temp).every(o => o === null);
         if (result && symbol !== '') {
+          console.log(`temp`, temp);
           setData(temp);
           setLoading(false);
         }
       }
       f();
-  }, [symbol, loading]);
+  }, [symbol]);
 
   const onClick = (e, value) => {
     e.preventDefault();
@@ -119,10 +120,10 @@ function App() {
     getGraphData().then(data => setIndices(data));
     getNews().then(data => setStories(data));
     setLoading(false)
-  }, [])
+  }, [loading])
 
-  if (loading === false && indices === []) {
-    return null;
+  if (loading === false && data === {}) {
+    return <div>Loading...</div>;
   } else {
     return (
       <Router>

@@ -20,7 +20,7 @@ function Content(props) {
         event.preventDefault();
         let searchResults = props.search(props.trie, event.target.value);
         if (searchResults === undefined) {
-            setDropdownList([]);
+            setDropdownList(['Loading...']);
         } else {
             setDropdownList(searchResults);
         }

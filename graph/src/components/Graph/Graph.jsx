@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Row, I } from '../../basics/basic.layout'
 import { GraphContainer, Buttons, Chart, ChartTitle } from './graph.layout';
-import { FlexiTitle } from '../Content/content.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
-import { LineChart, PieChart } from 'react-chartkick'
+import { LineChart } from 'react-chartkick'
 import { setGraphData } from '../../hooks/getGraphData';
 import 'chartkick/chart.js';
 
@@ -46,7 +45,8 @@ function Graph(props) {
                 <Buttons>
                     {props.indices.map(item => {
                         return(
-                            <Radio 
+                            <Radio
+                                key={`idx${item.index}`} 
                                 id={`idx${item.index}`}
                                 onClick={() => {
                                     setGraph(item.symbol);

@@ -1,50 +1,58 @@
 import React, { useState, useEffect } from 'react'
-import { LineChart } from 'react-chartkick';
-import { DataContainer, Biographical, CurrentData, MultiChart, AdvancedData } from './data.layout';
+import MultiChart from './components/MultiChart';
+import { DataContainer } from './data.layout';
+import CurrentData from './components/CurrentData';
+import AdvancedData from './components/AdvancedData';
+import Biographical from './components/Biographical';
 
 function CompanyData({data}) {
 
     const [ graphData, setGraphData] = useState({});
-    const [ loading, setLoading ] = useState(true)
-
+    const [ loading, setLoading ] = useState(true);
+    const [ interval, setInterval ] = useState('year');
+    
     useEffect(() => {
         if (data.graphData === undefined) return;
-        else {
-            let temp = {};
-            for (let i = 0; i < 300; ++i) {
-                temp[data.graphData.historical[i].date] = data.graphData.historical[i].close;
-            }
-            setGraphData(temp);
+        let term = 365;
+        switch(interval) {
+            case 'year':
+                term = 365;
+                break;
+            case '6mo':
+                term = 187;
+                break;
+            case '3mo':
+                term = 93;
+                break;
+            case '1mo':
+                term = 30;
+                break;
+            case '1w':
+                term = 7;
+            default:
+                break;
         }
+        let temp = {};
+        for (let i = 0; i < term; ++i) {
+            temp[data.graphData.historical[i].date] = data.graphData.historical[i].close;
+        }
+        setGraphData(temp);
         setLoading(true);
-    }, [graphData])
+    }, [data.graphData, interval])
 
-    if (data.graphData === undefined) {
-        return (
-            <div id="company"></div>
-        )
-    } else {
+
         return (
             <DataContainer id='company'>
                 {/* company name and biographicals, top left */}
-                <Biographical>
-                    <h1>{data.FMPquote?.name}</h1>
-                </Biographical>
+                <Biographical data={data.FMPquote?.name}/>
                 {/* current price and simple data, top right */}
-                <CurrentData>
-                    <h1>Current Data</h1>
-                </CurrentData>
+                <CurrentData data={'Current Data'} />
                 {/* chart, current price with volumes if you can manage it */}
-                <MultiChart>
-                    <LineChart data={graphData}/>
-                </MultiChart>
+                <MultiChart data={graphData} setInterval={setInterval}/>
                 {/* pie graph of buy/sell, advanced data */}
-                <AdvancedData>
-                    <h1>Advanced Data</h1>
-                </AdvancedData>
+                <AdvancedData data='Advanced Data' />
             </DataContainer>
         )
-    }
 }
 
 export default CompanyData
