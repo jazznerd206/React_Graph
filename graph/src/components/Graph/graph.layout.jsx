@@ -12,6 +12,7 @@ export const GraphContainer = styled.div`
     justify-content: center;
     align-items: center;
     overflow-x: scroll;
+    transition: all .25s ease-in-out;
 `
 
 export const Buttons = styled.div`

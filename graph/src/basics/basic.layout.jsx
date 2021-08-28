@@ -32,6 +32,7 @@ export const Container = styled.div`
 
 export const I = styled.i`
   padding: 5px 5px;
+  color: ${props => props.theme.deco};
 `
 
 export const A = styled.a`
@@ -180,4 +181,14 @@ export const Submit = styled.input.attrs({
     color: ${props => props.theme.color};
     border: .5px solid ${props => props.theme.deco};
   }
+`
+
+export const H3 = styled.h2`
+  font-variant: small-caps;
+  color: ${props => props.theme.color};
+  text-decoration: underline ${props => props.theme.coloralt};
+`
+
+export const P = styled.p`
+  color: ${props => props.theme.color};
 `

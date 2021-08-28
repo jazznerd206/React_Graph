@@ -113,6 +113,7 @@ function Content(props) {
                         onClick={() => grow('news')}
                     >
                         <FlexiTitle>News</FlexiTitle>
+
                     </GrabBar>
                     <News  
                         stories={props.stories} 
@@ -123,7 +124,6 @@ function Content(props) {
                         onClick={() => grow('graph')}
                     >
                         <FlexiTitle>Indices</FlexiTitle>
-                        
                     </GrabBar>
                     <Graph 
                         id="graph" 

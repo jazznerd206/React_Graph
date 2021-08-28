@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { I } from '../../basics/basic.layout' 
 
 export const Upper = styled.div`
     display: flex;
@@ -65,17 +66,27 @@ export const FlexiBoi = styled.div`
     justify-content: flex-end;
     align-items: center;
     background: ${props => props.theme.bg};
-    overflow: auto
+    overflow: auto;
 `
 
 export const GrabBar = styled.div`
+    position: relative;
+    background: ${props => props.theme.bg};
     height: 10vh;
     width: 100%;
-    background: cyan;
-    color: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-around;
+    & ${I} {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
 `
 
-export const FlexiTitle = styled.h1``
+export const FlexiTitle = styled.h1`
+    color: ${props => props.theme.color};
+    text-shadow: 1px 1px ${props => props.theme.coloralt};
+    text-decoration: underline dotted ${props => props.theme.deco};
+    text-align: center;
+`
