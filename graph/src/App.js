@@ -121,7 +121,7 @@ function App() {
     setLoading(false)
   }, [])
 
-  if (indices === []) {
+  if (loading === false && indices === []) {
     return null;
   } else {
     return (

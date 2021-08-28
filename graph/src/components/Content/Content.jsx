@@ -72,6 +72,7 @@ function Content(props) {
         if (active === true) {
             label.innerHTML = '';
             companyData.style.display = 'flex';
+            companyData.style.flexGrow = 1;
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
             upper.style.display = 'none';
@@ -82,6 +83,7 @@ function Content(props) {
             lower.style.flexGrow = 0;
             upper.style.display = 'flex';
             upper.style.flexGrow = 1;
+            companyData.style.flexGrow = 0;
             companyData.style.display = 'none';
         }
     }, [active])

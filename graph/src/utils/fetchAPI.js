@@ -2,13 +2,16 @@ import { buildURL } from '../hooks/buildURL';
 
 export const get = async (symbol) => {
     let newState = {};
-    console.log(`symbol`, symbol)
+    if (!symbol) return {};
     await fetch(buildURL(symbol, 'FMPprofile', 'FMP'))
         .then((res) => res.json())
         .then(data => newState.FMPdata = data[0]);
     await fetch(buildURL(symbol, 'FMPquote', 'FMP'))
         .then((res) => res.json())
         .then(data => newState.FMPquote = data[0]);
+    await fetch(buildURL(symbol, 'graphData', 'FMP'))
+        .then((res) => res.json())
+        .then(data => newState.graphData = data);
     return newState;
 }
 
