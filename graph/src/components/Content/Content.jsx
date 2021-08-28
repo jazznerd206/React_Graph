@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Page, Row, UserInput, List, Option, Label, Submit, I } from '../../basics/basic.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
-import { Upper, Lower, Data, Close, CompanyData, FlexiBoi, GrabBar, FlexiTitle } from './content.layout';
+import { Upper, Lower, Data, Close, FlexiBoi, GrabBar, FlexiTitle } from './content.layout';
 import Graph from '../Graph/Graph';
 import News from '../News/News';
+import CompanyData from '../CompanyData/CompanyData';
 
 
 function Content(props) {
@@ -67,19 +68,21 @@ function Content(props) {
         const lower = document.getElementById('lower');
         const label = document.getElementById('label');
         const button = document.getElementById('close');
-        const graphs = document.getElementById('graphs');
+        const companyData = document.getElementById('company');
         if (active === true) {
             label.innerHTML = '';
+            companyData.style.display = 'flex';
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
+            upper.style.display = 'none';
             button.style.display = 'flex';
-            graphs.style.display = 'none';
         } else if (active === false) {
             label.innerHTML = ' stock symbol -> ';
             button.style.display = 'none';
             lower.style.flexGrow = 0;
+            upper.style.display = 'flex';
             upper.style.flexGrow = 1;
-            graphs.style.display = 'flex';
+            companyData.style.display = 'none';
         }
     }, [active])
 
@@ -131,15 +134,14 @@ function Content(props) {
                         shrink={shrink}
                     />
                 </FlexiBoi>
+                {window.localStorage.getItem('ticker') !== null ? <I className="fas fa-chevron-up fa-3x" onClick={() => setActive(true)}></I> : null}
             </Upper>
             <Lower id="lower">
                 <Data>
                     <Close>
                         <I id="close" onClick={() => {setActive(false); setValue('');}} className="fas fa-times fa-2x"></I>
                     </Close>
-                    <CompanyData>
-
-                    </CompanyData>
+                    <CompanyData data={props.data}/>
                 </Data>
             </Lower>
         </Page>
