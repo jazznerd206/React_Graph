@@ -56,3 +56,26 @@ export const CompanyData = styled.div`
     justify-content: center;
     align-items: center;
 `
+
+export const FlexiBoi = styled.div`
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: ${props => props.theme.bg};
+    overflow: auto
+`
+
+export const GrabBar = styled.div`
+    height: 10vh;
+    width: 100%;
+    background: cyan;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+`
+
+export const FlexiTitle = styled.h1``

@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
 import { SymbolBuilder } from './hooks/symbolBuilder';
 import { getGraphData } from './hooks/getGraphData';
+import { getNews } from './hooks/GetNews';
 import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -10,7 +11,6 @@ import Content from './components/Content/Content';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
 import { get } from './utils/fetchAPI'
-import './App.css';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
   const [ query, setQuery ] = useState('');
   const [ indices, setIndices ] = useState([]);
   const [ graph, setGraph] = useState([]);
+  const [ stories, setStories ] = useState([]);
 
   const chooseIndex = data => {
     switch(data) {
@@ -116,6 +117,7 @@ function App() {
       InsertIntoTrie(T, _SB[i]);
     }
     getGraphData().then(data => setIndices(data));
+    getNews().then(data => setStories(data));
     setLoading(false)
   }, [])
 
@@ -142,6 +144,7 @@ function App() {
             chooseIndex={chooseIndex} 
           />
           <Content 
+            stories={stories}
             indices={indices}
             symbol={symbol}
             data={data}

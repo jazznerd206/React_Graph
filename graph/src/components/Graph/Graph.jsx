@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Row } from '../../basics/basic.layout'
-import { Buttons, Chart, ChartTitle } from './graph.layout';
+import { Row, I } from '../../basics/basic.layout'
+import { GraphContainer, Buttons, Chart, ChartTitle } from './graph.layout';
+import { FlexiTitle } from '../Content/content.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
 import { LineChart, PieChart } from 'react-chartkick'
 import { setGraphData } from '../../hooks/getGraphData';
@@ -32,10 +33,6 @@ function Graph(props) {
     const graphTitle = name => {
         setTitle(name);
     }
-    
-    // useEffect(() => {
-    //     console.log('data use effect :>> ', graphData);
-    // }, [graphData])
 
     useEffect(() => {
         setGraph('^DJI')
@@ -43,7 +40,8 @@ function Graph(props) {
     }, [])
 
     return (
-        <div>
+        <GraphContainer id="graph">
+            <I className="fas fa-times fa-2x" onClick={()=> props.shrink()}></I>
             <Row>
                 <Buttons>
                     {props.indices.map(item => {
@@ -72,7 +70,7 @@ function Graph(props) {
                     width={width}
                 />
             </Chart>
-        </div>
+        </GraphContainer>
     )
 }
 

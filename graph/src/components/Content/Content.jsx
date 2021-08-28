@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Page, Row, UserInput, List, Option, Label, Submit, I } from '../../basics/basic.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
-import { Upper, Lower, Data, Close, CompanyData } from './content.layout';
+import { Upper, Lower, Data, Close, CompanyData, FlexiBoi, GrabBar, FlexiTitle } from './content.layout';
 import Graph from '../Graph/Graph';
+import News from '../News/News';
 
 
 function Content(props) {
@@ -24,6 +25,41 @@ function Content(props) {
         }
         setValue(event.target.value);
         return;
+    }
+
+    const grow = query => {
+        console.log(query);
+        let _N = document.getElementById('news');
+        let _NB = document.getElementById('news-bar');
+        let _G = document.getElementById('graph');
+        let _GB = document.getElementById('idx-bar');
+        let _SHRINK = document.getElementById('shrink')
+        switch(query) {
+            case 'news':
+                _N.style.flexGrow = 1;
+                _G.style.flexGrow = 0;
+                _GB.style.display = 'none';
+                break;
+            case 'graph':
+                _N.style.flexGrow = 0;
+                _G.style.flexGrow = 1;
+                _NB.style.display = 'none';
+                break;
+            default:
+                break;
+        }
+    }
+
+    const shrink = () => {
+        console.log('shrink');
+        let _N = document.getElementById('news');
+        _N.style.flexGrow = 0;
+        let _NB = document.getElementById('news-bar');
+        _NB.style.display = 'flex';
+        let _G = document.getElementById('graph');
+        _G.style.flexGrow = 0;
+        let _GB = document.getElementById('idx-bar');
+        _GB.style.display = 'flex';
     }
 
     useEffect(() => {
@@ -49,9 +85,6 @@ function Content(props) {
 
     useEffect(() => {
         setD(props.indices);
-        // fetch these:
-            // historical daily prices for indices line graph and stock price daily movement
-            // insider trading volume/short float pie graphs
     }, [props.indices])
 
     return (
@@ -74,10 +107,30 @@ function Content(props) {
                     </List>
                     <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
                 </Row>
-                <Row id="graphs">
-                    <Graph id="graph" indices={props.indices}>
-                    </Graph>
-                </Row>
+                <FlexiBoi id='graphs'>
+                    <GrabBar
+                        id='news-bar'
+                        onClick={() => grow('news')}
+                    >
+                        <FlexiTitle>News</FlexiTitle>
+                    </GrabBar>
+                    <News  
+                        stories={props.stories} 
+                        shrink={shrink}
+                    />
+                    <GrabBar
+                        id="idx-bar"   
+                        onClick={() => grow('graph')}
+                    >
+                        <FlexiTitle>Indices</FlexiTitle>
+                        
+                    </GrabBar>
+                    <Graph 
+                        id="graph" 
+                        indices={props.indices} 
+                        shrink={shrink}
+                    />
+                </FlexiBoi>
             </Upper>
             <Lower id="lower">
                 <Data>
