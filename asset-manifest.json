@@ -1,23 +1,32 @@
 {
   "files": {
-    "main.css": "/React_Graph/static/css/main.fef347c8.chunk.css",
-    "main.js": "/React_Graph/static/js/main.4796ea3c.chunk.js",
-    "main.js.map": "/React_Graph/static/js/main.4796ea3c.chunk.js.map",
-    "runtime-main.js": "/React_Graph/static/js/runtime-main.2c2c3a0a.js",
-    "runtime-main.js.map": "/React_Graph/static/js/runtime-main.2c2c3a0a.js.map",
-    "static/js/2.3228641c.chunk.js": "/React_Graph/static/js/2.3228641c.chunk.js",
-    "static/js/2.3228641c.chunk.js.map": "/React_Graph/static/js/2.3228641c.chunk.js.map",
-    "static/js/3.50ddfccf.chunk.js": "/React_Graph/static/js/3.50ddfccf.chunk.js",
-    "static/js/3.50ddfccf.chunk.js.map": "/React_Graph/static/js/3.50ddfccf.chunk.js.map",
+    "main.js": "/React_Graph/static/js/main.308343a5.chunk.js",
+    "main.js.map": "/React_Graph/static/js/main.308343a5.chunk.js.map",
+    "runtime-main.js": "/React_Graph/static/js/runtime-main.bdfd3873.js",
+    "runtime-main.js.map": "/React_Graph/static/js/runtime-main.bdfd3873.js.map",
+    "static/js/2.aef2adaa.chunk.js": "/React_Graph/static/js/2.aef2adaa.chunk.js",
+    "static/js/2.aef2adaa.chunk.js.map": "/React_Graph/static/js/2.aef2adaa.chunk.js.map",
+    "static/js/3.00e6678b.chunk.js": "/React_Graph/static/js/3.00e6678b.chunk.js",
+    "static/js/3.00e6678b.chunk.js.map": "/React_Graph/static/js/3.00e6678b.chunk.js.map",
     "index.html": "/React_Graph/index.html",
-    "static/css/main.fef347c8.chunk.css.map": "/React_Graph/static/css/main.fef347c8.chunk.css.map",
-    "static/js/2.3228641c.chunk.js.LICENSE.txt": "/React_Graph/static/js/2.3228641c.chunk.js.LICENSE.txt",
-    "static/media/rocket.254d7f6d.gif": "/React_Graph/static/media/rocket.254d7f6d.gif"
+    "static/js/2.aef2adaa.chunk.js.LICENSE.txt": "/React_Graph/static/js/2.aef2adaa.chunk.js.LICENSE.txt",
+    "static/media/basic-v10-latin-regular.18616044.woff2": "/React_Graph/static/media/basic-v10-latin-regular.18616044.woff2",
+    "static/media/basic-v10-latin-regular.d5cc3ee4.woff": "/React_Graph/static/media/basic-v10-latin-regular.d5cc3ee4.woff",
+    "static/media/hidden_bg.8a48efe8.png": "/React_Graph/static/media/hidden_bg.8a48efe8.png",
+    "static/media/oxygen-mono-v8-latin-regular.92335db1.woff2": "/React_Graph/static/media/oxygen-mono-v8-latin-regular.92335db1.woff2",
+    "static/media/oxygen-mono-v8-latin-regular.f22732cf.woff": "/React_Graph/static/media/oxygen-mono-v8-latin-regular.f22732cf.woff",
+    "static/media/rozha-one-v8-latin-regular.a5b7e71f.woff": "/React_Graph/static/media/rozha-one-v8-latin-regular.a5b7e71f.woff",
+    "static/media/rozha-one-v8-latin-regular.c3f8aa93.woff2": "/React_Graph/static/media/rozha-one-v8-latin-regular.c3f8aa93.woff2",
+    "static/media/space-mono-v6-latin-regular.8f145baa.woff2": "/React_Graph/static/media/space-mono-v6-latin-regular.8f145baa.woff2",
+    "static/media/space-mono-v6-latin-regular.c7c48180.woff": "/React_Graph/static/media/space-mono-v6-latin-regular.c7c48180.woff",
+    "static/media/tenali-ramakrishna-v7-latin-regular.7a93ac0c.woff": "/React_Graph/static/media/tenali-ramakrishna-v7-latin-regular.7a93ac0c.woff",
+    "static/media/tenali-ramakrishna-v7-latin-regular.f3e65ca0.woff2": "/React_Graph/static/media/tenali-ramakrishna-v7-latin-regular.f3e65ca0.woff2",
+    "static/media/yesteryear-v9-latin-regular.1e31d32f.woff": "/React_Graph/static/media/yesteryear-v9-latin-regular.1e31d32f.woff",
+    "static/media/yesteryear-v9-latin-regular.e0145294.woff2": "/React_Graph/static/media/yesteryear-v9-latin-regular.e0145294.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.2c2c3a0a.js",
-    "static/js/2.3228641c.chunk.js",
-    "static/css/main.fef347c8.chunk.css",
-    "static/js/main.4796ea3c.chunk.js"
+    "static/js/runtime-main.bdfd3873.js",
+    "static/js/2.aef2adaa.chunk.js",
+    "static/js/main.308343a5.chunk.js"
   ]
 }
