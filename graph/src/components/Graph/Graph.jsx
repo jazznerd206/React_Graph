@@ -11,7 +11,6 @@ function Graph(props) {
 
     const [ height, setHeight ] = useState(window.innerHeight);
     const [ width, setWidth ] = useState(window.innerWidth);
-    // const [ data, setData ] = useState([]);
     const [ graphData, setGData ] = useState({});
     const [ title, setTitle ] = useState('');
     const [ interval, setInterval ] = useState('365');
@@ -28,7 +27,6 @@ function Graph(props) {
     const setGraph = (symbol, ival) => {
         setSymbol(symbol);
         setGraphData(symbol, ival).then(data => {
-            console.log('data :>> ', data);
             setGData(data);
         });
     }

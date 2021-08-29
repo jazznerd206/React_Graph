@@ -9,11 +9,14 @@ export const DataContainer = styled.div`
 `
 
 export const Quarter = styled.div`
+    margin: 1em auto;
+    max-width: 45vw;
+    max-height: 45vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    height: 50vh;
-
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 1em;
+    border-radius: 25px;
 `

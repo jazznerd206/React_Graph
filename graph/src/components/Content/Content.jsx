@@ -143,7 +143,9 @@ function Content(props) {
                     <Close>
                         <I id="close" onClick={() => {setActive(false); setValue('');}} className="fas fa-times fa-2x"></I>
                     </Close>
-                    <CompanyData data={props.data}/>
+                    <CompanyData 
+                        data={props.data}
+                    />
                 </Data>
             </Lower>
         </Page>

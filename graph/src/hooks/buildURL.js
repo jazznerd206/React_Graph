@@ -9,14 +9,14 @@ export const buildURL = (symbol, type, key) => {
             break;
         case 'FMPquote':
             type = 'https://financialmodelingprep.com/api/v3/quote/';
-            type += symbol
+            type += symbol;
             break;
         case 'FMPprofile':
             type = 'https://financialmodelingprep.com/api/v3/profile/';
-            type += symbol
+            type += symbol;
             break;
         case 'graphData':
-            type = 'https://financialmodelingprep.com/api/v3/historical-price-full/'
+            type = 'https://financialmodelingprep.com/api/v3/historical-price-full/';
             type += symbol;
             break;
         case 'gainers':
@@ -29,8 +29,14 @@ export const buildURL = (symbol, type, key) => {
             type = 'https://financialmodelingprep.com/api/v3/quotes/index';
             break;
         case 'builder':
-            type = 'https://financialmodelingprep.com/api/v3/stock/list'
+            type = 'https://financialmodelingprep.com/api/v3/stock/list';
             break;
+        case 'news':
+            type = 'https://financialmodelingprep.com/api/v3/stock_news?tickers=';
+            type += symbol;
+            type += '&limit=50&apikey='
+            type += process.env.REACT_APP_FMPKEY;
+            return type;
         default:
             return;
             

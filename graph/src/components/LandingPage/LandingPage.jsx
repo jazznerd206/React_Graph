@@ -13,10 +13,6 @@ function LandingPage(props) {
                 <LoadingAnimation query={props.query} chooseIndex={props.chooseIndex} />
             </HiddenBonus>
             <Row>
-                <LandingTitle>charge your knowledge</LandingTitle>
-                <I className="fas fa-chevron-right fa-1x"></I>
-            </Row>
-            <Row>
                 <LandingTitle>stock with intent</LandingTitle>
                 <Flash>
                     <Link style={{color: "inherit"}} smooth to="#content">

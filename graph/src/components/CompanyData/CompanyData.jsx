@@ -4,6 +4,7 @@ import { DataContainer } from './data.layout';
 import CurrentData from './components/CurrentData';
 import AdvancedData from './components/AdvancedData';
 import Biographical from './components/Biographical';
+import CompanyNews from './components/CompanyNews';
 
 function CompanyData({data}) {
 
@@ -40,15 +41,20 @@ function CompanyData({data}) {
         setLoading(true);
     }, [data.graphData, interval])
 
+    // useEffect(() => {
+    //     console.log('data.news :>> ', data.news);
+    // }, [data])
 
-        return (
-            <DataContainer id='company'>
-                <Biographical data={data.FMPdata}/>
-                <CurrentData data={data.FMPdata} />
-                <MultiChart data={graphData} setInterval={setInterval}/>
-                <AdvancedData data='Advanced Data' />
-            </DataContainer>
-        )
+
+    return (
+        <DataContainer id='company'>
+            <Biographical data={data.FMPdata}/>
+            <CurrentData data={data.FMPdata} />
+            <MultiChart data={graphData} setInterval={setInterval}/>
+            <CompanyNews data={data.news}/>
+            {/* <AdvancedData data='Advanced Data' /> */}
+        </DataContainer>
+    )
 }
 
 export default CompanyData

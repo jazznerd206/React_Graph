@@ -1,7 +1,7 @@
 import React from 'react';
 import { Quarter } from '../data.layout';
 import { P } from '../../../basics/basic.layout';
-import { DP } from './current.layout';
+import { DP } from './layout/current.layout';
 
 function CurrentData({data}) {
 
@@ -9,7 +9,7 @@ function CurrentData({data}) {
     return (
         <Quarter>
             <DP>{'Industry => '}{data.industry}</DP>
-            <DP>{'Price => '}{data.price}</DP>
+            <DP>{'Price => $'}{data.price}</DP>
             <DP>{'Avg Vol => '}{data.volAvg}</DP>
             <P>{data.description.substring(0, 256)}{'...'}</P>
         </Quarter>

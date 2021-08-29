@@ -12,6 +12,9 @@ export const get = async (symbol) => {
     await fetch(buildURL(symbol, 'graphData', 'FMP'))
         .then((res) => res.json())
         .then(data => newState.graphData = data);
+    await fetch(buildURL(symbol, 'news', 'FMP'))
+        .then((res) => res.json())
+        .then(data => newState.news = data);
     return newState;
 }
 

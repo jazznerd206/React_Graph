@@ -118,7 +118,7 @@ function App() {
     getGraphData().then(data => setIndices(data));
     getNews().then(data => setStories(data));
     setLoading(false)
-  }, [loading])
+  }, [])
 
   if (loading === false && data === {}) return <div>Loading...</div>
   else {
