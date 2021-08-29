@@ -120,9 +120,8 @@ function App() {
     setLoading(false)
   }, [loading])
 
-  if (loading === false && data === {}) {
-    return <div>Loading...</div>;
-  } else {
+  if (loading === false && data === {}) return <div>Loading...</div>
+  else {
     return (
       <Router>
         <Attribution />

@@ -2,6 +2,7 @@ import React from 'react';
 import { Quarter } from '../data.layout';
 import { P } from '../../../basics/basic.layout';
 import { DP } from './current.layout';
+
 function CurrentData({data}) {
 
     if (!data) return <Quarter></Quarter>;

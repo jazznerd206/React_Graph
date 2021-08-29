@@ -1,9 +1,5 @@
-import { ohShitWhatUpItsDatDate } from './getDate'
-
 export const buildURL = (symbol, type, key) => {
-
     key = key === 'FMP' ? '?apikey=' + process.env.REACT_APP_FMPKEY : '&token=' + process.env.REACT_APP_FINNKEY;
-    
     switch(type) {
         case 'market':
             type = 'https://financialmodelingprep.com/api/v3/market-hours';
@@ -39,6 +35,5 @@ export const buildURL = (symbol, type, key) => {
             return;
             
     }
-    // console.log(`type.concat(key)`, type.concat(key));
     return type.concat(key);
 }

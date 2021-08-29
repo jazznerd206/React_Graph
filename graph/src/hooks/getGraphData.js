@@ -1,5 +1,4 @@
 export const getGraphData = async symbol => {
-
     let newState = [];
     let temp = [];
     let base = 'https://financialmodelingprep.com/api/v3/';
@@ -18,8 +17,6 @@ export const getGraphData = async symbol => {
 }
 
 export const setGraphData = async (symbol, length) => {
-    console.log(`length`, length)
-    console.log(`symbol`, symbol);
     let newState = {
         symbol: '',
         hist: {}
@@ -31,9 +28,6 @@ export const setGraphData = async (symbol, length) => {
     base += `?apikey=${process.env.REACT_APP_FMPKEY}`;
     await fetch(base).then(res => res.json()).then(data => temp = data);
     for (let i = 0; i < length; ++i) {
-        // if (i < 5) {
-        //     console.log(`temp.historical[i]`, temp.historical[i])
-        // }
         let obj = temp.historical[i];
         newState.hist[obj.date] = obj.open;
     }

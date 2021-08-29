@@ -5,8 +5,6 @@ export const DataContainer = styled.div`
     width: 100%;
     display: none;
     flex-flow: row wrap;
-    /* justify-content: center;
-    align-items: center; */
     transition: all .25s ease-in-out;
 `
 

@@ -1,18 +1,19 @@
 import React from 'react';
-import { Tag, DataAttr } from '../../basics/basic.layout'
+import { Tag, DataAttr, P, A } from '../../basics/basic.layout'
 
 function Attribution() {
     return (
         <Tag>
             <DataAttr className="data-attr">
-                Data provided by 
-                <a href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
-                    financial modeling prep
-                </a>
-                Images provided by 
-                <a href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
-                    BluePNG
-                </a>
+                <P>Data provided by{' '}
+                    <A href="https://financialmodelingprep.com/developer/docs/" target="_blank" rel="noreferrer">
+                        financial modeling prep
+                    </A>
+                    {', '}Images provided by{' '}
+                    <A href="https://pngtree.com/so/Blue" target="_blank" rel="noreferrer">
+                        BluePNG
+                    </A>
+                </P>
             </DataAttr>
         </Tag>
     )

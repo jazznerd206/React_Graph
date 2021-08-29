@@ -7,21 +7,28 @@ import { intervals } from '../../globals/intervals';
 
 function MultiChart({data, setInterval}) {
 
-    if (data === {}) {
-        return (
-            <div>Loading</div>
-        )
-    } else {
+    if (data === {}) return <div>Loading...</div>
+    else {
         return (
             <Quarter>
                 <Row>
                     {intervals.map(button => {
                         return(
-                            <Radio key={button.title} className="radio" onClick={() => setInterval(button.title)} id="gainers">{button.title}</Radio>
+                            <Radio 
+                                key={button.title} 
+                                className="radio" 
+                                onClick={() => setInterval(button.title)} 
+                                id="gainers"
+                            >
+                                {button.title}
+                            </Radio>
                         )
                     })}
                 </Row>
-                <AreaChart data={data} width={'50vw'}/>
+                <AreaChart 
+                    data={data} 
+                    width={'50vw'}
+                />
             </Quarter>
         )
     }

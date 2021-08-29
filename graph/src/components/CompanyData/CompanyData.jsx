@@ -43,13 +43,9 @@ function CompanyData({data}) {
 
         return (
             <DataContainer id='company'>
-                {/* company name and biographicals, top left */}
                 <Biographical data={data.FMPdata}/>
-                {/* current price and simple data, top right */}
                 <CurrentData data={data.FMPdata} />
-                {/* chart, current price with volumes if you can manage it */}
                 <MultiChart data={graphData} setInterval={setInterval}/>
-                {/* pie graph of buy/sell, advanced data */}
                 <AdvancedData data='Advanced Data' />
             </DataContainer>
         )

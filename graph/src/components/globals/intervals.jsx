@@ -19,4 +19,4 @@ export const intervals = [
             title: '1w',
             length: '7'
         },
-    ]
+]

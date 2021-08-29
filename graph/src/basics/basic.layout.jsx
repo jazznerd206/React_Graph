@@ -162,9 +162,9 @@ export const Label = styled.label`
   font-size: inherit;
 `
 export const Submit = styled.input.attrs({ 
-  type: 'submit',
-  value: 'Search'
-})`
+    type: 'submit',
+    value: 'Search'
+  })`
   background: ${props => props.theme.bgalt};
   color: ${props => props.theme.coloralt};
   font-family: ${props => props.theme.font};

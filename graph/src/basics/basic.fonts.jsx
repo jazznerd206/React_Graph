@@ -13,37 +13,31 @@ import Basic_WOFF from '../fonts/basic-v10-latin/basic-v10-latin-regular.woff';
 import Basic_WOFF2 from '../fonts/basic-v10-latin/basic-v10-latin-regular.woff2';
 
 export const Fonts = createGlobalStyle`
-     /* space-mono-regular - latin */
     @font-face {
         font-family: 'Space Mono';
         src:    url(${Space_WOFF2}) format('woff2'),
                 url(${Space_WOFF}) format('woff');
     }
-    /* yesteryear-regular - latin */
     @font-face {
         font-family: 'Yesteryear';
         src:    url(${Yesteryear_WOFF2}) format('woff2'),
                 url(${Yesteryear_WOFF}) format('woff');
     }
-  /* oxygen-mono-regular - latin */
   @font-face {
         font-family: 'Oxygen Mono';
         src:    url(${Oxy_WOFF2}) format('woff2'),
                 url(${Oxy_WOFF}) format('woff');
     }
-  /* tenali-ramakrishna-regular - latin */
   @font-face {
         font-family: 'Tenali Ramakrishna';
         src:    url(${Tenali_WOFF2}) format('woff2'),
                 url(${Tenali_WOFF}) format('woff');
     }
-  /* rozha-one-regular - latin */
   @font-face {
         font-family: 'Rozha One';
         src:    url(${Rozha_WOFF2}) format('woff2'),
                 url(${Rozha_WOFF}) format('woff');
     }
-  /* basic-regular - latin */
   @font-face {
         font-family: 'Basic';
         src:    url(${Basic_WOFF2}) format('woff2'),

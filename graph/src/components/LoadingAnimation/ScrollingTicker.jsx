@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Scroll } from '../../basics/basic.keyframes.jsx';
 import { ScrollChild, Title, Change, Price } from './animation.layout.jsx';
 
 function ScrollingTicker(props) {
-
-    // useEffect(() => {
-    //     console.log('props.current :>> ', props.current);
-    // }, [props.current])
 
     return (
         <Scroll>
