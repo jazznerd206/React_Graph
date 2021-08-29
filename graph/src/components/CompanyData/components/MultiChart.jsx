@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Radio } from '../../LoadingAnimation/animation.layout';
-import { LineChart } from 'react-chartkick';
+import { AreaChart } from 'react-chartkick';
 import { Quarter } from '../data.layout';
 import { Row } from '../../../basics/basic.layout';
 import { intervals } from '../../globals/intervals';
@@ -21,7 +21,7 @@ function MultiChart({data, setInterval}) {
                         )
                     })}
                 </Row>
-                <LineChart data={data} width={'50vw'}/>
+                <AreaChart data={data} width={'50vw'}/>
             </Quarter>
         )
     }

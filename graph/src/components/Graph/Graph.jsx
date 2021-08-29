@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Row, I } from '../../basics/basic.layout'
 import { GraphContainer, Buttons, Chart, ChartTitle } from './graph.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
-import { LineChart } from 'react-chartkick'
+import { AreaChart } from 'react-chartkick'
 import { setGraphData } from '../../hooks/getGraphData';
 import { intervals } from '../globals/intervals';
 import 'chartkick/chart.js';
@@ -80,7 +80,7 @@ function Graph(props) {
                 </ChartTitle>
             </Row>
             <Chart>
-                <LineChart 
+                <AreaChart 
                     data={graphData.hist} 
                     width={width}
                 />

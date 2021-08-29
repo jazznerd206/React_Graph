@@ -31,7 +31,9 @@ export const setGraphData = async (symbol, length) => {
     base += `?apikey=${process.env.REACT_APP_FMPKEY}`;
     await fetch(base).then(res => res.json()).then(data => temp = data);
     for (let i = 0; i < length; ++i) {
-        // console.log(`temp.historical`, temp.historical[i])
+        // if (i < 5) {
+        //     console.log(`temp.historical[i]`, temp.historical[i])
+        // }
         let obj = temp.historical[i];
         newState.hist[obj.date] = obj.open;
     }

@@ -9,7 +9,7 @@ function CompanyData({data}) {
 
     const [ graphData, setGraphData] = useState({});
     const [ loading, setLoading ] = useState(true);
-    const [ interval, setInterval ] = useState('1yr');
+    const [ interval, setInterval ] = useState('year');
     
     useEffect(() => {
         if (data.graphData === undefined) return;
