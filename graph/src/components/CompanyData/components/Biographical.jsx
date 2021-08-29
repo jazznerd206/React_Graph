@@ -5,7 +5,6 @@ import { Quarter } from '../data.layout'
 import { Bio } from './bio.layout'
 
 function Biographical({data}) {
-    console.log('data :>> ', data);
     if (!data) return <Quarter></Quarter>
     else {
         return (

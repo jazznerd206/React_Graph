@@ -16,13 +16,12 @@ function App() {
 
   let _SB = SymbolBuilder();
   let T = CreateTrie(_SB);
+  const [ theme, setTheme ] = useState(themes.light);
   const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
   const [ symbol, setSymbol ] = useState('');
-  const [ theme, setTheme ] = useState(themes.light);
   const [ query, setQuery ] = useState('');
   const [ indices, setIndices ] = useState([]);
-  const [ graph, setGraph] = useState([]);
   const [ stories, setStories ] = useState([]);
 
   const chooseIndex = data => {
@@ -91,7 +90,6 @@ function App() {
         let temp = await get(symbol);
         let result = !Object.values(temp).every(o => o === null);
         if (result && symbol !== '') {
-          console.log(`temp`, temp);
           setData(temp);
           setLoading(false);
         }

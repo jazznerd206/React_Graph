@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-
 export const getGraphData = async symbol => {
 
     let newState = [];
@@ -19,16 +17,23 @@ export const getGraphData = async symbol => {
     return newState;
 }
 
-export const setGraphData = async symbol => {
-    let newState = {};
+export const setGraphData = async (symbol, length) => {
+    console.log(`length`, length)
+    console.log(`symbol`, symbol);
+    let newState = {
+        symbol: '',
+        hist: {}
+    };
+    newState.symbol = symbol;
     let temp = [];
     let base = 'https://financialmodelingprep.com/api/v3/historical-price-full/';
     base += symbol;
     base += `?apikey=${process.env.REACT_APP_FMPKEY}`;
     await fetch(base).then(res => res.json()).then(data => temp = data);
-    for (let i = 0; i < temp.historical.length; ++i) {
+    for (let i = 0; i < length; ++i) {
+        // console.log(`temp.historical`, temp.historical[i])
         let obj = temp.historical[i];
-        newState[obj.date] = obj.open;
+        newState.hist[obj.date] = obj.open;
     }
     return newState;
 }

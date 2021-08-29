@@ -4,15 +4,18 @@ import { GraphContainer, Buttons, Chart, ChartTitle } from './graph.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
 import { LineChart } from 'react-chartkick'
 import { setGraphData } from '../../hooks/getGraphData';
+import { intervals } from '../globals/intervals';
 import 'chartkick/chart.js';
 
 function Graph(props) {
 
     const [ height, setHeight ] = useState(window.innerHeight);
     const [ width, setWidth ] = useState(window.innerWidth);
-    const [ data, setData ] = useState([]);
+    // const [ data, setData ] = useState([]);
     const [ graphData, setGData ] = useState({});
-    const [ title, setTitle ] = useState('')
+    const [ title, setTitle ] = useState('');
+    const [ interval, setInterval ] = useState('365');
+    const [ symbol, setSymbol ] = useState('');
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -22,19 +25,16 @@ function Graph(props) {
         return () => window.removeEventListener("resize", () => {});
     }, [height, width])
 
-
-    const setGraph = symbol => {
-        setGraphData(symbol).then(data => {
+    const setGraph = (symbol, ival) => {
+        setSymbol(symbol);
+        setGraphData(symbol, ival).then(data => {
+            console.log('data :>> ', data);
             setGData(data);
         });
     }
 
-    const graphTitle = name => {
-        setTitle(name);
-    }
-
     useEffect(() => {
-        setGraph('^DJI')
+        setGraph('^DJI', interval);
         setTitle('Dow Jones Industrial Average')
     }, [])
 
@@ -46,11 +46,12 @@ function Graph(props) {
                     {props.indices.map(item => {
                         return(
                             <Radio
-                                key={`idx${item.index}`} 
+                                key={`idx${item.index}`}
                                 id={`idx${item.index}`}
                                 onClick={() => {
-                                    setGraph(item.symbol);
-                                    graphTitle(item.name)
+                                    setGraph(item.symbol, interval);
+                                    setTitle(item.name);
+                                    setSymbol(item.symbol);
                                 }}
                             >
                                 {item.symbol}
@@ -60,13 +61,27 @@ function Graph(props) {
                 </Buttons>
             </Row>
             <Row>
+                {intervals.map(button => {
+                    return (
+                        <Radio
+                            className="graph-selectors"
+                            id={button.length}
+                            key={button.title}
+                            onClick={() => setGraph(symbol, button.length)}
+                        >
+                            {button.title}
+                        </Radio>
+                    )
+                })}
+            </Row>
+            <Row>
                 <ChartTitle>
                     {title}
                 </ChartTitle>
             </Row>
             <Chart>
                 <LineChart 
-                    data={graphData} 
+                    data={graphData.hist} 
                     width={width}
                 />
             </Chart>
