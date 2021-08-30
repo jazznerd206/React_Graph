@@ -41,12 +41,14 @@ function CompanyData({data}) {
         setLoading(false);
     }, [data.graphData, interval])
 
+    
+
 
     if (loading === true) return <div id="company">Loading...</div>
     else return (
         <DataContainer id='company'>
             <Biographical data={data.FMPdata}/>
-            <CurrentData data={data.FMPdata} />
+            <CurrentData data={data.FMPdata} data2={data.FMPquote}/>
             <MultiChart data={graphData} setInterval={setInterval}/>
             <CompanyNews data={data.news}/>
         </DataContainer>

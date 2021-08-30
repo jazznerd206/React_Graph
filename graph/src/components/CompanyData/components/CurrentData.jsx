@@ -3,20 +3,24 @@ import { Quarter } from '../data.layout';
 import { Radio } from '../../LoadingAnimation/animation.layout';
 import { Row, P } from '../../../basics/basic.layout';
 import { DP, TabContainer, Tabs, Tab, DataContainer } from './layout/current.layout';
-import StockMetrics from '../newsComponents/StockMetrics';
-import Ownership from '../newsComponents/Ownership';
-import Outlook from '../newsComponents/Outlook';
+import Summary from '../tabComponents/Summary';
+import Metrics from '../tabComponents/Metrics';
+import Outlook from '../tabComponents/Outlook';
 
-function CurrentData({data}) {
+function CurrentData({data, data2}) {
+
+    useEffect(() => {
+        console.log('data from current data :>> ', data2);
+    }, [data2])
 
     let tabs = [ 
         {
-            title: 'Metrics',
-            component: <StockMetrics data={data}/>
+            title: 'Summary',
+            component: <Summary data={data}/>
         },
         {
-            title: 'Ownership',
-            component: <Ownership />
+            title: 'Metrics',
+            component: <Metrics data={data} altData={data2}/>
         },
         {
             title: 'Outlook',
@@ -27,8 +31,7 @@ function CurrentData({data}) {
     const [ active, setActive ] = useState(tabs[0]);
 
     useEffect(() => {
-        // let el = document.getElementById(`tab${active}`);
-        // console.log(`el`, el)
+        let el = document.getElementById(`tab${active}`);
     }, [active])
 
     if (!data) return <Quarter></Quarter>;
@@ -37,7 +40,13 @@ function CurrentData({data}) {
             <Tabs>
                 {tabs.map((tab, index) => {
                     return (
-                        <Tab id={`tab${tab.title}`} key={`tab${tab.title}`} onClick={() => setActive(tabs[index])}>{tab.title}</Tab>
+                        <Tab 
+                            id={`tab${tab.title}`} 
+                            key={`tab${tab.title}`} 
+                            onClick={() => setActive(tabs[index])}
+                        >{
+                            tab.title}
+                        </Tab>
                     )
                 })}
             </Tabs>

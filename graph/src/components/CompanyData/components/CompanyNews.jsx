@@ -10,12 +10,14 @@ function CompanyNews({data}) {
     //     console.log('data :>> ', data);
     // }, [data])
 
-    if (data === undefined) return <div>Loading...</div>
+    let temp = window.innerHeight / 5;
+
+    if (data[0] === undefined) return <div>Loading...</div>
     else return (
         <Quarter>
             <CompanyNewsContainer>
                 <OneShot>
-                    <CNImg src={data[0].image}/>
+                    <CNImg src={data[0].image === '' ? `https://via.placeholder.com/${temp}` : data[0].image}/>
                     <CNText>
                         <H3>{data[0].title}</H3>
                         <P>{data[0].text.substring(0, 50)}{'...'}</P>

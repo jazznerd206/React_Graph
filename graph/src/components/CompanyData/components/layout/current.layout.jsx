@@ -56,3 +56,31 @@ export const DataContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `
+
+export const Table = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+`
+
+export const TableRow = styled.div`
+    font-size: small;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
+
+export const RowTitle = styled.span`
+    font-variant: small-caps;
+    text-decoration: underline ${props => props.theme.bgalt}
+`
+
+export const RowData = styled.span`
+
+`
