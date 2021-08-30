@@ -38,7 +38,7 @@ function CompanyData({data}) {
             temp[data.graphData.historical[i].date] = data.graphData.historical[i].close;
         }
         setGraphData(temp);
-        setLoading(true);
+        setLoading(false);
     }, [data.graphData, interval])
 
     // useEffect(() => {
@@ -46,7 +46,8 @@ function CompanyData({data}) {
     // }, [data])
 
 
-    return (
+    if (loading === true) return <div id="company">Loading...</div>
+    else return (
         <DataContainer id='company'>
             <Biographical data={data.FMPdata}/>
             <CurrentData data={data.FMPdata} />
