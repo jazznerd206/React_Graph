@@ -7,7 +7,7 @@ function Metrics({data, altData}) {
     const [ dataRenderable, setDataRenderable ] = useState(['initial']);
 
     useEffect(() => {
-        console.log('data2 :>> ', altData);
+        console.log('data2 :>> ', data);
         let neo = [
             {
                 name: 'Exchange',
@@ -35,12 +35,40 @@ function Metrics({data, altData}) {
             },
             {
                 name: 'Previous Close',
-                data: altData.previousClose,
+                data: '$' + altData.previousClose,
+            },
+            {
+                name: 'Day Hi/Lo',
+                data: ['$' + altData.dayHigh, '$' + altData.dayLow],
             },
             {
                 name: 'Year Hi/Lo',
-                data: [altData.yearHigh, altData.yearLow],
+                data: ['$' + altData.yearHigh, '$' + altData.yearLow],
             },
+            {
+                name: 'Market Cap',
+                data: '$' + altData.marketCap,
+            },
+            {
+                name: 'P/E Ratio',
+                data: altData.pe,
+            },
+            {
+                name: 'Earnings P/S',
+                data: '$' + altData.eps,
+            },
+            {
+                name: 'Next Earnings',
+                data: altData.earningsAnnouncement.substring(0,10)
+            },
+            {
+                name: 'Shares Outstanding',
+                data: altData.sharesOutstanding,
+            },
+            // {
+            //     name: 'Last Dividend',
+            //     data: '$' + data.lastDiv,
+            // },
         ]
         setDataRenderable(neo);
     }, [data, altData])
@@ -56,7 +84,7 @@ function Metrics({data, altData}) {
                                 <H3>{el.name}{' -> |'}</H3>
                             </RowTitle>
                             <RowData>
-                                <P>{typeof el.data === Array ? el.data[0] + '/' + el.data[1] : el.data}</P>
+                                <P>{el.length === 2 ? el.data[0] + ' / ' + el.data[1] : el.data}</P>
                             </RowData>
                         </TableRow>
                     )

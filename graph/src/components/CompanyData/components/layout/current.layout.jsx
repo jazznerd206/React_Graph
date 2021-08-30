@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { P, H3 } from '../../../../basics/basic.layout';
 
 export const DP = styled.p`
     color: ${props => props.theme.color};
@@ -61,14 +62,14 @@ export const Table = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
 `
 
 export const TableRow = styled.div`
     font-size: small;
-    width: 100%;
+    width: 50%;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -78,9 +79,16 @@ export const TableRow = styled.div`
 
 export const RowTitle = styled.span`
     font-variant: small-caps;
-    text-decoration: underline ${props => props.theme.bgalt}
+    text-decoration: underline ${props => props.theme.bgalt};
+    & ${H3} {
+        color: ${props => props.theme.coloralt};
+    }
 `
 
 export const RowData = styled.span`
-
+    margin-left: 1em;
+    font-size: large;
+    & ${P} {
+        color: ${props => props.theme.color};
+    }
 `
