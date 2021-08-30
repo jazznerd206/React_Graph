@@ -33,11 +33,20 @@ export const Container = styled.div`
 export const I = styled.i`
   padding: 5px 5px;
   color: ${props => props.theme.deco};
+  transform: scale(1);
+  cursor: pointer;
+  z-index: 999;
+  transition: all .05s ease-in-out;
+  &:active {
+    color: ${props => props.theme.color};
+    transform: scale(1.1);
+  }
 `
 
 export const A = styled.a`
   color: ${props => props.theme.color};
   text-decoration: underline ${props => props.theme.color};
+  cursor: pointer;
 `
 
 export const LandingTitle = styled.h1`
@@ -80,6 +89,7 @@ export const Ul = styled.ul`
     
 export const Li = styled.li`
     float: left;
+    cursor: pointer;
 `;
     
 export const OpenButton = styled.div`

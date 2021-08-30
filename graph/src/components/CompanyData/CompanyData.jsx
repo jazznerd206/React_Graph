@@ -41,10 +41,6 @@ function CompanyData({data}) {
         setLoading(false);
     }, [data.graphData, interval])
 
-    // useEffect(() => {
-    //     console.log('data.news :>> ', data.news);
-    // }, [data])
-
 
     if (loading === true) return <div id="company">Loading...</div>
     else return (
@@ -53,7 +49,6 @@ function CompanyData({data}) {
             <CurrentData data={data.FMPdata} />
             <MultiChart data={graphData} setInterval={setInterval}/>
             <CompanyNews data={data.news}/>
-            {/* <AdvancedData data='Advanced Data' /> */}
         </DataContainer>
     )
 }

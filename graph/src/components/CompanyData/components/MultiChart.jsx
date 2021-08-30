@@ -27,7 +27,7 @@ function MultiChart({data, setInterval}) {
                 </Row>
                 <AreaChart 
                     data={data} 
-                    width={'50vw'}
+                    width={'45vw'}
                 />
             </Quarter>
         )

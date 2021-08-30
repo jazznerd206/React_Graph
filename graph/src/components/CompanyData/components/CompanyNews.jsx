@@ -5,9 +5,11 @@ import { CompanyNewsContainer, OneShot, MultiShot, CNText, AbsoluteText, MultImg
 import { A, H3, P } from '../../../basics/basic.layout';
 
 function CompanyNews({data}) {
-    useEffect(() => {
-        console.log('data :>> ', data);
-    }, [data])
+
+    // useEffect(() => {
+    //     console.log('data :>> ', data);
+    // }, [data])
+
     if (data === undefined) return <div>Loading...</div>
     else return (
         <Quarter>
@@ -22,10 +24,10 @@ function CompanyNews({data}) {
                 </OneShot>
                 <H3>Other Shit</H3>
                 <MultiShot>
-                    {data.map(story => {
+                    {data.map((story, index) => {
                         if (!story.image) return null;
                         else return (
-                            <Rel>
+                            <Rel key={`story${index}`}>
                                 <MultImg src={story.image} />
                                 <AbsoluteText>
                                     <A href={story.url} rel="noopener noreferrer" target="_blank" ><P>{story.title}</P></A>

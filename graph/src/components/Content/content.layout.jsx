@@ -80,4 +80,5 @@ export const FlexiTitle = styled.h1`
     text-shadow: 1px 1px ${props => props.theme.coloralt};
     text-decoration: underline dotted ${props => props.theme.deco};
     text-align: center;
+    cursor: pointer;
 `

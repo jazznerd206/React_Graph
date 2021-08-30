@@ -9,9 +9,9 @@ export const DataContainer = styled.div`
 `
 
 export const Quarter = styled.div`
-    margin: 1em auto;
+    /* margin: 1em auto; */
     max-width: 45vw;
-    max-height: 45vw;
+    max-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
