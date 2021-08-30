@@ -23,7 +23,8 @@ function CompanyNews({data}) {
                 <H3>Other Shit</H3>
                 <MultiShot>
                     {data.map(story => {
-                        return (
+                        if (!story.image) continue;
+                        else return (
                             <Rel>
                                 <MultImg src={story.image} />
                                 <AbsoluteText>
