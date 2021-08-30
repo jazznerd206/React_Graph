@@ -28,6 +28,8 @@ function MultiChart({data, setInterval}) {
                 <AreaChart 
                     data={data} 
                     width={'45vw'}
+                    curve={true}
+                    points={false}
                 />
             </Quarter>
         )

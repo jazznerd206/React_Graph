@@ -14,15 +14,13 @@ function CompanyNews({data}) {
     else return (
         <Quarter>
             <CompanyNewsContainer>
-                <H3>The Dope</H3>
                 <OneShot>
                     <CNImg src={data[0].image}/>
                     <CNText>
                         <H3>{data[0].title}</H3>
-                        {/* <P>{data[0].text.substring(0, 100)}{'...'}</P> */}
+                        <P>{data[0].text.substring(0, 50)}{'...'}</P>
                     </CNText>
                 </OneShot>
-                <H3>Other Shit</H3>
                 <MultiShot>
                     {data.map((story, index) => {
                         if (!story.image) return null;

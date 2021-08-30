@@ -81,6 +81,8 @@ function Graph(props) {
                 <AreaChart 
                     data={graphData.hist} 
                     width={width}
+                    curve={true}
+                    points={false}
                 />
             </Chart>
         </GraphContainer>

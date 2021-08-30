@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DataContainer = styled.div`
     height: 100%;
     width: 100%;
-    display: none;
+    display: flex;
     flex-flow: row wrap;
     transition: all .25s ease-in-out;
 `

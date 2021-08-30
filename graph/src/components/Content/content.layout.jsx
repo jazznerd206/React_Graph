@@ -20,7 +20,7 @@ export const Lower = styled.div`
     align-items: center;
     flex-grow: 0;
     width: 100%;
-    height: auto;
+    height: 0%;
     margin: auto 2em;
     transition: all .5s ease-in-out;
     &:before {
