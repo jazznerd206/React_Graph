@@ -73,6 +73,7 @@ function Content(props) {
             label.innerHTML = '';
             companyData.style.display = 'flex';
             companyData.style.flexGrow = 1;
+            lower.style.display = 'flex';
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
             upper.style.display = 'none';

@@ -14,7 +14,7 @@ export const Upper = styled.div`
 
 export const Lower = styled.div`
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;

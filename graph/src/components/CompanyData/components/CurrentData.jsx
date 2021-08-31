@@ -22,10 +22,10 @@ function CurrentData({data, data2}) {
             title: 'Metrics',
             component: <Metrics data={data} altData={data2}/>
         },
-        {
-            title: 'Outlook',
-            component: <Outlook />
-        }
+        // {
+        //     title: 'Outlook',
+        //     component: <Outlook />
+        // }
 
     ]
     const [ active, setActive ] = useState(tabs[0]);
