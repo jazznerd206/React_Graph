@@ -4,13 +4,14 @@ import { CreateTrie, SearchTrie, InsertIntoTrie } from './hooks/symbolTrie';
 import { SymbolBuilder } from './hooks/symbolBuilder';
 import { getGraphData } from './hooks/getGraphData';
 import { getNews } from './hooks/GetNews';
-import Theme, { themes } from './basics/basic.theme';
 import { GlobalStyle } from './basics/global.theme';
+import Theme, { themes } from './basics/basic.theme';
+import Loader from './components/Loader/Loader';
 import LandingPage from './components/LandingPage/LandingPage';
 import Content from './components/Content/Content';
 import ThemeSwitch from './components/Switches/ThemeSwitch';
 import Attribution from './components/Attribution/Attribution';
-import { get } from './utils/fetchAPI'
+import { get } from './utils/fetchAPI';
 
 function App() {
 
@@ -120,7 +121,11 @@ function App() {
     setLoading(false)
   }, [])
 
-  if (loading === false && data === {}) return <div>Loading...</div>
+  if (loading === false /* && data === {} */) return (
+    <Router>
+      <Loader />
+    </Router>
+  )
   else {
     return (
       <Router>
