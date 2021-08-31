@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const DataContainer = styled.div`
     height: 100%;
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
     transition: all .25s ease-in-out;

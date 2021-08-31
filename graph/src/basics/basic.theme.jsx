@@ -48,19 +48,6 @@ export const themes = {
         fs: 'xx-large',
         fw: '700'
     },
-    jazz: {
-        name: 'jazz',
-        bg: 'rgb(59, 167, 246)', // light blue
-        bgalt: 'rgb(69, 105, 159)', // lighter blue
-        bgi: 'https://jazzdesk.files.wordpress.com/2020/07/r-505799-1567909500-2838.jpeg-2.jpg', // lil trumpet guy
-        color: 'rgb(10, 52, 102)', // dark blue
-        coloralt: 'rgb(50, 48, 76)', // dark purple
-        deco: 'rgb(163, 188, 208)', // gray
-        accent: 'rgb(246, 147, 240)', // pink
-        font: 'Yesteryear',
-        fs: 'xx-large',
-        fw: '400'
-    },
     grayscale: {
         name: 'grayscale',
         bg: 'rgb(238, 238, 238)', // light grey
@@ -80,7 +67,7 @@ export const themes = {
         bgalt: 'rgb(55, 185, 255)', // lighter blue
         bgi: 'https://media.istockphoto.com/vectors/abstract-pastel-rainbow-gradient-background-ecology-concept-for-your-vector-id1248151713?k=6&m=1248151713&s=170667a&w=0&h=khKBbb_8mSZPPMuluguTh-fvRuyk2HoFgtIukB9gkhI=',
         color: 'rgb(72, 21, 170)', // purple
-        coloralt: 'rgb(77, 233, 76)', // green
+        coloralt: 'rgb(7, 39, 7)', // green
         deco: 'rgb(255, 238, 0)', // yellow
         accent: 'rgb(246, 0, 0)', // red
         font: 'Rozha One',

@@ -203,3 +203,13 @@ export const H3 = styled.h2`
 export const P = styled.p`
   color: ${props => props.theme.color};
 `
+
+export const Up = styled.p`
+  color: green;
+  text-decoration: none;
+`
+
+export const Down = styled.p`
+  color: red;
+  text-decoration: none;
+`

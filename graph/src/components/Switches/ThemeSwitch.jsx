@@ -1,4 +1,5 @@
 import React from 'react';
+import { themes } from '../../basics/basic.theme';
 import { ToggleContainer, Ul, OpenButton, Content, DropList, Link } from '../../basics/basic.layout';
 
 function ThemeSwitch(props) {
@@ -12,13 +13,11 @@ function ThemeSwitch(props) {
                     {props.theme.name}
                 </OpenButton>
                 <Content>
-                    <Link onClick={() => props.switch("light")}>Light</Link>
-                    <Link onClick={() => props.switch("dark")}>Dark</Link>
-                    <Link onClick={() => props.switch("solar")}>Solar</Link>
-                    <Link onClick={() => props.switch("jazz")}>Jazz</Link>
-                    <Link onClick={() => props.switch("grayscale")}>Grayscale</Link>
-                    <Link onClick={() => props.switch("rainbow")}>Rainbow</Link>
-                    <Link onClick={() => props.switch("golf")}>Golf</Link>
+                    {Object.keys(themes).map(t => {
+                        return(
+                            <Link key={`theme${t}`} onClick={() => props.switch(t)}>{t}</Link>
+                        )
+                    })}
                 </Content>
                 </DropList>
             </Ul>

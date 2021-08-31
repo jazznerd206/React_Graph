@@ -16,46 +16,95 @@ export const TabContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    background: rgb(0,0,0,.25);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 0;
+    border: .1px solid ${props => props.theme.deco};
+    overflow: hidden;
 `
 
 export const Tabs = styled.div`
     left: 0;
-    width: 85%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 `
 
-export const Tab = styled.div`
-    width: 100%;
+export const TabLight = styled.div`
+    width: auto;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: .5px solid ${props => props.theme.deco};
-    background: ${props => props.theme.bg};
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: .5px solid ${props => props.theme.deco};
     color: ${props => props.theme.color};
-    border-radius: 25px;
-    padding: .25em .5em;
-    margin: .1em .5em;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     cursor: pointer;
+    transition: all .25s ease-in-out;
     &:hover {
-        border: .5px solid ${props => props.theme.bg};
         background: ${props => props.theme.bgalt};
         color: ${props => props.theme.coloralt};
-    }   
+    }
+`
+
+export const TabDark = styled.div`
+    width: 60%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    border-top: .5px solid ${props => props.theme.deco};
+    border-left: .5px solid ${props => props.theme.deco};
+    border-right: .5px solid ${props => props.theme.deco};
+    border-bottom: none;
+    color: ${props => props.theme.deco};
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 0;
+    transition: all .25s ease-in-out;
+    cursor: pointer;
 `
 
 export const DataContainer = styled.div`
-    width: 100%;
+    position: relative;
+    width: auto;
+    height: 100%;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    border-top: none;
+    &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        border-left: .5px solid ${props => props.theme.deco};
+        border-bottom: .5px solid ${props => props.theme.deco};
+        border-right: .5px solid ${props => props.theme.deco};
+    }
+    & ${P} {
+        margin: 0 1em;
+    }
+
 `
 
 export const Table = styled.div`
@@ -78,6 +127,8 @@ export const TableRow = styled.div`
 `
 
 export const RowTitle = styled.span`
+    width: 50%;
+    text-align: right;
     font-variant: small-caps;
     text-decoration: underline ${props => props.theme.bgalt};
     & ${H3} {
@@ -86,6 +137,8 @@ export const RowTitle = styled.span`
 `
 
 export const RowData = styled.span`
+    width: 50%;
+    text-align: left;
     margin-left: 1em;
     font-size: large;
     & ${P} {
