@@ -5,8 +5,10 @@ import CurrentData from './components/CurrentData';
 import AdvancedData from './components/AdvancedData';
 import Biographical from './components/Biographical';
 import CompanyNews from './components/CompanyNews';
+import Loader from '../Loader/Loader';
 
-function CompanyData({data}) {
+
+function CompanyData({data, theme}) {
 
     const [ graphData, setGraphData] = useState({});
     const [ loading, setLoading ] = useState(true);
@@ -44,7 +46,7 @@ function CompanyData({data}) {
     
 
 
-    if (loading === true) return <div id="company">Loading...</div>
+    if (loading === true) return <Loader id={'company'} theme={theme} units={100} reveal={3} remove={10}/>
     else return (
         <DataContainer id='company'>
             <Biographical data={data.FMPdata}/>

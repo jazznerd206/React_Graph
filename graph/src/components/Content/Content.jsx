@@ -146,6 +146,7 @@ function Content(props) {
                     </Close>
                     <CompanyData 
                         data={props.data}
+                        theme={props.theme}
                     />
                 </Data>
             </Lower>

@@ -118,13 +118,14 @@ function App() {
     }
     getGraphData().then(data => setIndices(data));
     getNews().then(data => setStories(data));
-    setLoading(false)
+    setLoading(false);
   }, [])
 
-  if (loading === false /* && data === {} */) return (
-    <Router>
-      <Loader />
-    </Router>
+  if (loading === true && data !== {}) return (
+       <Theme theme={theme} className="App">
+        <GlobalStyle theme={theme} />
+          <Loader theme={theme} units={100} reveal={3} remove={10}/>
+        </Theme>
   )
   else {
     return (
@@ -147,6 +148,7 @@ function App() {
             chooseIndex={chooseIndex} 
           />
           <Content 
+            theme={theme}
             stories={stories}
             indices={indices}
             symbol={symbol}
