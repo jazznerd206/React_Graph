@@ -1,11 +1,11 @@
 export class Element {
-    constructor(index, top, left, size) {
-        this.id = null;
+    constructor(index, top, left, size, reveal) {
         this.position = 'absolute';
         this.index = index;
         this.top = top;
         this.left = left;
-        this.reveal = Math.random(0, 100);
+        this.reveal = reveal;
+        this.remove = reveal + 25;
         this.element = null;
         this.size = size;
         this.createElement(index);

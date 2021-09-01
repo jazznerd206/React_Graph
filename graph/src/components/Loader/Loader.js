@@ -11,8 +11,10 @@ function Loader() {
     // useful
     useEffect(() => {
         let container = document.getElementById('animation-container');
-        console.log(`field.domField`, container)
-        // container.append(field.domField);
+        container.append(field.domField);
+        field.create(1000);
+        field.run();
+        // console.log(field.calledEvents);
     }, [])
 
     // useless
