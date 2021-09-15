@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Page, Row, UserInput, List, Option, Label, Submit, I } from '../../basics/basic.layout';
 import { Radio } from '../LoadingAnimation/animation.layout';
 import { Upper, Lower, Data, Close, FlexiBoi, GrabBar, FlexiTitle } from './content.layout';
-import Graph from '../Graph/Graph';
+import Search from '../Search/Search';
 import News from '../News/News';
+import Graph from '../Graph/Graph';
 import CompanyData from '../CompanyData/CompanyData';
 
 
@@ -34,17 +35,30 @@ function Content(props) {
         let _NB = document.getElementById('news-bar');
         let _G = document.getElementById('graph');
         let _GB = document.getElementById('idx-bar');
+        let _S = document.getElementById('search');
+        let _SB = document.getElementById('search-bar');
         let _SHRINK = document.getElementById('shrink')
         switch(query) {
             case 'news':
                 _N.style.flexGrow = 1;
                 _G.style.flexGrow = 0;
+                _S.style.flexGrow = 0;
                 _GB.style.display = 'none';
+                _SB.style.display = 'none';
                 break;
             case 'graph':
                 _N.style.flexGrow = 0;
                 _G.style.flexGrow = 1;
+                _S.style.flexGrow = 0;
                 _NB.style.display = 'none';
+                _SB.style.display = 'none';
+                break;
+            case 'search':
+                _S.style.flexGrow = 1;
+                _N.style.flexGrow = 0;
+                _G.style.flexGrow = 0;
+                _NB.style.display = 'none';
+                _GB.style.display = 'none';
                 break;
             default:
                 break;
@@ -61,6 +75,10 @@ function Content(props) {
         _G.style.flexGrow = 0;
         let _GB = document.getElementById('idx-bar');
         _GB.style.display = 'flex';
+        let _S = document.getElementById('search');
+        _S.style.flexGrow = 0;
+        let _SB = document.getElementById('search-bar');
+        _SB.style.display = 'flex';
     }
 
     useEffect(() => {
@@ -79,7 +97,7 @@ function Content(props) {
             upper.style.display = 'none';
             button.style.display = 'flex';
         } else if (active === false) {
-            label.innerHTML = ' stock symbol -> ';
+            // label.innerHTML = ' stock symbol -> ';
             button.style.display = 'none';
             lower.style.flexGrow = 0;
             upper.style.display = 'flex';
@@ -96,24 +114,24 @@ function Content(props) {
     return (
         <Page id="content">
             <Upper id="upper">
-                <Row>
-                    <Label id="label"></Label>
-                    <UserInput 
-                        list="symbol"
-                        value={value}
-                        onChange={(e) => onChange(e)}
-                        onClick={props.onClick} 
-                        trie={props.trie} 
-                        insert={props.insert}
-                    />
-                    <List id="symbol">
-                        {dropdownList.map((symbol, index) => {
-                            return <Option key={index} value={symbol}>{symbol}</Option>
-                        })}
-                    </List>
-                    <Submit onClick={e => {props.onClick(e, value); setActive(true)}}></Submit>
-                </Row>
                 <FlexiBoi id='graphs'>
+                    <GrabBar
+                        id='search-bar'
+                        onClick={() => grow('search')}
+                    >
+                        <FlexiTitle>Search</FlexiTitle>
+                        {/* <I className="fas fa-times fa-2x" onClick={()=> shrink()}></I> */}
+                    </GrabBar>
+                    <Search 
+                        shrink={shrink}
+                        value={value}
+                        onChange={onChange}
+                        onClick={props.onClick}
+                        trie={props.trie}
+                        insert={props.insert}
+                        dropdownList={dropdownList}
+                        setActive={setActive}
+                    />
                     <GrabBar
                         id='news-bar'
                         onClick={() => grow('news')}

@@ -9,9 +9,9 @@ function LandingPage(props) {
 
     return (
         <Page>
-            <HiddenBonus>
+            {/* <HiddenBonus>
                 <LoadingAnimation query={props.query} chooseIndex={props.chooseIndex} />
-            </HiddenBonus>
+            </HiddenBonus> */}
             <Row>
                 <LandingTitle>stock with intent</LandingTitle>
                 <Flash>

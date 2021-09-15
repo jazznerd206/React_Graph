@@ -17,10 +17,10 @@ function CompanyNews({data, loading}) {
         <Quarter>
             <CompanyNewsContainer>
                 <OneShot>
-                    <CNImg src={data[0].image === '' ? `https://via.placeholder.com/${temp}` : data[0].image}/>
+                    <CNImg src={data[0] === undefined ? `https://via.placeholder.com/${temp}` : data[0].image}/>
                     <CNText>
-                        <H3>{data[0].title}</H3>
-                        <P>{data[0].text.substring(0, 50)}{'...'}</P>
+                        <H3>{data[0]?.title}</H3>
+                        <P>{data[0]?.text.substring(0, 50)}{'...'}</P>
                     </CNText>
                 </OneShot>
                 <MultiShot>

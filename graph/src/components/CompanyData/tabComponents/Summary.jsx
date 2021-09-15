@@ -12,3 +12,4 @@ function Summary({loading, data}) {
 }
 
 export default Summary;
+ 

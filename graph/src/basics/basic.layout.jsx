@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Page = styled.div`
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     height: 100vh;
     width: 100vw;
@@ -12,6 +12,9 @@ export const Page = styled.div`
     align-items: center;
     color: ${props => props.theme.color};
     text-decoration: '${props => props.theme.deco}';
+    @media (max-width: 768px) {
+      flex-direction: row;
+    }
 `
 
 export const HiddenBonus = styled.div`
@@ -51,14 +54,15 @@ export const A = styled.a`
 
 export const LandingTitle = styled.h1`
   margin-right: 1em;
+  @media (max-width: 768px) {
+    margin: 3em auto;
+  }
 `
 
 export const Row = styled.div`
     width: 100%;
     height: 100%;
-    height: auto;
     display: flex;
-    flex: 1;
     flex-grow: 1;
     flex-direction: row;
     justify-content: center;
@@ -68,6 +72,11 @@ export const Row = styled.div`
     }
     overflow-x: scroll;
     scroll-behavior: smooth;
+    @media (max-width: 768px) {
+      text-align: center;
+      flex-direction: column;
+      height: 100%;
+    } 
 `
 
 export const ToggleContainer = styled.button`
@@ -78,6 +87,9 @@ export const ToggleContainer = styled.button`
     margin: 0 auto;
     padding: 0;
     z-index: 999;
+    @media (max-width: 768px) {
+      position: absolute;
+    }
 `;
     
 export const Ul = styled.ul`
@@ -141,16 +153,22 @@ export const Tag = styled.div`
 export const DataAttr = styled.p`
   color: white;
   font-size: xx-small;
+  @media (max-width: 768px) {
+    font-size: .1em;
+  }
 `
 
 export const UserInput = styled.input`
-  position: relative;
+  /* position: relative; */
   width: 5em;
   height: 1.5em;
   font-size: 1.25em;
   padding: .25em;
   background: ${props => props.theme.deco};
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    margin: 1em auto;
+  }
 `
 
 export const List = styled.datalist`
@@ -170,6 +188,9 @@ export const Option = styled.option`
 export const Label = styled.label`
   padding-right: 2em;
   font-size: inherit;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 export const Submit = styled.input.attrs({ 
     type: 'submit',
@@ -191,6 +212,10 @@ export const Submit = styled.input.attrs({
     background-color: ${props => props.theme.bg};
     color: ${props => props.theme.color};
     border: .5px solid ${props => props.theme.deco};
+  }
+  @media (max-width: 768px) {
+    margin-left: none;
+    margin: 0 auto;
   }
 `
 

@@ -3,13 +3,16 @@ import { I } from '../../basics/basic.layout'
 
 export const Upper = styled.div`
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
-    flex-grow: 1;
     transition: all .5s ease-in-out;
+    @media (max-width: 768px) {
+        height: 100vh;
+    }
 `
 
 export const Lower = styled.div`
@@ -53,6 +56,7 @@ export const FlexiBoi = styled.div`
     width: 100%;
     height: 85vh;
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
