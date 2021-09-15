@@ -35,7 +35,7 @@ function Graph(props) {
         setGraph('^DJI', interval);
         setTitle('Dow Jones Industrial Average')
     }, [])
-
+    
     return (
         <GraphContainer id="graph">
             <I className="fas fa-times fa-2x" onClick={()=> props.shrink()}></I>
@@ -79,14 +79,16 @@ function Graph(props) {
                     {title}
                 </ChartTitle>
             </Row>
-            <Chart>
-                <AreaChart 
-                    data={graphData.hist} 
-                    width={width}
-                    curve={true}
-                    points={false}
-                />
-            </Chart>
+            {graphData !== {} && 
+                <Chart>
+                    <AreaChart 
+                        data={graphData.hist} 
+                        width={width}
+                        curve={true}
+                        points={false}
+                    />
+                </Chart>
+            }
         </GraphContainer>
     )
 }

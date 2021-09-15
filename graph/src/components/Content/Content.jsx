@@ -30,7 +30,6 @@ function Content(props) {
     }
 
     const grow = query => {
-        console.log(query);
         let _N = document.getElementById('news');
         let _NB = document.getElementById('news-bar');
         let _G = document.getElementById('graph');
@@ -98,7 +97,6 @@ function Content(props) {
             upper.style.display = 'none';
             button.style.display = 'flex';
         } else if (active === false) {
-            // label.innerHTML = ' stock symbol -> ';
             button.style.display = 'none';
             lower.style.height= '0%'
             lower.style.flexGrow = 0;
