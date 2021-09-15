@@ -110,7 +110,6 @@ export const OpenButton = styled.div`
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    border: 1px solid ${props => props.theme.coloralt};
 `;
 
 export const Content = styled.div`
