@@ -8,10 +8,10 @@ import CompanyNews from './components/CompanyNews';
 import Loader from '../Loader/Loader';
 
 
-function CompanyData({data, theme}) {
+function CompanyData({data, theme, loading}) {
 
     const [ graphData, setGraphData] = useState({});
-    const [ loading, setLoading ] = useState(true);
+    // const [ loading, setLoading ] = useState(true);
     const [ interval, setInterval ] = useState('year');
     
     useEffect(() => {
@@ -40,7 +40,7 @@ function CompanyData({data, theme}) {
             temp[data.graphData.historical[i].date] = data.graphData.historical[i].close;
         }
         setGraphData(temp);
-        setLoading(false);
+        // setLoading(false);
     }, [data.graphData, interval])
 
     
@@ -50,9 +50,9 @@ function CompanyData({data, theme}) {
     else return (
         <DataContainer id='company'>
             <Biographical data={data.FMPdata}/>
-            <CurrentData data={data.FMPdata} data2={data.FMPquote}/>
+            <CurrentData data={data.FMPdata} data2={data.FMPquote} loading={loading}/>
             <MultiChart data={graphData} setInterval={setInterval}/>
-            <CompanyNews data={data.news}/>
+            <CompanyNews data={data.news} loading={loading}/>
         </DataContainer>
     )
 }

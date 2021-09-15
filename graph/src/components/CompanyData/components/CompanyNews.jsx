@@ -4,7 +4,7 @@ import { Quarter } from '../data.layout';
 import { CompanyNewsContainer, OneShot, MultiShot, CNText, AbsoluteText, MultImg, Rel } from './layout/news.layout'
 import { A, H3, P } from '../../../basics/basic.layout';
 
-function CompanyNews({data}) {
+function CompanyNews({data, loading}) {
 
     // useEffect(() => {
     //     console.log('data :>> ', data);
@@ -12,7 +12,7 @@ function CompanyNews({data}) {
 
     let temp = window.innerHeight / 5;
 
-    if (data[0] === undefined) return <div>Loading...</div>
+    if (loading === true || data === undefined) return <div>Loading...</div>
     else return (
         <Quarter>
             <CompanyNewsContainer>

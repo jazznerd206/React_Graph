@@ -2,10 +2,11 @@ import React from 'react'
 import { DP } from '../components/layout/current.layout'
 import { Down, P, Up } from '../../../basics/basic.layout'
 
-function Summary(props) {
-    return (
+function Summary({loading, data}) {
+    if (loading === true || data === undefined) return <div>Loading...</div>
+    else return (
         <>
-            <P>{props.data.description.length > 512 ? props.data.description.substring(0, 512): props.data.description}{'...'}</P>
+            <P>{data.description.length > 512 ? data.description.substring(0, 512): data.description}{'...'}</P>
         </>
     )
 }

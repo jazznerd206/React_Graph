@@ -7,16 +7,16 @@ import Summary from '../tabComponents/Summary';
 import Metrics from '../tabComponents/Metrics';
 import Outlook from '../tabComponents/Outlook';
 
-function CurrentData({data, data2}) {
+function CurrentData({data, data2, loading}) {
 
     let tabs = [ 
         {
             title: 'Summary',
-            component: <Summary data={data} altData={data2}/>
+            component: <Summary data={data} altData={data2} loading={loading}/>
         },
         {
             title: 'Metrics',
-            component: <Metrics data={data} altData={data2}/>
+            component: <Metrics data={data} altData={data2} loading={loading}/>
         },
         // {
         //     title: 'Outlook',
@@ -28,7 +28,7 @@ function CurrentData({data, data2}) {
     const [ active, setActive ] = useState(tabs[0]);
 
     useEffect(() => {
-        console.log('data from current data :>> ', data2);
+        console.log('data from current data :>> ', data);
     }, [data2])
 
    

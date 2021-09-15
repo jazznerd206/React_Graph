@@ -92,16 +92,17 @@ function App() {
         let result = !Object.values(temp).every(o => o === null);
         if (result && symbol !== '') {
           setData(temp);
-          setLoading(false);
         }
       }
       f();
+      setLoading(false);
   }, [symbol]);
 
   const onClick = (e, value) => {
     e.preventDefault();
     localStorage.setItem('ticker', value);
     setSymbol(value);
+    setLoading(true); 
   }
 
   const peerClick = (e, value) => {
@@ -118,36 +119,25 @@ function App() {
     }
     getGraphData().then(data => setIndices(data));
     getNews().then(data => setStories(data));
-    setLoading(false);
+    // setLoading(false);
   }, [])
 
-  if (loading === true && data !== {}) return (
-       <Theme theme={theme} className="App">
-        <GlobalStyle theme={theme} />
-          <Loader theme={theme} units={100} reveal={3} remove={10}/>
-        </Theme>
-  )
-  else {
+  // if (loading === true && data !== {}) return (
+  //      <Theme theme={theme} className="App">
+  //       <GlobalStyle theme={theme} />
+  //         <Loader theme={theme} units={100} reveal={3} remove={10}/>
+  //       </Theme>
+  // )
+  // else {
     return (
       <Router>
         <Attribution />
-        <Theme 
-          theme={theme} 
-          className="App"
-        >
-          <GlobalStyle 
-            theme={theme}
-          />
-          <ThemeSwitch 
-            switch={switchTheme} 
-            theme={theme}
-          />
-          <LandingPage 
-            theme={theme} 
-            query={query} 
-            chooseIndex={chooseIndex} 
-          />
-          <Content 
+        <Theme theme={theme} className="App">
+          <GlobalStyle theme={theme}/>
+          <ThemeSwitch switch={switchTheme} theme={theme}/>
+          <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
+          <Content
+            loading={loading} 
             theme={theme}
             stories={stories}
             indices={indices}
@@ -164,7 +154,7 @@ function App() {
         </Theme>
       </Router>
     );
-  }
+  // }
 }
 
 export default App;

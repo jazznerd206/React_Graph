@@ -97,7 +97,7 @@ function Content(props) {
         <Page id="content">
             <Upper id="upper">
                 <Row>
-                    <Label id="label">Search for a symbol {' -> '}</Label>
+                    <Label id="label"></Label>
                     <UserInput 
                         list="symbol"
                         value={value}
