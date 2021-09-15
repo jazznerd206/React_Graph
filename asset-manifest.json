@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/React_Graph/static/js/main.c3c25ecd.chunk.js",
-    "main.js.map": "/React_Graph/static/js/main.c3c25ecd.chunk.js.map",
+    "main.js": "/React_Graph/static/js/main.8c1d45c0.chunk.js",
+    "main.js.map": "/React_Graph/static/js/main.8c1d45c0.chunk.js.map",
     "runtime-main.js": "/React_Graph/static/js/runtime-main.2a683a0e.js",
     "runtime-main.js.map": "/React_Graph/static/js/runtime-main.2a683a0e.js.map",
     "static/js/2.ada9f66c.chunk.js": "/React_Graph/static/js/2.ada9f66c.chunk.js",
@@ -27,6 +27,6 @@
   "entrypoints": [
     "static/js/runtime-main.2a683a0e.js",
     "static/js/2.ada9f66c.chunk.js",
-    "static/js/main.c3c25ecd.chunk.js"
+    "static/js/main.8c1d45c0.chunk.js"
   ]
 }
