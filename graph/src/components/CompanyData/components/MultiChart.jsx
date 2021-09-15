@@ -4,6 +4,7 @@ import { AreaChart } from 'react-chartkick';
 import { Quarter } from '../data.layout';
 import { Row } from '../../../basics/basic.layout';
 import { intervals } from '../../globals/intervals';
+import { Buttons } from '../../Graph/graph.layout';
 
 function MultiChart({data, setInterval}) {
 
@@ -11,7 +12,7 @@ function MultiChart({data, setInterval}) {
     else {
         return (
             <Quarter>
-                <Row>
+                <Buttons>
                     {intervals.map(button => {
                         return(
                             <Radio 
@@ -24,10 +25,11 @@ function MultiChart({data, setInterval}) {
                             </Radio>
                         )
                     })}
-                </Row>
+                </Buttons>
                 <AreaChart 
                     data={data} 
-                    width={'45vw'}
+                    height={'20vh'}
+                    width={'90vw'}
                     curve={true}
                     points={false}
                 />

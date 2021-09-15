@@ -59,6 +59,7 @@ function Graph(props) {
                 </Buttons>
             </Row>
             <Row>
+                <Buttons>
                 {intervals.map(button => {
                     return (
                         <Radio
@@ -71,6 +72,7 @@ function Graph(props) {
                         </Radio>
                     )
                 })}
+                </Buttons>
             </Row>
             <Row>
                 <ChartTitle>

@@ -18,7 +18,9 @@ export const GraphContainer = styled.div`
 export const Buttons = styled.div`
     max-width: 100vw;
     display: flex;
+    margin: 0 auto;
     flex-direction: row;
+    justify-content: space-evenly;
     overflow-x: scroll;
 `
 
@@ -33,4 +35,7 @@ export const ChartTitle = styled.h1`
     font-variant: small-caps;
     color: ${props => props.theme.color};
     text-shadow: 2px 2px ${props => props.theme.bgalt};
+    @media (max-width: 768px) {
+        font-size: 1.1em;
+    }
 `

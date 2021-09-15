@@ -80,7 +80,7 @@ function Metrics({data, altData}) {
                     return (
                         <TableRow key={el.name}>
                             <RowTitle>
-                                <H3>{el.name}{' -> |'}</H3>
+                                <H3>{el.name}</H3>
                             </RowTitle>
                             <RowData>
                                 <P>{el.length === 2 ? el.data[0] + ' / ' + el.data[1] : el.data || 'n/a'}</P>

@@ -22,8 +22,13 @@ export const TabContainer = styled.div`
     border-top-right-radius: 10px;
     border-bottom-right-radius: 0;
     border: .1px solid ${props => props.theme.deco};
-    overflow: hidden;
-`
+    overflow: scroll;
+    @media (max-width: 768px) {
+        height: auto;
+        width: auto;
+        flex-direction: column;
+    }
+    `
 
 export const Tabs = styled.div`
     left: 0;
@@ -36,6 +41,7 @@ export const Tabs = styled.div`
 `
 
 export const TabLight = styled.div`
+    pointer-events: all;
     width: auto;
     display: flex;
     flex-grow: 1;
@@ -60,6 +66,7 @@ export const TabLight = styled.div`
 `
 
 export const TabDark = styled.div`
+pointer-events: all;
     width: 60%;
     display: flex;
     flex-grow: 1;
@@ -81,16 +88,16 @@ export const TabDark = styled.div`
 `
 
 export const DataContainer = styled.div`
-    position: relative;
+    /* position: relative; */
     width: auto;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border-top: none;
-    &:before {
+    /* &:before {
         position: absolute;
         content: "";
         width: 100%;
@@ -100,7 +107,7 @@ export const DataContainer = styled.div`
         border-left: .5px solid ${props => props.theme.deco};
         border-bottom: .5px solid ${props => props.theme.deco};
         border-right: .5px solid ${props => props.theme.deco};
-    }
+    } */
     & ${P} {
         margin: 0 1em;
     }

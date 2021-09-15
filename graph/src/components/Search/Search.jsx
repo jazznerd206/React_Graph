@@ -7,13 +7,11 @@ function Search({shrink, value, onChange, onClick, setActive, trie, insert, drop
         <SearchContainer id="search">
             <I className="fas fa-times fa-2x" onClick={()=> shrink()}></I>
             <Row id="search">
-                {/* <I className="fas fa-times fa-2x" onClick={()=> shrink()}></I> */}
                 <Label id="label"></Label>
                 <UserInput 
                     list="symbol"
                     value={value}
                     onChange={(e) => onChange(e)}
-                    // onClick={e => onClick(e, value)}
                     trie={trie} 
                     insert={insert}
                 />

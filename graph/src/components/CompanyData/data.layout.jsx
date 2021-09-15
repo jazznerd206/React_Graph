@@ -7,6 +7,10 @@ export const DataContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
     transition: all .25s ease-in-out;
+    @media (max-width: 768px) {
+        width: 100%;
+        flex-direction: column wrap;
+    }
 `
 
 export const Quarter = styled.div`
@@ -20,4 +24,11 @@ export const Quarter = styled.div`
     flex-grow: 1;
     padding: 1em;
     border-radius: 25px;
+    @media (max-width: 768px) {
+        flex-direction: column wrap;
+        /* max-height: 30vh; */
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 `

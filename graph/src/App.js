@@ -14,7 +14,6 @@ import Attribution from './components/Attribution/Attribution';
 import { get } from './utils/fetchAPI';
 
 function App() {
-console.log(process.env.REACT_APP_FMPKEY)
   let _SB = SymbolBuilder();
   let T = CreateTrie(_SB);
   const [ theme, setTheme ] = useState(themes.light);

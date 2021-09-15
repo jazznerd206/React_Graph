@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+    import React, { useState, useEffect } from 'react'
 import { Quarter } from '../data.layout';
 import { Radio } from '../../LoadingAnimation/animation.layout';
 import { Row, P } from '../../../basics/basic.layout';
@@ -20,22 +20,22 @@ function CurrentData({data, data2, loading}) {
         },
         // {
         //     title: 'Outlook',
-        //     component: <Outlook />
+        //     component: <div>Loading...</div>
         // }
 
     ]
 
     const [ active, setActive ] = useState(tabs[0]);
 
-    useEffect(() => {
-        console.log('data from current data :>> ', data);
-    }, [data2])
+    // useEffect(() => {
+    //     console.log('data from current data :>> ', data2);
+    // }, [data2])
 
    
     
-    const setTabs = (e, data) => {
-        e.preventDefault();
-        console.log('data :>> ', data);
+    const setTabs = (data) => {
+        // console.log("clicked")
+        // console.log('data :>> ', data);
         setActive(data);
     }
 
@@ -51,10 +51,10 @@ function CurrentData({data, data2, loading}) {
                     return tab.title === active.title ?
                          (
                         <TabDark 
-                            className="Dark"
+                            className="tab"
                             id={`${tab.title}`} 
                             key={`${tab.title}`} 
-                            onClick={(e) => setTabs(e, tab)}
+                            onClick={() => setTabs(tab)}
                         >
                             {tab.title}
                         </TabDark>
@@ -64,7 +64,7 @@ function CurrentData({data, data2, loading}) {
                             className="tab"
                             id={`${tab.title}`} 
                             key={`${tab.title}`} 
-                            onClick={(e) => setTabs(e, tab)}
+                            onClick={() => setTabs(tab)}
                         >
                             {tab.title}
                         </TabLight>

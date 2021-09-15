@@ -92,6 +92,7 @@ function Content(props) {
             companyData.style.display = 'flex';
             companyData.style.flexGrow = 1;
             lower.style.display = 'flex';
+            lower.style.height = '100%';
             lower.style.flexGrow = 1;
             upper.style.flexGrow = 0;
             upper.style.display = 'none';
@@ -99,6 +100,7 @@ function Content(props) {
         } else if (active === false) {
             // label.innerHTML = ' stock symbol -> ';
             button.style.display = 'none';
+            lower.style.height= '0%'
             lower.style.flexGrow = 0;
             upper.style.display = 'flex';
             upper.style.flexGrow = 1;
@@ -120,7 +122,6 @@ function Content(props) {
                         onClick={() => grow('search')}
                     >
                         <FlexiTitle>Search</FlexiTitle>
-                        {/* <I className="fas fa-times fa-2x" onClick={()=> shrink()}></I> */}
                     </GrabBar>
                     <Search 
                         shrink={shrink}

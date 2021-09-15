@@ -84,6 +84,10 @@ export const Radio = styled.div`
         background: ${props => props.theme.bgalt};
         color: ${props => props.theme.coloralt};
     }
+    @media (max-width: 768px) {
+        padding: 0 .2em;
+        margin: 0 .2em;
+    }
 `
 
 export const ScrollChild = styled.div`

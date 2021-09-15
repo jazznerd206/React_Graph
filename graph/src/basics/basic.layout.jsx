@@ -223,10 +223,20 @@ export const H3 = styled.h2`
   font-variant: small-caps;
   color: ${props => props.theme.color};
   text-decoration: underline ${props => props.theme.coloralt};
+  @media (max-width: 768px) {
+      font-size: 1em;
+      padding: 0;
+      margin: 0;
+  }
 `
 
 export const P = styled.p`
   color: ${props => props.theme.color};
+  @media (max-width: 768px) {
+    padding: 0;
+    margin: 0;
+    font-size: .75em;
+  }
 `
 
 export const Up = styled.p`

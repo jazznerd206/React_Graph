@@ -52,7 +52,7 @@ function CompanyData({data, theme, loading}) {
             <Biographical data={data.FMPdata}/>
             <CurrentData data={data.FMPdata} data2={data.FMPquote} loading={loading}/>
             <MultiChart data={graphData} setInterval={setInterval}/>
-            <CompanyNews data={data.news} loading={loading}/>
+            {/* <CompanyNews data={data.news} loading={loading}/> */}
         </DataContainer>
     )
 }

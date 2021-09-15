@@ -24,6 +24,7 @@ export const Lower = styled.div`
     flex-grow: 0;
     width: 100%;
     height: 0%;
+    max-height: 100vh;
     margin: auto 2em;
     transition: all .5s ease-in-out;
     &:before {
@@ -37,6 +38,13 @@ export const Lower = styled.div`
         left: 0px;
         opacity: 0.75;
     }
+    @media (max-width: 768px) {
+        margin: 0;
+        max-height: fit-content;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
 `
 
 export const Data = styled.div`
@@ -55,6 +63,7 @@ export const Close = styled.div`
 export const FlexiBoi = styled.div`
     width: 100%;
     height: 85vh;
+    margin: 0 auto;
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -85,4 +94,7 @@ export const FlexiTitle = styled.h1`
     text-decoration: underline dotted ${props => props.theme.deco};
     text-align: center;
     cursor: pointer;
+    @media (max-width: 768px) {
+        font-size: 1em;
+    }
 `
