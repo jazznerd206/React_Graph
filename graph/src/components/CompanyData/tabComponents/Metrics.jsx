@@ -8,6 +8,7 @@ function Metrics({data, altData}) {
 
     useEffect(() => {
         console.log('data2 :>> ', data);
+        if (data === null || data === undefined || altData === null || altData === undefined) return <div>Loading...</div>
         let neo = [
             {
                 name: 'Exchange',
@@ -57,10 +58,10 @@ function Metrics({data, altData}) {
                 name: 'Earnings P/S',
                 data: '$' + altData.eps,
             },
-            {
-                name: 'Next Earnings',
-                data: altData.earningsAnnouncement.substring(0,10)
-            },
+            // {
+            //     name: 'Next Earnings',
+            //     data: altData.earningsAnnouncement.substring(0,10)
+            // },
             {
                 name: 'Shares Outstanding',
                 data: altData.sharesOutstanding,
@@ -72,9 +73,7 @@ function Metrics({data, altData}) {
         ]
         setDataRenderable(neo);
     }, [data, altData])
-
-    if (dataRenderable[0] === 'initial') return <div>Loading...</div>
-    else return (
+    return (
         <Row>
             <Table>
                 {dataRenderable.map(el => {
@@ -84,7 +83,7 @@ function Metrics({data, altData}) {
                                 <H3>{el.name}{' -> |'}</H3>
                             </RowTitle>
                             <RowData>
-                                <P>{el.length === 2 ? el.data[0] + ' / ' + el.data[1] : el.data}</P>
+                                <P>{el.length === 2 ? el.data[0] + ' / ' + el.data[1] : el.data || 'n/a'}</P>
                             </RowData>
                         </TableRow>
                     )
