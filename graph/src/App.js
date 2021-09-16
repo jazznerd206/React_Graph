@@ -19,7 +19,7 @@ function App() {
   const [ theme, setTheme ] = useState(themes.light);
   const [ loading, setLoading ] = useState(true);
   const [ data, setData ] = useState({});
-  const [ symbol, setSymbol ] = useState('');
+  const [ symbol, setSymbol ] = useState('MSFT');
   const [ query, setQuery ] = useState('');
   const [ indices, setIndices ] = useState([]);
   const [ stories, setStories ] = useState([]);
@@ -27,15 +27,12 @@ function App() {
   const chooseIndex = data => {
     switch(data) {
       case 'x':
-        console.log(`data`, data);
         setQuery(data);
         break;
       case 'gainers':
-        console.log(`data`, data);
         setQuery(data);
         break;
       case 'losers':
-        console.log(`data`, data);
         setQuery(data);
         break;
       default:
@@ -46,32 +43,25 @@ function App() {
   const switchTheme = data => {
     switch(data) {
       case 'light':
-        console.log('light');
         setTheme(themes.light);
         break;
       case 'dark':
         setTheme(themes.dark);
-        console.log('dark');
         break;
       case 'solar':
         setTheme(themes.solar);
-        console.log('solar');
         break;
       case 'jazz':
         setTheme(themes.jazz);
-        console.log('jazz');
         break;
       case 'grayscale':
         setTheme(themes.grayscale);
-        console.log('grayscale');
         break;
       case 'rainbow':
         setTheme(themes.rainbow);
-        console.log('rainbow');
         break;
       case 'golf':
         setTheme(themes.golf);
-        console.log('golf');
         break;
       default:
         console.log('null')
@@ -110,6 +100,9 @@ function App() {
   }
 
   useEffect(() => {
+    if (localStorage.getItem('ticker') === 'undefined' || localStorage.getItem('ticker') === '' || localStorage.getItem('ticker') === null) {
+      localStorage.setItem('ticker', 'MSFT');
+    }
     setQuery('gainers');
     setTheme(themes.dark);
     let i = 0;
@@ -118,42 +111,33 @@ function App() {
     }
     getGraphData().then(data => setIndices(data));
     getNews().then(data => setStories(data));
-    // setLoading(false);
   }, [])
 
-  // if (loading === true && data !== {}) return (
-  //      <Theme theme={theme} className="App">
-  //       <GlobalStyle theme={theme} />
-  //         <Loader theme={theme} units={100} reveal={3} remove={10}/>
-  //       </Theme>
-  // )
-  // else {
-    return (
-      <Router>
-        <Attribution />
-        <Theme theme={theme} className="App">
-          <GlobalStyle theme={theme}/>
-          <ThemeSwitch switch={switchTheme} theme={theme}/>
-          <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
-          <Content
-            loading={loading} 
-            theme={theme}
-            stories={stories}
-            indices={indices}
-            symbol={symbol}
-            data={data}
-            loading={loading}
-            trie={T}
-            onClick={onClick}
-            peerClick={peerClick}
-            insert={InsertIntoTrie} 
-            search={SearchTrie}
-            id="stocker"
-          />
-        </Theme>
-      </Router>
-    );
-  // }
+  return (
+    <Router>
+      <Attribution />
+      <Theme theme={theme} className="App">
+        <GlobalStyle theme={theme}/>
+        <ThemeSwitch switch={switchTheme} theme={theme}/>
+        <LandingPage theme={theme} query={query} chooseIndex={chooseIndex} />
+        <Content
+          loading={loading} 
+          theme={theme}
+          stories={stories}
+          indices={indices}
+          symbol={symbol}
+          data={data}
+          loading={loading}
+          trie={T}
+          onClick={onClick}
+          peerClick={peerClick}
+          insert={InsertIntoTrie} 
+          search={SearchTrie}
+          id="stocker"
+        />
+      </Theme>
+    </Router>
+  );
 }
 
 export default App;
