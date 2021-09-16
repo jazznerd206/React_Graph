@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/React_Graph/static/js/main.832dfa15.chunk.js",
-    "main.js.map": "/React_Graph/static/js/main.832dfa15.chunk.js.map",
+    "main.js": "/React_Graph/static/js/main.3c3db49f.chunk.js",
+    "main.js.map": "/React_Graph/static/js/main.3c3db49f.chunk.js.map",
     "runtime-main.js": "/React_Graph/static/js/runtime-main.2a683a0e.js",
     "runtime-main.js.map": "/React_Graph/static/js/runtime-main.2a683a0e.js.map",
-    "static/js/2.ada9f66c.chunk.js": "/React_Graph/static/js/2.ada9f66c.chunk.js",
-    "static/js/2.ada9f66c.chunk.js.map": "/React_Graph/static/js/2.ada9f66c.chunk.js.map",
+    "static/js/2.a082bc3b.chunk.js": "/React_Graph/static/js/2.a082bc3b.chunk.js",
+    "static/js/2.a082bc3b.chunk.js.map": "/React_Graph/static/js/2.a082bc3b.chunk.js.map",
     "static/js/3.771218ab.chunk.js": "/React_Graph/static/js/3.771218ab.chunk.js",
     "static/js/3.771218ab.chunk.js.map": "/React_Graph/static/js/3.771218ab.chunk.js.map",
     "index.html": "/React_Graph/index.html",
-    "static/js/2.ada9f66c.chunk.js.LICENSE.txt": "/React_Graph/static/js/2.ada9f66c.chunk.js.LICENSE.txt",
+    "static/js/2.a082bc3b.chunk.js.LICENSE.txt": "/React_Graph/static/js/2.a082bc3b.chunk.js.LICENSE.txt",
     "static/media/basic-v10-latin-regular.18616044.woff2": "/React_Graph/static/media/basic-v10-latin-regular.18616044.woff2",
     "static/media/basic-v10-latin-regular.d5cc3ee4.woff": "/React_Graph/static/media/basic-v10-latin-regular.d5cc3ee4.woff",
     "static/media/hidden_bg.8a48efe8.png": "/React_Graph/static/media/hidden_bg.8a48efe8.png",
@@ -26,7 +26,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.2a683a0e.js",
-    "static/js/2.ada9f66c.chunk.js",
-    "static/js/main.832dfa15.chunk.js"
+    "static/js/2.a082bc3b.chunk.js",
+    "static/js/main.3c3db49f.chunk.js"
   ]
 }
